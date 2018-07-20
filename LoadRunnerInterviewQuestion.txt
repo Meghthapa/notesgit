@@ -1,0 +1,187 @@
+Q #1. What is the difference between Performance testing and Performance engineering?
+Ans => In Performance testing, testing cycle includes requirement gathering, scripting, execution, result sharing and report generation. Performance Engineering is a step ahead of Performance testing where after execution; results are analyzed with the aim to find the performance bottlenecks and the solution is provided to resolve the identified issues.
+
+Q #2. Explain Performance Testing Life Cycle.
+Ans => Step 1: System Analysis (Identification of critical transaction)
+Virtual User Generator
+Step 2: Creating Virtual User Scripts (Recording)
+Step 3: Defining Users Behavior (Runtime setting)
+LoadRunner Controller 
+Step 4: Creating Load Test Scenarios
+Step 5: Running the Load Test Scenarios and Monitoring the Performance
+LoadRunner Analysis
+Step 6: Analyzing the Results
+
+Refer Performance Testing Tutorial #2 for more details.
+
+Q #3. What is Performance testing?
+Ans => Performance testing is done to evaluate application`s performance under load and stress conditions. It is generally measured in terms of response time of user’s action on an application.
+
+Q #4. What is Load testing?
+Ans => Load testing is to determine if an application can work well with the heavy usage resulting from a large number of users using it simultaneously. The load is increased to simulates the peak load that the servers are going to take during maximum usage periods.
+
+Q #5. What are the different components of LoadRunner?
+Ans => The major components of LoadRunner are:
+VUGen- Records Vuser scripts that emulate the actions of real users.
+Controller – Administrative center for creating, maintaining and executing load test scenarios. Assigns scenarios to Vusers and load generators, starts and stops loading tests.
+Load Generator – An agent through which we can generate load
+Analysis – Provides graphs and reports that summarize the system performance
+
+Q #6. What is the Rendezvous point?
+Ans => Rendezvous point helps in emulating heavy user load (request) on the server. This instructs Vusers to act simultaneously. When the vuser reaches the Rendezvous point, it waits for all Vusers with Rendezvous point. Once designated numbers of Vusers reaches it, the Vusers are released. Function lr_rendezvous is used to create the Rendezvous point. This can be inserted by:
+
+Rendezvous button on the floating Recording toolbar while recording.
+After recording Rendezvous point is inserted through Insert> Rendezvous.
+Q #7. What are the different sections of the script? In what sequence do these sections run?
+Ans => LoadRunner script has three sections vuser_init, Action and vuser_end.
+vuser_init has requests/actions to login to the application/server.
+Action has actual code to test the functionality of the application. This can be played many times in iterations.
+
+Vuser_end has requests/actions to login out the application/server.
+The sequence in which these sections get executed is vuser_init is at the very beginning and vuser_end at the very end. The action is executed in between the two.
+
+Q #8. How do you identify which protocol to use for any application?
+Ans => Previously Performance tester had to depend much on the development team to know about the protocol that application is using to interact with the server. Sometimes, it also used to be speculative.
+However, LoadRunner provides a great help in form of Protocol Advisor from version 9.5 onwards. Protocol advisor detects the protocols that application uses and suggest us the possible protocols in which script can be created to simulate the real user.
+
+Q #9. What is a correlation? Explain the difference between automatic correlation and manual correlation?
+Ans => Correlation is used to handle the dynamic values in a script. The dynamic value could change for each user action (value changes when action is replayed by the same user) or for different users (value changes when action is replayed with a different user). In both, the cases correlation takes care of these values and prevents them from failing during execution.
+
+Manual Correlation involves identifying the dynamic value, finding the first occurrence of dynamic value, identifying the unique boundaries of capturing the dynamic value, writing correlation function web_reg_save_param before the request having the first occurrence of dynamic value in its response.
+
+Automated correlation works on predefined correlation rules. The script is played back and scanned for autocorrelation on failing. Vugen identifies the place wherever the correlation rules work and correlate the value on approval.
+
+Refer this tutorial for more details.
+
+Q #10. How to identify what to correlate and what to parameterize?
+Ans => Any value in the script that changes on each iteration or with the different user while replaying needs correlation. Any user input while recording should be parametrized.
+
+Q #11. What is parameterization & why is parameterization necessary in the script?
+Ans => Replacing hard-coded values within the script with a parameter is called Parameterization. This helps a single virtual user (vuser) to use different data on each run. This simulates real-life usage of an application as it avoids server from caching results.
+
+Refer this tutorial for more details.
+
+Q #12. How you identify Performance test use cases of any application?
+Ans => Test cases/Uses cases for Performance test are almost same as any manual/functional testing test cases where each and every step performed by the user is written. The only difference is that all manual test cases can’t be Performance testing use cases as there are few criteria for the selection as:
+
+I. The user activity should be related to the critical and most important functionality of the application.
+II. The user activity should be having a good amount of database activity such as search, delete or insert.
+III. The user activity should be having good user volume. The functionality having less user activity is generally omitted from Performance testing point of view. e.g admin account activity.
+
+
+
+ 
+Any of the manual test cases that fulfil the above criteria can be used as performance testing use case/test case. If manual test cases are not written step by step, Performance team should create dedicated documents for them.
+
+Q #13. While scripting you created correlation rules for automatic correlation. If you want to share the correlation rules with your team member working on the same application so that he/she can use the same on his workstation, how will you do that?
+Ans => Correlation rules can be exported through the .cor file and the same file can be imported through VuGen.
+
+Q #14. What are different types of vuser logs which can be used while scripting and execution? What is the difference between these logs? When you disable logging?
+Ans => There are two types of Vuser logs available –Standard log and Extended log. Logs are key for debugging the script. Once a script is up and running, logging is enabled for errors only. Standard log creates a log of functions and messages sent to the server during script execution whereas Extended log contains additional of warnings and other messages. Logging is used during debugging and disabled while execution. Logging can be enabled for errors in that case.
+
+Q #15. What is the Modular approach of scripting?
+Ans => In Modular approach, a function is created for each request (e.g. login, logout, save, delete, etc.) and these functions are called wherever required. This approach gives more freedom to reuse the request and saves time. With this approach, it is recommended to work with web custom request.
+
+Q #16. What are the different types goals in Goal-Oriented Scenario?
+Ans => LoadRunner has five different types of goals in Goal-Oriented Scenario. These are:
+
+The number of concurrent Vusers
+The number of hits per second
+The number of transactions per second
+The number of pages per minute
+The transaction response time
+Q #17. How is each step validated in the script?
+Ans => Each step in the script is validated with the content on the returned page. A content check verifies whether specific content is present on the web page or not. There are two types of a content check which can be used in LoadRunner:
+Text Check- This checks for a text/string on the web page
+Image Check- This checks for an image on a web page.
+
+Q #18. How is VuGen script modified after recording?
+Ans => Once the script is recorded, it can be modified with the following process:
+Transaction
+Parameterization
+Correlation
+Variable declarations
+Rendezvous Point
+Validations/Checkpoint
+
+Q #19. What is Ramp up and Ramp Down?
+Ans => Ramp up- Rate at which virtual users add to the load test
+Ramp Down- Rate at which virtual users exit from the load test.
+
+Q #20. What is the advantage of running the Vuser as the thread?
+Ans => Running vusers as thread helps generate more virtual users from any machine due to small memory print of the vuser running a thread.
+
+Q #21. What is wasted time in VuGen Replay log?
+Ans => Waste time is never performed by any browser user and just the time spent on the activities which support the test analysis. These activities are related to logging, keeping record and custom analysis.
+
+Q #22. How do you enable text and image checks in VuGen?
+Ans => This can be done by using functions web_find (for text check) and web_image_check (for image check) and enabling image and text check from runtime setting.
+Run Time Setting–>Preference–>Enable the Image and text check box.
+
+Q #23. What is the difference between web_reg_find and web_find?
+Ans => web_reg_find function is processed before the request sent and is placed before the request in the VuGen script whereas a web_find function is processed after the response of the request come and is placed after the request in VuGen script.
+
+Q #24. What are the challenges that you will face to script the step “Select All” and then “Delete” for any mail account?
+Ans =>, In this case, the post for “Select All” and “Delete” will change every time depending on the number mails available. For this the recorded request for the two should be replaced with the custom request and string building is required to build the post. (Note- This question needs practical knowledge. So please this practically and formulate your answer).
+
+Q #25. What is a difference between pacing and think time?
+Ans => Pacing is the wait time between the action iterations whereas thinking the time is a wait time between the transactions.
+
+Q #26. What is the number of graphs you can monitor using Controller at a time? What is the max of them?
+Ans => One, two, four and eight graphs can be seen at a time. The maximum number of graphs can be monitored in at a time is 8.
+
+Q #27. You have an application which shows the exam results of the student. Corresponding to name of each student its mentioned whether he passed or failed the exam with the label of “Pass” and “Fail”. How will you identify the number of passed and failed student in VuGen script?
+Ans => For this text check is used for the web page for the text “Pass and “Fail”. Through the function web_reg_find, we can capture the number of texts found on the web page with the help of “SaveCount”. SaveCount stored the number of matches found.  For example-
+
+web_reg_find("Text=Pass",
+ "SaveCount=Pass_Student",
+ LAST);
+ web_reg_find("Text=Fail",
+ "SaveCount=Fail_Student",
+ LAST);
+Q #28. During the load test, what is the optimum setting for Logs? 
+Ans => For the load test log level is set to minimal. This can be achieved by setting the log level to the standard log and selecting the radio button “Send a message only when an error occurs”.
+
+Q #29. How will you handle the situation in scripting where for your mailbox you have to select any one mail randomly to read?
+Ans => For this we will record the script for reading the first mail. Try to find what is being posted in the request to read the first mail such as mail ids or row no. From the post where a list of emails is reflecting, we will try to capture all the email ids row no with correlation function and keeping Ordinal as All i.e. ORD=All. Replace the requested email id in the read post with any of the randomly selected email id from the list of captured email ids.
+
+Refer this Scripting Tutorial.
+
+Q #30. What is the Think Time? What is the Threshold level for think time and how can be this changed?
+Ans => Think time is the wait time inserted intentionally between the actions in the script to emulate real user`s wait time while performing an activity on the application. The Threshold level for Think time in the level below which recorded think time will be ignored. This can be changed from Recorded options->Script->Generate think time greater than the threshold.
+
+Q #31. How is Automated Correlation configured?
+Ans => Any setting related to Automated Correlation can be done by General Options->Correlation. Correlation rules are set from Recording options->Correlations.
+
+Q #32. How do you decide the number of load generator machine required to run a test?
+Ans => Number of load generator required totally depends on the protocol used to create the script and configuration of the load generator machine. Each protocol has different memory print and this decides how many virtual users can be generated from the give configuration of the machine (load generator).
+
+Q #33. What are the capabilities exactly you look for while selecting the performance testing tool?
+Ans => Performance testing tool should capable of:-
+
+Testing an application built using multiple technologies and hardware platforms.
+Determine the suitability of a server for testing the application
+Testing an application with a load of tens, thousand and even thousands virtual users.
+Q #34. How are concurrent users differing from simultaneous users?
+Ans => All simultaneous users are concurrent users but vice versa is not true.
+All the vusers in the running scenario are Concurrent users as they are using the same application at the same time but may be or may not be doing the same tasks. Simultaneous users perform the same task at the same time. Concurrent users are made Simultaneous users through rendezvous points. Rendezvous points instruct the system to wait till a certain number of vusers arrive so that they all can do a particular task simultaneously.
+
+Q #35. How do you identify which values need to be correlated in the script? Give an example.
+Ans => This can be done in ways:
+a) Record the two scripts with similar steps and compare them using WDiff utility. (See tutorial Correlation).
+b) Replay the recorded script and scan for correlation. This gives a list of values that can be correlated.
+
+Session Id is a good example of this. When two scripts are recorded and compared using WDiff utility. Session ids in the two scripts should be different and WDiff highlight these values.
+
+Q #36. How does caching affect performance testing results?
+Ans => When data is cached in server`s memory, the server need not fetch the result and no server activity triggered. Test result does not reflect the same performance of real user using the application with different data.
+
+Q #37. How will you stop the execution of a script on error?
+Ans => This can be achieved through lr_abort function. The function instructs the vuser to stop executing Action section and end the execution by executing the vuser_end section. This function is helpful in handling a specific error. This can also be used to handle a situation rather than error where execution is not possible. The function assigned “Stopped” status to the vuser which stopped due to lr_abort function. In Run-Time setting, “Continue on error” should be unchecked.
+
+Over to you
+We hope this huge compilation of LoadRunner interview questions with answers will prove useful to you all.
+
+At STH, we always profess the importance of fundamentals. Same is true to succeed in the performance test professional as well. However, we wish that this performance testing interview questionnaire will be an instrumental reference point for all of you aspiring to find or advance in a performance testing career using LoadRunner.
+
+Wish you all the very best!

@@ -1,0 +1,443 @@
+GO to the https://github.com/computrade/JavaBeginnersInterviewQuestions and download all the codes and import into the Eclipse 
+
+1.What is Stirng in java ? is it a datatype ? 
+=> Stirng is a just another regular class in java.Like all other class,it is inherited from Object class.Like all other classes it has field 
+   and method.It is not primitive type like char,int or long !!! be careful dont fall into this trap
+
+2.How do you search for classes?
+ => ctrl+shift+T
+ 
+3.how can i create string ? is there any difference between the different ways to create string?
+=> There are 2 ways to create a string 
+for eg: String first = "myTestString"; // created in the String Pool 		
+		String third = new String("myTestString"); // created in the heap.
+	Yes,there is a difference 2 ways when we use ""	,It first look for a same value in string pool,If such string exists into the pool,it just return 
+	reference variable,If it doesnt exists it create a new string in the pool then return reference.
+	When creating a new reference,JVM create a new string allocate a new memory for it in the heap memory,and they dont share same memory location 
+		
+4.what is string pool?
+=>is a pool of string stored in java Heap Memory and allows string constant to be reused 
+
+5.Are Stirng immutable? 
+=>Yes, all string are immutable
+
+6.what does immutable means?
+=>It means once the object is created it cannot be changed.If you take a look at the string class is declare as final call and value of the string is 
+  also final.Immutibility of a classes can be acheived by defining classes final which cannot be extended and value of the final variable cannot
+  be changed.If you look at a substring method it is returning  new string with new value
+  
+7.Can you give another example of immutable object?
+=> Actually in java not only String is immutable all of primitive wrapper class are also immutable for eg: boolean,byte,char,Double short int and long.All 
+   of them are immutable classes.
+  
+7.You say String is immutable what if i like to change ?
+=> If you like to change java will create totally new object and existing one is going to be garbage collected,if that is not used anymore
+
+8.Can you create immutable objects?
+=> Yes by defining class and value final same like Stirng class
+
+9.What are the pros and cons of immutable object ?
+=> The good thing about immutable object that can be stored and resused,it is very efficient from memory point of view,If you want to use same object 
+  over and over again and they are thread safe because once immutable object is created they cannot be changed.
+  Now the problem is every change in the object it will create new object,Even a very small one the JVM will create a new object which is not so efficient 
+  from memory allocation  piont of view and also from performance point of view  
+  
+10.How can you overcome memory and performance impact string immutability?
+=>Java provides string builder and string String buffer object, By using this we can achieve operation without creating a new string. Such operation can 
+  be append,insert,delete,replace,reverse and more.SB and SBuffer are used to manipulate string but they are not immutable and they can be modified.In any
+  point of time length and sequence can be changed by using object methods.for eg append method will add string into the String Buffer.If you go and 
+  take a look at string buffer class and look at the append method its returning this object which means its returning string buffer.  
+  
+11.What is the difference between stringBuffer and stringBuilder?
+=> StringBuffer are safe to use by multiple threads, Method are synchronized where necessary.All the particular instance we ave some serial order  
+   StringBuilder call same API as stringBuffer but no grantee of synchronization.The difference between this two object related to the thread safety 
+   
+12.Which should i use StringBuffer or StringBuilder?
+=> StringBuilder class is designed to replace stringBuffer,Places where the stringBuffer was been used by a single thread.Where possible it is recommend 
+   to use StringBuilder.It will faster in most implementation because method are not synchronized
+  
+14.How can i log my class values into the files ?
+=>From toString() method  
+
+15.What is the best way to implement toSting method in java?
+=> Go to the class right  click source and genetate toString
+
+
+----------
+ARRAYS
+-----------
+1.What is an Arrays?
+=>An array is a data structure to store more than one value of the same type in memory 
+
+2.what is Data structure /
+=>Used to store multiple values to be used by program
+
+3.what is same type?
+=>Can store same type value for eg:int,boolean,long
+
+4.where is array is stored in memory?
+=> Arrays are defined and allocate in the heap memory when they are created.This means we can access very fast but it is taking lot of memory even 
+   they are not in use.All Array are object -created with new operator.Arrays have fixed length.
+
+5.How can array element can be accessed ?
+=> Arrays element are accessed using their index,  
+
+6.How do you create array?
+=>private boolean[] booleanArray = {true,false,true}; 
+  private Student[] studentArray = {new Student(1,"Linda"),new Student(2,"Brian"),new Student(3,"Amit")};
+   This is called Explicit array initialization 
+   
+   Other ways to define in a for loop for eg:
+   for (int i = 0; i < intArray.length; i++) {
+			intArray[i]=2*i;
+			System.out.println("intArray[" + i + "]:" + intArray[i]);
+			
+8.What are arrays limitation ?
+a)Arrays allocates continues memories its entire elements even they are not in use 
+b)Length of array is fixed 
+
+9.How do you solve this issue/
+=>The only solution here is to create another array with a desired length and copy all the elements from the original to the new array.There are multiple 
+  ways to do it.In summary we can say that 
+  i) Memory allocation
+  ii)Fixed
+  solution:
+       copy the array element 
+	   1.Use loop and handle it by yourself 
+	   2.Use system.array
+	   Another way is to use Array list or vector 
+  first : you can create a new array and assign new array into extend array 
+   for eg: 
+   int intArray[] = {1,2,3,4,5};
+	
+	public void extendArray(int newLength){
+		
+		int[] newIntArray = new int[newLength];
+		for(int i=0;i<intArray.length;i++){
+			newIntArray[i]=intArray[i];
+		}
+		intArray=newIntArray;
+	}
+
+ another way is to use arraycopy() method where you have 4 parameters 
+  public void extendArrayUsingArrayCopy(int newLength){
+		int[] newIntArray = new int[newLength]; 
+		System.arraycopy(intArray, 0, newIntArray, 0, intArray.length);
+		intArray=newIntArray;
+
+10.Assuming you have an array of integer,how can you remove duplicate values from it?
+=>	1.First we have to find duplicate elements
+    2.Remove them from array 
+	steps :
+	public static int[] removeDuplicates(int []s){
+    int [] k = new int[s.length];
+    k[0]=s[0];
+    int m =1;
+    for(int i=1;i<s.length;++i){
+        if(s[i]!=s[i-1]){
+            k[m]=s[i];
+            ++m;
+        }//endIF
+    }//endFori
+    return k;
+}//endMethod
+	 
+
+--------------------------------------
+Object Oriented programming concept 
+---------------------------------------
+1.What is Encapsulation?
+=>Variable from the classes is hidden from other classes and can be accessed through  method.Therefore it is also known as data hiding.Data should be
+controlled from method of this class in this we have one central place which controls the data.
+ 
+2.What did we gained from the encapsulation ?
+=> If you like to set max limit or low limit in this i will be able to control value of my object.This is very important that we need to control our 
+variable from others.
+
+3.How do you acheive Encapsulation in java ?
+=> In order to acheive Encapsulation you need to declare variable as private
+  b)Provide public setter and getter method to modify and view the variable values
+  
+4.What is inheritance?
+=> Process one class required a method  member variable for another.With the help of inheritance the information is manageable in hierarchy order.The class
+  which inherit property is known as sub-class sometime also called derived class.Class which property is inherited is called super-class. 
+
+5.Why do you need to override method?
+=> Ability to define a behavior that is specific to the sub class type.Overriding means override the functionality of an existing method.
+
+6.Why does java initialize super class first ?
+=>Child contains itself and also its parent class.Parent class is initialized using super()constructor.In order to initialize the element of the parent class 
+ super should be called first
+ 
+7.Does a class inherit the constructor of its super class?
+=> No,Subclass is calling their super constructor,they are not inherit,nor overriding them 
+
+8.Does java support multiple inheritance?
+=>No,JVM did not know which method to bind 
+
+9.What is polymorphism?
+=>Ability of an object take in many forms.the most common use of polymorphism in oop acute when parent class reference can object is used in child class object.
+
+10.What kind of polymorphism do you know?
+=>There are 2 kinds 
+  static and dynamic polymorphism 
+  static: its identified at compilation time and it is achieved through function overloading
+  dynamic : its identified at runtime and its achieve through method overriding 
+  
+
+10.How many types of binding is available in java ?
+=> Static binding => early binding -in compilation time 
+   Dynamic binding -> late binding - in runtime 
+   
+12.What is Abstraction ?
+=> In OOP Abstraction is a process of hiding implementation from the user by providing functional interface to the user.In other words the user has 
+  information what the object does instead of how it does it.In java abstraction achieve using Java interface and abstract classes  
+
+13.If abstract or interface can be private or protected ?
+=> It can be only public 
+
+14.What you called the interface does not have method?
+=>Marker Interface.If you implement all interface in a class all the method should be implemented.Interface can be used for polymorphism meaning 
+
+
+15.What is the motive of adding default implementation to inteface?
+=> Extending interface with additional method without having the fear of breaking the implementation class.
+
+16.What is collection Framework ?
+=>Collection framework consist of interfaces,implementation classes, and some utility classes that let you handle most type of collections that you would encounter 
+  in a java application.Collection is an object that contains a group of objects. Each object is called an element of collection.
+  
+17.What are the basic interface for java collection framework?
+=>List<>, Queue<>,Set<> Map is not a sub interface of collection it is a sibling of collection 
+
+18.What are the various operation that can be performed on a collection?
+=>Add,Remove,Size,clear,contains
+
+19.Define List<>?
+=> Collection of elements ordered in a specific way, You have control over where in the list each element is inserted,You can access elements by their position, List may contains 
+   duplicated OCAD --> Order,control,Access,Duplicate 
+
+20.Give me a example of list ?
+=> Arraylist,LinkedList,Vector   
+
+21.What is Arraylist ?
+=> Arralist is a collection class which implement List<>.It is based on Array and used as a alternative to array.Arralist is dynamic it can resize itself.Arralist only 
+   works with objects not with primitive type,Keep the element in the order they were inserted,Provide constant time for search operation,Control of the location of the element 
+   like add() ,remove(),  
+   
+22.How to reverse a string? 
+=> You can use a string builder class reverse method 
+public  String reverseJava(String input){
+		return new StringBuilder(input).reverse().toString(); 
+Another without using java API 
+		
+
+23.Why does java did not provide reverse string method ?
+=> As we all know that string are immutable.it is not very efficient to reverse a string 
+
+24.Define Collection Framework?
+=> It is a part of java.util package which mainly represents sophisticated data.java.util also have a classes like data so we can say that its mainly deals with data structure.
+   These are ready to use highly efficient data structure which we can use right of the box without having them implemented , It basically holds collection of elements 
+   General requirements:
+   -No Knowledge about size
+   -Automatically extendible 
+   -fast random access 
+   -Ordered vs unordered 
+   -Duplicate vs unique
+   -null vs non-null
+   -Automatic sorting 
+   -<Key,value> mappings
+   
+   Collection framework is serialized,clone(),most allow nulls and not synchronized
+   
+25.What are the core interface of collection framework?
+=> List,Set(->SortedSet),Queue(->Deque)
+
+26.What comes under List?
+=>Arralist,Linkedlist-> Also implemements Deque
+
+27.What comes under Set -> SortedSet interface?
+=>HashSet,TreeSet,LinkedHashSet
+
+28.What comes under Queue -> Deque Interface?
+=>ArrayDeque,LinkedList
+    
+29.What is the core interface of Map?
+=> SortedMap	
+
+30.What comes under Shortedmap?
+=>HashMap,TreeMap,LinkedHashMap
+
+31.What are the recommended collection classes ?
+=> for Vector --> recommended to use Arraylist
+   for HashTable --> HashMap
+   for Stack --> ArrayDeque
+   
+32.What is collection interface?
+=> - its a collection of objects
+   -Polymorphically provided maximum generality 
+   - Some allows duplicated while other do not 
+   - Some are ordered while others are not 
+   - AbstractCollection 
+
+33.How do you declare collection interface?
+=>   public interface Collection<E> extends Iterable<E>{  Iterable-> Will be used to used in for each loop,its a java.lang package and has a subclass called Iterator  
+     it has 3 methods 
+	 a) Iterator<T> iterator();
+	 b)default void forEach(Consumer<?super T> action);
+	 c)default Spliterator<T> spliterator
+    
+	}
+34.What is the basic operations in Collection ?
+=> 	public interface Collection<E> extends Iterable<E>{ <E>--> Generics related
+     boolean add(E element);//Optional
+	         remove(Object Element);//Optional
+			 Contains(Object Elements);
+			 int size();
+			 isEmpty();
+			 Iterator<E> iterator();
+			 
+   }
+35. What is List Interface ?
+=> It is useful when sequence/position matters 
+   - This models resizeable linear array with indexed access
+   -Zero based 
+   - It contains duplicate
+   
+   Public Interface List<E> extends Collection<E>{
+     
+	 
+	 }
+------------------------------------	 
+	Position Operation :
+    get(int index);
+    set(int index,E elements);
+    void add(index,Element);
+    boolean add(E element);
+    E remove(int index);
+    boolean add(int index,Collection<? extend E>c);
+----------------------------------	
+	Search Operation:
+	int indexOf(Object o);
+	int lastIndexOf();
+-------------------------	
+	Iteration operation 
+	ListIterator<E> listiterator();
+	ListIterator<E> listiterator(int index);
+	
+   Range view operation 
+   List<E> subList(int fromIndex,int toIndex);
+   
+ 36.What is Arralist?
+=> Array implemementation of List interface,default capacity =10,increases by 50%, if you want to use high number of data you can use 
+   Arralist(int initialCapacity)or ensureCapacity(int)
+   -allows duplicate and null values 
+
+37.Where do you use Arralist?
+=> -simple iteration of element
+   - fast random access
+   - appending elements or deleting last elements ~0(1)
+38.what is ::?
+  :: is called Method Reference. It is basically a reference to a single method. i.e. it refers to an existing method by name.
+  for eg:
+class Hey {
+     public static double square(double num){
+        return Math.pow(num, 2);
+    }
+}
+
+ Function<Double, Double> square = Hey::square;
+ double ans = square.apply(23d);   
+ 
+39.What is listiterator?
+=> Both of this methods are written as instance of list interface.From iterator we can add(),set(),remove() but from the listiterator we can
+  -hasnext(),
+  -next();
+  -hasPrevious();
+  -previous();
+  -nextIndex();
+  -previousIndex();
+  
+40.What do you mean by  collections?
+ => Collection is a kind of framework they are already given a number of API's which provides an  architecture to store a different data and objects , and manupulate data or Objects.
+    If you want to sort,remove,add numbers of data manupulation can be done from the help of Collection framework.
+  
+41.Please tell me arraylist is implementing which interface?
+=> Arraylist,linkedlist,vector are implementing list interface.
+
+42.What are the option available in set interface?
+=> Hashset,linkhashset,please look at the diagram on desktop 
+
+43.What is the properties of Arraylist?
+- dynamic array 
+- can contain duplicate values 
+- maintain insert of order
+-Synchronized
+-allow random access to fetch the element 
+- to print all the values of array we can use for loop or we can use iterator 
+
+44.What is generic and non generic class?
+  Arraylist ar = new Arraylist(); => This is called non generic because data type is not defined so we can store any type of data into the arraylist 
+   for eg: crating a employee class with  name ,age and designation and create a constructor and add that into the arraylist 
+   Employee em = new Employee("Megh", 38, "QA");
+		Employee em1 = new Employee("Sangam", 33, "Dentist");
+		Employee em2 = new Employee("Samyra", 7, "King");
+		
+		ArrayList<Employee> EM= new ArrayList<Employee>();
+		EM.add(em);
+		EM.add(em1);
+		EM.add(em2);
+	   Iterator<Employee> it = EM.iterator();
+	   while(it.hasNext()){
+		Employee store= it.next();
+		System.out.println(store.name);
+		System.out.println(store.age);
+		System.out.println(store.designation);
+   
+  ArrayList<Integer> ar1= new ArrayList<>(); => This is called generic because data type is defined 
+  
+45.How do you initialized iterator?
+=>  Iterator<Employee> it = EM.iterator();
+	   while(it.hasNext()){
+		Employee store= it.next();
+		System.out.println(store.name);
+		System.out.println(store.age);
+		System.out.println(store.designation);
+		
+46.what does the addall() method does ?
+=> It add another arraylist 
+   for eg: ar1.addall(ar2);	
+
+47.What does retainall() method does ?
+=> it will take only common part on both of the array  
+  
+48.What is Linkedlist?
+=>Linkedlist is very important class.Linkedlist is a special dynamic array which stores a data from 2 things one is actual data and another one os reference data.In simple language 
+  it store a value as key and value,Each an every element is stored in node, node having reference of another node, last node pointing to null this is also called singly linkedlist.
+  LinkedList<String> ll = new LinkedList<String>();
+		ll.add("test");
+		ll.add("Selenium");
+		ll.add("QTP");
+		ll.add("RPA");
+		ll.add("RFI");
+		System.out.println(ll);
+		ll.addFirst("hello");
+		ll.addLast("Friends");
+		System.out.println(ll.get(0));
+
+49.How do you print Linkedlist ?
+=> //for loop
+   // advance for loop
+   //iterator 
+   // while loop    
+		
+50.What is Map interface?
+=>It store a value as a key and value pair. inside this 2 classes under it hashTable and hashmap both are implementing map interface there is one more class called linkedHashmap is 
+  extending hashmap,please look at the diagram in desktop map.png.Map interface uses <key,value>
+  
+51.Give me a best example of map?
+=> Error codes(1.2.1 :"fatal error")
+    map of zip codes 
+    Manager associated with numbers of employees 
+	
+    

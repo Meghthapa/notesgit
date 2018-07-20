@@ -1,0 +1,32 @@
+Q1.Write a SQL statement that will return the number of records from the customer table ?
+=> SELECT COUNT(*) From CUSTOMER
+
+Q2.Write a SQL statement that will sort the last name values from the CUSTOMER table from in reverse order alphabetically?
+=>SELECT * from CUSTOMER order lname by desc
+
+Q3.List all the customers whose first name starts with A 
+=> SELECT * from CUSTOMER where fname like 'a%'
+
+Q4.Find duplicate productnames from the PRODUCT table?
+=> SELECT productname from PRODUCT group by productname HAVING count(productname) > 1
+
+Q5.UPDATE last names in the CUSTOMER table for all last name values from 'Smith' to 'Doe'?
+=> UPDATE CUSTOMER set lname = '' WHERE lname BETWEEN 'Smith' AND 'Doe'
+
+Q6.List all the orders with their corresponding customer information 
+=> SELECT CUSTOMER.id,CUSTOMER.fname,CUSTOMER.lname,PRODUCT.productname 
+   FROM CUSTOMER
+   INNER JOIN PRODUCT ON CUSTOMER.id =PRODUCT.id
+   (we cannot join ORDERS table with the CUSTOMER table there is no primary key)
+   
+Q7.Write a query to return the hour,minute and seconds values from the created date column in the CUSTOMER table 
+=> SELECT created date from CUSTOMER where created date = GETDATE() 
+ (There is no column call created date if this exists we can use GETDATE() function)  
+ 
+Q8.List all the tables that have column like 'PRODUCT'?
+=>  SELECT t.name AS table_name, SCHEMA_NAME(schema_id) AS schema_name, c.name AS column_name
+   FROM sys.tables AS t
+   INNER JOIN sys.columns c ON t.OBJECT_ID = c.OBJECT_ID
+   WHERE c.name LIKE 'PRODUCT%'
+   
+  

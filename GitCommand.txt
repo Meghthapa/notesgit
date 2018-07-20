@@ -1,0 +1,182 @@
+What is GitHub?
+=>GitHub is a kind of server where number of company is register and they have created their git repository 
+
+what is Git?
+=> Git is a tool that will help you check in , checkout,pull version control 
+BASIC COMMAND
+
+1=>.$ git init // initialize Local Git Repository
+2=>.$ git add <file>  //Add file(s) to index 
+3 => .$ git status   // check status of working Tree
+4 =>.$ git commit   // commit changes in index
+5 -> .$ git push // Push to remote  repository
+6 -> .$ git pull
+7 -> git clone
+
+What is the meaning of checkin?
+=> push the code
+
+what is meaning of checkout?
+=> pull the code 
+
+Sample code
+meght@DESKTOP-0MOI0ET MINGW64 ~/IdeaProjects/gmailwebUItest
+$ cd src
+
+meght@DESKTOP-0MOI0ET MINGW64 ~/IdeaProjects/gmailwebUItest/src
+$ cd test
+
+meght@DESKTOP-0MOI0ET MINGW64 ~/IdeaProjects/gmailwebUItest/src/test
+$ cd java
+
+meght@DESKTOP-0MOI0ET MINGW64 ~/IdeaProjects/gmailwebUItest/src/test/java
+$ git init
+Initialized empty Git repository in C:/Users/meght/IdeaProjects/gmailwebUItest/src/test/java/.git/
+
+meght@DESKTOP-0MOI0ET MINGW64 ~/IdeaProjects/gmailwebUItest/src/test/java (master)
+$ git add GmailsigninTest.java
+
+meght@DESKTOP-0MOI0ET MINGW64 ~/IdeaProjects/gmailwebUItest/src/test/java (master)
+$ git status
+On branch master
+
+No commits yet
+
+Changes to be committed:
+  (use "git rm --cached <file>..." to unstage)
+
+        new file:   GmailsigninTest.java
+
+
+meght@DESKTOP-0MOI0ET MINGW64 ~/IdeaProjects/gmailwebUItest/src/test/java (master)
+$ git commit
+
+*** Please tell me who you are.
+
+Run
+
+  git config --global user.email "you@example.com"
+  git config --global user.name "Your Name"
+
+to set your account's default identity.
+Omit --global to set the identity only in this repository.
+
+fatal: unable to auto-detect email address (got 'meght@DESKTOP-0MOI0ET.(none)')
+
+meght@DESKTOP-0MOI0ET MINGW64 ~/IdeaProjects/gmailwebUItest/src/test/java (master)
+$ git config --global user.email"meghthapa141@gmail.com"
+
+meght@DESKTOP-0MOI0ET MINGW64 ~/IdeaProjects/gmailwebUItest/src/test/java (master)
+$ git config --global user.name"Megh Thapa"
+error: invalid key: user.nameMegh Thapa
+
+meght@DESKTOP-0MOI0ET MINGW64 ~/IdeaProjects/gmailwebUItest/src/test/java (master)
+$ ^C
+
+meght@DESKTOP-0MOI0ET MINGW64 ~/IdeaProjects/gmailwebUItest/src/test/java (master)
+$ git config --global user.name"meghthapa"
+
+meght@DESKTOP-0MOI0ET MINGW64 ~/IdeaProjects/gmailwebUItest/src/test/java (master)
+$ git commit
+
+*** Please tell me who you are.
+
+Run
+
+  git config --global user.email "you@example.com"
+  git config --global user.name "Your Name"
+
+to set your account's default identity.
+Omit --global to set the identity only in this repository.
+
+fatal: unable to auto-detect email address (got 'meght@DESKTOP-0MOI0ET.(none)')
+
+meght@DESKTOP-0MOI0ET MINGW64 ~/IdeaProjects/gmailwebUItest/src/test/java (master)
+$ git config --global user.name 'megh thapa'
+
+meght@DESKTOP-0MOI0ET MINGW64 ~/IdeaProjects/gmailwebUItest/src/test/java (master)
+$ git config --global user.email 'meghthapa141@gmail.com'
+
+meght@DESKTOP-0MOI0ET MINGW64 ~/IdeaProjects/gmailwebUItest/src/test/java (master)
+$ git add .
+
+meght@DESKTOP-0MOI0ET MINGW64 ~/IdeaProjects/gmailwebUItest/src/test/java (master)
+$ git status
+On branch master
+
+No commits yet
+
+Changes to be committed:
+  (use "git rm --cached <file>..." to unstage)
+
+        new file:   GmailsigninTest.java
+
+
+meght@DESKTOP-0MOI0ET MINGW64 ~/IdeaProjects/gmailwebUItest/src/test/java (master)
+$ git commit
+Aborting commit due to empty commit message.
+
+meght@DESKTOP-0MOI0ET MINGW64 ~/IdeaProjects/gmailwebUItest/src/test/java (master)
+$ git add.
+git: 'add.' is not a git command. See 'git --help'.
+
+The most similar command is
+        add
+
+meght@DESKTOP-0MOI0ET MINGW64 ~/IdeaProjects/gmailwebUItest/src/test/java (master)
+$ git add .
+
+meght@DESKTOP-0MOI0ET MINGW64 ~/IdeaProjects/gmailwebUItest/src/test/java (master)
+$ git status
+On branch master
+
+No commits yet
+
+Changes to be committed:git
+  (use "git rm --cached <file>..." to unstage)
+
+        new file:   GmailsigninTest.java
+
+
+meght@DESKTOP-0MOI0ET MINGW64 ~/IdeaProjects/gmailwebUItest/src/test/java (master)
+$ git commit
+[master (root-commit) d6b6e76] This is my first git experiance
+ 1 file changed, 59 insertions(+)
+ create mode 100644 GmailsigninTest.java
+
+meght@DESKTOP-0MOI0ET MINGW64 ~/IdeaProjects/gmailwebUItest/src/test/java (master)
+$ git status
+On branch master
+nothing to commit, working tree clean
+
+meght@DESKTOP-0MOI0ET MINGW64 ~/IdeaProjects/gmailwebUItest/src/test/java (master)
+$  ^V
+bash: ^V: command not found
+
+meght@DESKTOP-0MOI0ET MINGW64 ~/IdeaProjects/gmailwebUItest/src/test/java (master)
+$  ^V
+bash: ^V: command not found
+
+meght@DESKTOP-0MOI0ET MINGW64 ~/IdeaProjects/gmailwebUItest/src/test/java (master)
+$ git remote
+
+meght@DESKTOP-0MOI0ET MINGW64 ~/IdeaProjects/gmailwebUItest/src/test/java (master)
+$ git remote add origin https://github.com/Meghthapa/Megh-MavenGmailProject.git
+
+meght@DESKTOP-0MOI0ET MINGW64 ~/IdeaProjects/gmailwebUItest/src/test/java (master)
+$ git remote
+origin
+
+meght@DESKTOP-0MOI0ET MINGW64 ~/IdeaProjects/gmailwebUItest/src/test/java (master)
+$ git push -u origin master
+Counting objects: 3, done.
+Delta compression using up to 8 threads.
+Compressing objects: 100% (2/2), done.
+Writing objects: 100% (3/3), 974 bytes | 974.00 KiB/s, done.
+Total 3 (delta 0), reused 0 (delta 0)
+To https://github.com/Meghthapa/Megh-MavenGmailProject.git
+ * [new branch]      master -> master
+Branch 'master' set up to track remote branch 'master' from 'origin'.
+
+meght@DESKTOP-0MOI0ET MINGW64 ~/IdeaProjects/gmailwebUItest/src/test/java (master)
+$ touch

@@ -1,0 +1,39 @@
+Xpath basic approach :
+
+//tagname[@attribute='Value']
+
+Text approach:
+
+//tagname[text()='Value'] used it when you have more than 1 matching nodes
+
+Parent Child concept
+//parenttag[@attribute ='value']//tagname[@attribute='Value'] used when you have same link used multiple times 
+for eg => //h4//a[@href='value']
+
+Contains Approach :
+
+//tagname[contains(@attribute,'Value')] good for E-com website and dynamic website
+
+And Operator:
+
+//tagname[@attribute1 ='value' and @attribute2='value']// you can add any numbers of Attribute.You can also use Text() operator
+
+Explicit wait :
+
+
+//*[@id=":8i"]
+
+Tricky Xpath:
+if you have a same element used in a code then you need to specify 2nd instance
+(//a[@value='BOM'])[2]
+
+CSS locator 
+if there is a ID use # || if there is a class use "."
+
+$("") - for css ,    $x("")   or xpath
+//tagName[@attribute='value']  - xpath syntax
+tagName[attribute='value']  -CSS  tagName#id- CSS   tagname.classname- CSS
+//tagName[contains(@attribute,'value')]  - xpath regular expression
+tagName[Atrribute*='value'] - Css regular expression
+
+

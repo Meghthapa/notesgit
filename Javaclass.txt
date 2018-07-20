@@ -1,0 +1,1158 @@
+1.What is Java ? who is using it?
+=> Java is General-purpose,Object oriented,platform independent concurrent and very fast
+ General-purpose: is not constraint to one particular domain can be used to develop wide variety of application 
+ Object oriented : It is a object oriented programming language,OOP helps model real world sceneries in more naturally
+ Platform independent: Java Mantra Write once Run Anywhere(one of the key benefits of java)
+ Concurrent : which means it supports multi threading and this enables program to perform multiple activity at the same time 
+ very fast : comapre to c and c++
+ Few Additional principles :
+ a)Familiar syntax keep similar to c and c++
+ b)Simple and safe: Java doesnt have complex feature that c and c++ have for eg in C and C++ programmers manupulate memory to free up space where java provides 
+   Automatic memory management using feature calls Garbage collection 
+ Secure : Java program can be downloaded across the network,Downloaded program should not cause any harm user computer 
+ Java comes with a rich library and this library is called Java API,this helps developer to focus on new logic without having reinvent the view 
+ Java is also free
+ 
+ 
+ 2.What is compilation?
+ =>Every computer have a fixed set up that it understand.Computer program is made of instructions,instructions helps a computer program meaningful and each 
+   instruction is on 0s and 1s which is in a binary format,such instruction in called as machine language or machine code or native code eg 0000000 00001 00110
+ 
+ 3.What is High level language ?
+ => It is very tedious to code in a binary or assembly so they come with the language called C,C++ and java,they hide all the low level process 
+
+4.What is Source code?
+=> refer to any code which is expressed in a programming language,Source code cannot be understand by a computer,So we need to translate source code to translator.this 
+  is done by a program called compiler for eg source code -->Compiler -->target language and it is executed by a CPU in a separate stem 
+  in C++ target language --> machine code and in java target language --> bytecode
+
+5. what are the core operation that compiler performs?
+=>a)Verify syntax & semantics of source code for eg in a java every statement have to end with semicolon 
+  b)Code optimizations
+  c)Generate machine code 
+  Compiler is a very complex program,Java compiler does tons of operation to ease developer,compiler process can be slow due to the complex translation,once compiled 
+  machine code execution will be very fast,any change in the source code need complete re compilation
+
+6.What is platform Dependency?
+=>With the help of interpreter,it is a program and its needs to run,interpreter is a virtual machine that simulates CPU  for eg in windows : Source code --> COMPILER -->MACHINE CODE --> CPU ->RESULT
+  But in java it is SOURCE CODE --> INTREPRETOR --> RESULT 
+
+ 7.How java achieve execution speed without losing speed?
+ =>Java uses Compilation and interpretation without compromising speed Source code --> JAVA Compiler -->Java byte code -->JVM--> RESULTS
+    for eg: Hello.java --> Compilation(javac Hello.java initiate compiler) --> Hello.class(java bytecode)--> JVM(it is interpreting java bytecode with the help of interpretator).
+	For speed Bytecode interpretation is much faster because bytecode is compact,compiled and optimized 
+	
+8.What is JVM?
+=> Is a cornerstore of java platform,It helps java to acheive goals like platform independent,Security and very fast execution,Its called virtual because it is a abstract computing 
+  machine,Manupulate memory at runtime
+  
+9.What is the core responsibility of JVM?
+-> Loading & interpreting bytecode : helps to acheive platform independence  
+   Security: Security is critical as java is developed for network where program are 
+   Automatic memory management : unlike c++ or c java manages memory management by itself 
+   
+10.What is java SE platform?
+=> JAVA software family includes multiple platform targeting different types of devices,there are 3 main platform that is commonly used 
+ 1)Java standard edition(JAVA SE):Just to run standalone application for desktop & servers,e.g inventory management system in hardware store 
+ 2)Java Enterprise edition:(JAVA EE): Enterprise application for servers,eg e-commerce websites ,servlets and JSP, it also includes java SE 
+ 3)JAVA micro Edition(JAVA ME): It is used to Application for resource-constrained devices like cellphone
+    
+11.How do you run your java file without the help of IDE ?
+=> Create a .java file from any of the text editor for eg Notepad++ save as a .java file ,go to the command prompt and comile with code for eg:
+   C:\Users\meght\Desktop\Java>javac helloworld.java
+   then it will create a another file with .class 
+   
+12.What is object oriented programming?
+=>  This is basic following state and behavior relation for eg : state defines as variables and behavior defines as methods,Both variables and methords are consider as members 
+   of a class 
+ 
+13.what is member class?
+ => It refers to a nested classes ,means classes under classes 
+ 
+14.What are the basic java language features ?
+=> // comments,Case sensitive,
+   Classes,methods and variables must start with letter,underscore or $
+   Java have a 50 reserve keyword which we cannot use 
+   
+15.What is variables ?  
+=> variable stores state information like student name,Student gender.variable are containers which holds data they can hold raw data like student id and  also object references 
+  eg: Student s =new Student();
+  
+16.What is statically type language ?
+=> Means int cannot hold string variable, 
+
+17.What is dynamically typed language?
+=> means you hold string and int for same variable for eg: javascript and it checks when it is a runtime 
+
+18.What is the format of declearing a variable?
+=> <type><name> [=literal or expression]
+    String abs = "i am literal";
+	
+19.What is expression?
+=> evaluated to single value 
+  for eg: int count =x;
+          int count =getCount();  
+		  
+20.What are the variable kinds ?
+=> There are 3 types 
+   a)instance variable : it is decleared in the body of a class.They are decleared in class level but not at method level,they represent object state,instance variable are 
+     not initialized explicitily they always get a default value,reinitialized in not possible in class level
+   b)Static variable: it is also declared within a class with a static keyword,at it also refers to class variables  	 
+   c)Local variables: it is declared on method variable, it is tempory not accessible outside method,Dont get default value 
+    for eg if you decleare variable in class level that cannot be re initialized in class but you can change into the methods
+	 for eg 
+	  int x;-->This will get a default value of false 
+	  int x= 16;--> this is illegal 
+	  but if you have a methods
+	  public void test(){
+	  x=16;--> this is legal
+	  }
+	  
+21.What are the variable types?
+=> primitive : 
+   hierarchy primitive --> boolean && numbers 
+   under the numbers numbers --> integer 
+   integer --> byte,short,int,long (they all represents int )
+   numbers--> floating polint numbers --> double and float 
+   numbers -->character --> char (char are also numbers in java )
+   object reference types 	  
+   
+22.What is integers?
+=> It is a whole number or a fixed point numbers,They can be represents as byte,short,int,long
+
+23.How character are represented ?
+=> This is a single letter character,eg'A','b';
+   16 bit char
+ 
+24.what is type casting?
+=> We use casting when we Assign variable or literal of one type to variable of another type,Type casting is possible in numeric primitive type which means all primitive except boolean
+   
+25.What is implicit Casting?
+=> Smaller to larger primitive type.it is done automatically by compiler   
+
+26.What is explicit casting ?
+=> larger to smaller 
+
+27.What is object reference?
+=> For eg:
+  Student s= new student();
+  Student s --> {Allocate space for reference variable}
+  new student --> {Allocates space for new student object}
+  "="--> s <- student object address
+  
+28.Where are objects stored ?
+=> All object are stored in the heap
+ default of object is null, if you use a "." operator in null that will lead to null pointer exception 
+ 
+29.what are statements ? 
+ =>Every statement in java with ";" it means command needs to be executed.There are 3 kinds of statements 
+  Declareation Statement -->e.g ,int count =25;
+  Expression statement --> count =25 // assignment statement 
+						   getcount()//method invocation statement
+						   count++//increment statement
+ control flow statement --> if(count <100){}	
+
+30.What is Array?
+=> Container object that holds fixed number of values of single type
+   object --> it implicit Java object
+
+ 31.what are the ways to create an array?
+=>  int[] myarray=new int[7];
+   -since this is a type int by default it is 0
+   myarray[0]= 12;--> Assignment of a array 
+   
+   int[] myarray;// default value is null;
+   Another way to define array:
+   int[] myarray=new int[]{8,9,9,9,9,9,}
+   
+   another one :
+   int[] myArray={9,11,2,5,1,2,2,3};
+
+ Object references :
+ 
+ Student[] students = new Student[2];
+ students[0]=new Student();
+ student[0].name="Megh";
+
+ 32.What are 2D arrays and how many ways to create 2D arrays?
+ => int[][] myArray = new int[][];
+    Another way is 
+	 int [][] myArray = {{1,2,3,4},{2,3,4,5},{6,7,8,9},{1,2,3,4,}};
+	 Another way 
+	 int[][] myArrays = new int[2][];This is called symmetric matrix where the number of rows = number of columns 
+	 if you use .length for 2D arrays it will return number of rows 
+	 
+33.What is method ?
+=. it define behavior 
+  -	Self contained logic that can be used many times 
+  - can receive input & generate output 
+  - Methods avoid duplicate code
+  - Complex logic into smaller pieces 
+  - Software reuse 
+  - Clean and readable code 
+ 
+ 34.How many types are methods in java?
+ => there is 2 methods Instance and static method 
+   Instance methods: Instance methods are methods are of instances of a class that is a objects of a class.We can invoke using objectRef.methodname()
+   Static methods: Keyword static in declearation, class level methods 
+     -No access to state,i.e cant access instance variable/methods 
+	 -can access static variables 
+	 -they are shared accross different classes 
+	 - you can invoke this by calling classname.methodname()
+	 -main method is static 
+	 -can access other static methods 
+
+35.What is method overloading?
+=> Same name different parameters,both instance and static method should be overloaded.
+   if you have a instance method and try to overload with static method that should not work 
+	 
+36.What is varargs?
+=>	Method can have a special type of parameters called varargs, which means variable length arguments,it can take variable number of arguments.it is also a last parameters 
+    of methods
+	syntax: three dots following parameter type 
+	 eg (boolean flag,int... items) int...items --> means corrosponding array of any size or it can be a any number comma seperated 
+	  for eg:(true,1,2,3)
+	  concept behind this is you can use multiple parameters 
+	  Restriction:
+	  -must be a last parameter : foo(int...items,boolean flag)//illegal
+	  -only one varargs parameter :foo(boolean flag,int...items,int... item2)//illegal
+37.Why we need to use Varargs?
+=>	varargs provides simpler & flexible invocation for eg you can use for DOB 
+    printf(String format,Object... args){
+	System.out.printf("DOB:%d/%/%d",1,1,1980)}
+	
+38.What is this reference?
+=>	If the objects wants to access its own members,In this case you can use this reference.For this you can use this,it a reference to the current object 
+    for eg: this.somevariable or this.some.somemethod(); 
+	why we need to use this reference 
+	lets say you have a variable with the same name in a constructor since both are the same name to differentiate that we use this reference 
+  
+	  
+39.What is Operators ?
+=> Performs operation on its operands and produces a result.For eg: x + 5	x=>Operand,+=> Operator and 5=>operand   
+
+40.How many operators types in java /
+=>a)Assignment
+  b)Arithmetic : Addition,Substraction,Multipication,Division,Modulus,Pre and post increment(++),pre and post decrement(--)
+  c)Comparation
+  d)Logical
+  e)Bitwise
+  f)Bit Shift
+  g)InstanceOF
+  
+41.What is unary operator?
+=>If the operator operates on one end it is called unary operation for eg: -x (prefix), x++(postfix operation)
+  
+42.What is Binary operator?
+=> if  the operators on two operands then it is called as binary operators for eg x+3
+  
+43.What is Ternary operator(?:)?
+=> if  the operators on three operands then it is called  Ternary operators for eg: (x>3)? x:0, This can be used for If else with single statement;
+for eg: int i =(x>y)? true : false;
+ String greetings = "Hello" +(user.isMale()? "Mr":"Mrs") + user.name();
+  
+44.What is post and pre ?
+=> For eg: int x =5 
+            int y =x++;
+  From and pre & post increment 
+   //y=5,x=6;
+	another example 
+    y=++x;
+    //y=6,x=6;	
+	
+ Pre and post decrement 
+ int y= x--;
+  y=5;x=4;
+  Another scenerio 
+  y =--x;
+  //y = 4 and x=4; 1st y is decremented and x 
+  
+  and it is not applicapale to primitive numeric types 
+  
+ 45.What is compound Arthimetic assignment?
+ ==> x=x+5;
+     x += 5;(In this scenerio additional is performed first )
+	 =+ will be treated as only assignment operation 
+	 others are 
+	 -=,*=,/= and %=
+	 
+46.What are the rules of Arithmetic operation?
+=>	Rule 1: Multipication operators(*,/,%) have higher precedence over additive operators(+,-)
+    Rule 2: OPerators in the same group are evaluated left to right 
+    Rule 3:	
+
+47.What is comparision operators ?
+  for eg: x > y
+  Other examples are :
+  < = less than             --> No boolean
+  <= less than or equal to --> No boolean
+  > = Greater than         --> No boolean
+  >= = Greater than and equal to --> No boolean
+  == equal to             --> Supports all 
+  != not equal to         --> Supports all 
+
+48.What are logical operators?
+=> && AND
+   || OR
+   ! NOT 
+ 
+49.What is bitwise operators ?
+=> Operate on individual bits of operands it could be integer primitive or boolean.It is heavily used in embedded system like watch and ipod, also used in data 
+   compression and encryption.we use bitwise operator that memory is critical 
+   & ->BITWISE AND -->Return 1 if both input bits are 1 (for boolean if true =1 & false =0)
+   | ->BITWISE OR --> 
+   ^ ->BITWISE XOR(Exclusive OR)
+   ~ -> BITWISE NOT 
+   
+50. Define if - statement?
+=>Execute block of code if some test passes for eg:if(x<7){//do something}else {//do something here}
+ we use else if block when we have a multiple conditions tests 
+
+51.what is switch statement?
+=> Can be used as alternative to if - statement
+  
+52.When do you use a switch statement over a if statement?
+=> If readability improves, code is more readable than switch statement another one is Intent ,Speed switch is faster than If statement   
+
+53.What is for loop?
+=>Typically is to iterate loop over elements of array or similar data structure and do something with each elements like printing what the element,For eg: when you look at any 
+  ecommerce website products displays as a list this is usually done with for loop 
+  eg: int[] myArray={1,2,3,4,5,6,7,8,9};
+  for(int i=0;i<myArray.length;i++){
+     system.out.println(myArray[i]);
+  }
+  intitialization expression only execute once (i=0)
+  
+  you can also decleare for loop with comma seperated 
+  like for(int i=0;i<myArray.length;system.out.println(myArray[i],i++))
+  
+  you can have multiple arrays assigned 
+  for eg int i =0,int j=0
+   for(i=1;j=1;i<myArray.length && j<myArray.length;i++,j++)
+   
+54.What is the enhanced version of for loop?
+=> This is for each loop,Cleaner syntax variable is hidden,Eliminate opportunities for error.It is designed to convenintely write a code in simpler format   
+   int[] myArray={1,2,3,4,5,6,7,8,9};
+   for(int i=myArray){ --> i is referencing myArray
+   System.out.println(i);
+   }
+ 
+55.What is while loop ?
+=> use for iteration statement, You can use while loop if you dont know how many times it is going to iterate,While loop is condition expression.There is no initialization. 
+   for eg while(condition expression){ --> As long this is true it keeps executed 
+   //
+   }
+56.What is do-while loop?
+=>Runs at least once 
+for eg: do{
+          }while(Condition expression);--> It will keep executed until the Condition expression is false 
+		  
+	another eg:
+     int input =0;
+    do{
+	  input=getUserInput();
+	}while(input <=0)
+     //perform some action	
+
+57.What is variable scope?
+=> Variable decleared over a class level which is instance or static variable are consider as global variable	 
+   local variable:local variable is accessible within methods,constructor, it will initialized when method is called and drop within the scope
+   
+58.What is Java API?
+=> JAVA API is a hundreds of well tested classes,JAVA 8 have more than 4240 classes these classes is developed bu experts developers, it is used by millions of programmers
+    and it is a part of both JDK and JRE   
+	
+59.Why do we need a java packages?
+=> It is a collection of classes with meaningful sense means this is a folder that we store our classes 
+
+60.What are the important packages in java?
+=> java.lang --> fundamental classes one of the class in this package is String 
+   java.util --> Data structure
+   java.oi --> reading from a file or writing to a file 
+   java.net --> Networking
+   java.sql--> Databases
+
+61.How do you look at the API documentation ?
+ => go to the https://docs.oracle.com/javase/8/docs/api/   
+ 
+62.What are the 3rd party API support in java?
+=> BIG DATA --> (APACHE Hadoop)
+   DATA Miining --> Weka,Apache mahout
+   Database --> Hilbernate 
+   Search --> Apache Solr
+   Parsing--> JDOM,Jackson,Google Gson
+   Core --> Apache commons,Google guava
+   Web Framework --> Spring
+   
+63.How do you access packages in java?
+=>For same packages you can access direct and different packages use Import    
+ 
+65.How should we name packages?
+=>We should use unique name of the packages.
+  for eg:
+   edu.stanford.math.geometry
+   edu.oracle.math.geometry 
+   Rules :
+   -lowercase alphabets rerely digits 
+   -Short --> generally less than 8 character 
+   -meaningful abbreviations eg: util for utilities 
+   -Acronyms are fine eg : awt for abstract window toolkit 
+   -Generally single word 
+   -Never start with java or javax
+   
+67. What is string?
+=>Object of a class java.land.String,String class uses character array to store text,java uses UTF-16 for character which is a implementation of unique character set, In java 
+  bacially a sequence of unicode character,String is immutable one the value is created it can never be changed.String object contains immutable sequence 
+  of unicode characters.
+  
+68.Why string is special?
+=> String can be constructed by direct assigning a string literal,You cannot do this for regular java objects for eg: String a = "Hello" and box primitive is wrapper classes.
+   Another special feature is we can "+" operator in string 
+   String pool ~ it is located in string pool where it saves memory
+   
+69.What are common operation in operation ?
+ a)Comparing : methods -->equals(),equalIgnoreCase(),compareTO()
+ b)Searching : methods --> contains(),startsWith(),endwith(),indexOf(),lastIndexOf();
+ c)Examining individual characters --> charAt();
+ d)Extracting substring --> subString();
+ e)Case translation --> toUppser(),toLower(),trim();
+ f)Replace -->replaceAll("o","r");
+ g)Split --> split() -->split a document into word or split a line text by tab or comma or white space 
+  for eg String[] sa = s.split("o");
+  for(String temp : sa){
+  println(temp)
+  }
+ h) Overloaded method : valueOf(1.3);
+   
+70.What are the 3rd party String utilities ?
+=>Apache Commons Lang ~ StringUtils which is used for string manupulation 
+  Guava String Utility classes  which is used for string manupulation  
+  
+71.What is the difference String literal VS Using new?
+=> Using String literals:
+ Stored in pool on heap (heap is where all objects resides),String pool also uses object but only string objects that are created using string literal. Literal with same 
+  content share storage.
+  When you create a String with new keyword they are stored into the heap and they do not share storage.
+ 
+72.Why String are immutable ?
+ => If mutable sharing is not possible , another reason is Concurrency for Thread  and security 
+ 
+73.What is String concatination ?
+=>It means join string together for eg: String s ="hello"+"world"; you can also add integer 
+  rules if you add int with string for eg String s = "hello"+125 result will be hello125 it means int is converted into the String 
+  Another rule if you have 2 int in the starting into the left  for eg String s = 125 + 125 +"Hello" result =250 it means int will added 
+  It can also be acheived from the help of StringBuilder and stringBuffer class
+  
+74.What is StringBuilder ?
+=> For eg:
+    StringBuilder s = new StringBuilder();
+	s.append("Hello");
+	s.append("world");
+	String s = s.append("Good").append("morning").toString();
+ This have a methods like length,delete,insert,reverse,replace 	
+ SB is not synchronized (It means same string builder objects shared across 2 threads then 1 thread can modify the content of a object when the other is already modifying 
+  same content ,This means simultaneous modification of object)
+  
+75.What is Escape sequence ?
+=> Character preceded by "\"  ,It helps to use special character in strings & character literals
+For eg:
+ \" ~ double quotes
+ \' ~ Single quotes 
+ \n ~ new line
+ \t ~tab
+ \\ ~ backslash
+ 
+76.What is static methods ?
+=> They belongs to class and serve as utility methods that is helper methods,They dont deal with object state and cannot access instance variable or instance methods.
+  -Keyword static in declaration 
+  -main method is static 
+  -class level method 
+  -can access static variables 
+  -Can access static methods 
+  You can invoke static method just by calling classname.methodname() for eg: Math class
+  -Save heap space 
+
+78.What is static variables ?
+=> -Keyword static in declaration 
+   - Direclty within a class 
+   -Gets default value 
+   -You can invoke static variables just by calling classname.methodname() for eg: Math class
+   -These variable are truely global 
+ 
+79.What is instance method and variable?
+=> For eg:
+   class{
+    int instanceVariable;
+	static int static variable; 
+   } 
+   
+   instance method can access static variable and methods too where static method can only use static variable and methods
+   
+ 80.What is final variable?
+=> It means value is constant,It does not get a default value and can be used with instance,static and local variable  
+
+81.What is constant variables ?
+=> variable is verified at runtime not in compile time,Constant variable is final variables,It is decleared as final
+  - datatype should be primitive or string (if any other datatype constant should not be consider )
+  - initialize in declaretion statement 
+  - initialized with compile-time constant expression 
+  
+82.What is Boxed primitives ?
+ => It is a part of java.lang package,It is simply a class,it also also refer as wrapper class  
+ int ~ Integer 
+ long ~ long 
+ byte ~ Byte 
+ short ~ Short 
+ float ~ Float 
+ double ~ Double
+ boolean ~ Boolean 
+ char ~ character  
+ 
+83.Where do you use of Boxed Primitives?
+=> They are useful converting string to primitives.Below is the example how to convert string into a int,Box primitive wraps primitive 
+  int i = Integer.parseInt("25");
+  -Useful public static fields 
+  like MAX_VALUE,MIN_VALUE
+  - Several other utility methods 
+   Character: isLetter,isDigit,IsLetterOrDigit,isLowerCase,isUpperCase,isWhiteSpace
+   #Integer.toBinaryString(int)
+   #Double.isNsN(double) 
+  - Populating data structure -can't add primitive 
+
+84.What are the common method ?
+ Unwrap eg:
+  int i =(new Integer(25)).intValue; 
+ Parsing string :
+ To Primitive => int i = Integer.parseInt("25");
+ To Boxed => Integer i = Integer.valueOf("25");//Simple factory  
+ 
+ converting into a string:
+ String s = Integer.toString(25);
+ 
+ Wrap:
+ Integer.valueOf(int)~ better performance
+
+85.What is Autoboxing?
+=> It is a feature of compiler Automatically boxes a primitive.No autoboxing for arrays  
+  For eg: Integer boxed =25;
+          Integer boxed = new Integer(25);--> This will done by a compiler automatically
+	There is also called a auto-unboxing 
+	 int j = boxed;
+	 int j = boxed.intValue();--> This is done by a compiler automatically
+	 
+	 For eg : 
+	  ArrayList list = new ArrayList();
+	  list.add(25);--> it means compiler does autoboxing for list.add(new Integer(25));
+	  
+	 Autoboxing:
+     void go(Integer boxed){}
+	  go(25)
+	 	 
+	 
+	 Auto-Unboxing :
+	  void go(int i){}
+	  go(new Integer(25));
+	  
+86.Why do you use primitive ?
+=> They are time and space efficient so they are faster and also simpler 
+
+87.What is naming convention and how do you implement?
+=> Coding convention include several aspect of programming,Naming classes variables is one of them, How to design a classes and methods are also part of coding convention.
+   Naming convention: it has 2 aspect 
+    a) One is typographical : for eg: what to use upper or lower case 
+	 Typographical - packages 
+	 -lowerCase alphabetic character,rarely digits
+	 -Generally short 
+	 - Meaningful abbereation like utility for utils 
+	 -Acronym are fine 
+	 -Never start with java and javafx 
+	 
+	 Typographical - Classes
+	 -Capitalize first letter of each word eg: BufferWriter and also apply to interfaces 
+	 For Methods and Variables 
+	 - camel case 
+	 For all static final Variables 
+	 -ALL Caps for eg: COPY_THESHOLD =10;
+	 
+	 Typographical - Abbreviations 
+	 * For Class,Methods and Fields 
+	  -Avoid abbreviations except commenly used like min/max
+	  -Acronyms are fine 
+	  *For local variables 
+	  - Abberation & Acronym are fine 
+	  -Meaningful individual character are fine 
+	  -x,y,z for co-ordinates
+	  - i for index       
+	 		 
+	b) grammatical : Classes 
+	  -Singular noun or noun phares 
+	   eg: User,BufferedWriter 
+	    -Simple and descripitive 
+	Grammatical -Methods
+	-verb or verb phrase
+	-eg: append or calculateDistance 
+	-Use descriptive names
+	-Dont hesitate to use longer names 
+	
+	Boolean return types :
+	like idDigit,IsEmpty,IsActive & setActive
+	
+	Special Methods 
+	
+	Object type conversion 
+	eg : toString,toArray
+	
+88.coding convention Structuring programs :
+- variables ~ static followed by instance means static variable are define 1st 
+-Static initializer 
+-Static nested classes
+-static methods 
+-instance initializer
+-Constructor 
+-Instance nested classes 
+-methods 
+
+89.Class Size 
+-Single responsibility Principle 
+-Helps create better abstraction 
+-helps in having fewer lines of code 
+- less than 2000 lines 
+
+90.Methods 
+- small and focused 
+-methods should hardly ever be 20 lines long 
+-should do only one thing 
+-refactor long methods 
+-software reuse 
+-clean and redable code 
+-Group methods with similar functionality 
+
+91.Local variable 
+-Declare where first used
+	
+92.What is Inheritance ?
+=> For eg we have a different types of users in application like users,EmailAdmins,Editors,CheifEditor.they all have a different kind of access but all of the users have 
+   some common access that is used by every users for that from the help of inheritance we can use those common access method in all across the class.It is a fundamental 
+   features of OOP
+   
+93.What is subclasses ?
+ => Specialized version of super class 
+  -inherit members 
+  -Add new members 
+  -override superclass methods 
+Superclass -> also refers to base class or supertype 
+Subclass -> also refer tosubtype or derived class 
+
+94.What is ArrayList?
+=>
+
+96.What is iterable?
+=> iterable is a interface,it is in a l=java.lang package.Collection interface extends iterable interface and collection implementation like arraylist extends iterable methods.
+   iterator extends iterable and it has a 1 abstract method and 2 default methods.It iterator a elements and also it will let you remove element during iterating
+   Iterator<Integer> iter=secondlist.iterator(); 
+   while(iter.hasNext()){ --> this will return either its true or false
+    int element=iter.next();-->Assigning value into interger  
+      System.out.println(element);
+      if(element ==100){
+				iter.remove();
+				System.out.println(secondlist);	  
+				
+97.What is singly linked list?
+=>	First node is called as Head and it is pointing to another node
+
+98.When do you use linkedlist ?
+=> If you have frequent add/remove during iteration and it is also better for removeAll() & retainAll()
+   methods are :
+   -get()
+   -add()
+   -remove()
+   -indexOf()
+   -lastIndexOf()
+   doubly -linked list implementation of list & Deque interface
+   it also allows duplicate and null values 
+   
+99.What is Queue and deque interface?
+=> It is useful when we are manupulating head and tail,
+   tail ~ add (a new element in a queue)
+   head ~ remove/retrieve
+   -it can contains duplicates 
+    To add->add(),offer()
+	remove -> remove(),poll()
+	ispect -> element(),peek()
+
+100.What is Deque ?
+=>It a double ended queue, it is a sub interface of queue,element can be added or removed both end of the queue.
+  its a FIFO and LIFO (First in first out)
+  Methods tail:
+  add()/offer();
+  addLast()/offerLast();
+  removeLast/pollLast
+  getLast/peekLast
+  
+  Methods head:
+  remove/poll;
+  element/peek;
+  removeFirst/pollFirst
+  getFirst/peekFirst
+  addFirst(e)/offerFirst(e)
+   
+100.What is ArrayDeque?
+=> a resizeable array implementation of a Deque interface
+   ~ added in java 6
+   ~ models booth FIFO anf LIFO  
+   ~Nulls are prohibited
+   ~ Does not implement List, It is a pure queue implementation 
+   ~ it is recommended to use ArrayDeque rather (it is faster than linkedLIst,node allocation overhead + GC cost)
+   
+101.what is hashtable?
+=> This is widely used table and also hashset and hashtmap are based on hashtable.This is very good on searching elements. This store as key and value and it 
+    aslo refer to Dictionary.We can insert<key,value> , search by key and remove by key . Hashtable is really fast ,It cannot contain duplicate key however 
+    it can contain duplicate values 	
+   
+102.What is Generics?
+=>Polymorphism promotes generalization,it is very similar as a object as a type like: private Object a;	but the advantage of compile time type safety.It was introduce to reduce 
+  run time error in java 5.Generic types gives the client code the flexibility to instanciate with any type of arguments 
+ for eg: 
+   class Store<T>{
+    private T a;
+   }
+  -generics can be associated with only methods  
+  
+102.What is the basics of generics?
+=>Generic type : is simply a class or interface with type parameters 
+  for eg: class ClassName<T1,T2,T3> 
+
+  class store<T>{
+    private T a;
+  }  
+	public T get(){
+	 return a;
+	 }
+	public void set(T a){
+	return this.a=a;
+	} 
+	
+103.What is generic type & parameter type?
+=> class Store<T>{} --> <T>=> formal type parameter 
+ 	Example of type parameter 
+	Store<String> stringStore = new Store<String>();
+	Store<Date> dateStore = new Store<Date>();
+	Store<List<Date>> datelistStore = new Store <List<Date>>(); 
+	
+104.What are naming convention for type parameters?
+=> Using single,Uppercase letter 
+  
+   E -> Element(Collection)
+   K ->Key, V- Value 
+   N -> number
+   T- Type(Usually in non-collection)
+   S,U,V - 2nd,3rd,4th types 
+
+105.What are the restriction of Primitive?
+=>Type argument cannot be primitives
+   Store<int> intStore= new Store<int>();   
+  Type argument cannot be used in static context,Static methods and static initializer
+   public class Device<T>{
+    private static T device type;// not allowed 
+	}
+	
+106.What is Bounded Type parameter?
+=>Sometime we want to restrict client to what type of parameters they can use, in generics you can any type parameters for this we can use Boundry Type parameters
+  which is type parameter with 1 or more bounds	for eg 
+  class BoundryTypeDemo<T extends List>{}
+  
+107.What is raw type ?
+=> it is also a generic type but without <T> arguments.If you use this compile time type safety is lost that lead to classCastException
+  List list = new Arraylist();
+  
+108.What is the problem with Raw type ?
+=>We would have a same behavior before generics is introduced.There is compile time type safety is lost. we ran into a run time exception due to type safety 
+
+109.Why is Raw type supported?
+=> This is because interoperability with legacy code.It is introduced after java came into the existence, a lot of code has been written, and lot of method is using collection
+   type as a method parameter, they all have to work with the new code so they had to support new codes.There are only 2 instances that you use raw type, 1st raw type has to use 
+   with class literal 
+  for eg List.class // it will return corrosponding class object  
+  List<String>.class// compilation error   
+  2nd instance 
+    if(Object instanceOf set){}
+	if(Object instanceOf set<String>){} //Compilation error 
+	
+110.What is unbounded wildcards?
+=> void go(Store<?> someStrore){}	
+   ? => it means Store of some type, it doesnt know or doesnt care where you store Integer or String or whatever.This is unbouned wildcard
+   Wildcard only can can be used as a type argument, it cannot be used as type parameter 
+    for eg: 
+	class Test<?,?>{
+	 private ? a; // "?" refers to 1st or 2nd parameter , it can be ambiguous what parameter to use 
+	}
+	Commonly it is used as a method parameters 
+	for eg: 
+	 void go(Store<?> Somestore){}
+	 
+111.Why cannot use Object instead of wildcards?
+=> If we use Object as a type parameter.The limitation of object is you can only assign instance of object which have a type of instance as a type argument.This is due to 
+   property called invariance.If there is store of string you can only assign store of string 
+   For Eg: 
+   Store<Object> someObject = new Store<Object>();
+   But if you have a wildcard you can use any type parameter
+   
+   Store<?>someStore = new Store<Integer>();
+   Strore<?>someStore = new Store<String>();
+   
+112.What is inveriance?
+=>It is responsible for ensuring compile time type safety.you know that promise of generics is type safety in compile time and inveriance is a property that also helps with this  
+
+113.What is generic class used for?
+=> It is used for container types of classes, All the collection classes we find is generified,Generics helps us to write a safe code due to compile time type safety,class level 
+   parameters cannot be used in a method parameter  
+
+114.How do use use Generic methods ?
+=>methods and constructors can have own type parameters 
+ for eg :
+  -public static <T1,T2,..> abcmethod(T1 p1,T2 p2,...){...}
+  -<T> T[] toArray(T[]a);
+  -static <T> boolean replaceAll(List<T> list,T oldval,T newval){...}
+  
+  -Class genericsDemo<T>{
+    <T> void go(T Object){....} -This is very confusing when you use same type parameters 
+  }
+  
+  -Class genericsDemo<E>{
+   <T> void go(T obj1,E obj2){....}  
+  }
+  <T extends List & serializable> void go(T object){...}
+  
+115.how do you invoke generics methods ?
+=> Just like regular non generics methods only defference is specifying type of generics whch we are written.
+   for eg:
+    <T> T go(T Object){
+	return object;
+	}
+  if this is how method is defined while invoking method we can pass any parameters 
+   for eg 
+    Double a = go(10.2)--> type argument is Double;
+	String s = go("Java")--> Type argument is String 
+	<> diamond notation is only works from java 7 onwards 
+	
+116.How do you specify Explict type argument specification?
+=> It has to be after a "." operator within "< >" brackets 
+   for eg:
+    Class genericsDemo{
+	 <T> void go(T object){...}
+	}   
+	
+	GenericDemo gd= new GenericDemo();
+	gd.<Double>go(10.2);
+	
+	if thats a static method simply you can use classname and reference variable 
+	for eg:
+	GenericDemo.<String>go("java");
+
+117. What is bounded wildcards ?
+=>It will basically bound a data value unlike generics you can put any data types 
+For eg:
+    static void display(List<? extends Number>list){
+	 for(Number element : list){
+	  syso(element)
+	 }
+	}
+    <? extends Number> => this is bounded wild cards It bounds the Number, if string is passed it will give you a compilation error 
+	
+	another example 
+	public static <E> void aggregateWithConsumer(List<? extends E>l1,List<? extends E>l2,List<? super E>l3){
+		l3.addAll(l1);
+		l3.addAll(l2);
+		
+		this method will add both L1,L2 and put it into L3
+		
+118.Which method should we prefer wildcard or Generic method ?
+=>	Use Generic method :
+       If dependencies exists among types of 1 or more method parameterss and/or return type
+       for eg: 
+         <T>boolean replaceAll()List<T>list,T oldval,T newVal)	
+         <T>List<T>nCopies(int n,T o)
+       otherwise,use only wild card(non-generic method):
+        void display(List<? extends Bookmark> list)	
+       boolean disjoint(Collection<?>c1,Collection<?>  C2)
+
+119.What are generics restriction?
+ - Type argument cannot be primitive
+    for eg: Store<int> intstore= new Store<int>();
+ - Type parameters cannot be used in static context
+ - cannot overlaod methods that have same signature after type erasure 
+   for eg: 
+     void print(Set<String> set){..}
+	 void print(Set<Integer>set) {...}
+ -Generics and Arrays did not mix well	
+  for eg: new Arraylist<String>[1]//did not compile
+          new E[1] // does not compile
+ 
+120. Summary Generics?
+  a) Main benefits : Compile time type safety.Before generics is designed, dev used to use Object as a datatype so they can use with any data, but if somebody sets a method 
+    as sql Date and it will give a compilation runtime error. For this generics is introduced which give type safety at compile time,cleaner code,expressive code and generics 
+  b) Dont use raw types in new code
+  c)Unbounded wildcard : void go(List<?>list){..} used as a type argument
+  d)why dont you just use Object<Object> instead of store<?>
+  - limitation of using Object is you can only assign an instance that also have Object as a type argument
+     Store<Object> somestore = new Store<Object>();
+	 
+	 but with wildcard we can assign any type 
+	 Store<?> store1= new Store<Integer>();
+	 Store<?> store1= new Store<String>();
+  e)Cannot invoke methods that use class-level type parameters with any arguments except null 	
+  f)Can invoke methods that use class-level type parameters only if argument is of lower-bounded type or one of its subtypes 
+  g)Use bounded wildcard to increase API flexibility
+   for eg: use parameterized type produces data -> <? extends bound>
+           use Parameterized type consume data -> <? super bound>
+		   use parameterized type produces data & dont know or care about type argument -> <?>
+		   use parameterized type produces data -> <? extends bound>
+           use Parameterized type consume data -> exact match <String>
+		   
+121.why do we need nested classes?
+=>	Nested class serves cleaner design and its serves its enclosing class
+    - class pollution ~ only one class needs it
+   - Functionally kept closer to original class 
+   - Better design 
+  eg: 
+     
+class outer{
+
+class inner(){
+ ...
+}
+
+}
+
+122.How many types of nested classes ?
+- Inner classes 
+  - Non static member classes 
+  - Anonymous classes 
+  - Local classes 
+-Static member classes 
+ The main difference between static and inner class is that Static member classes can never access instance member of a class unlike inner class can access instance member of a 
+ enclosing class.In nested class Mutual accessibility of members including private it means nested class can access any member of a outer class similarly inner class also 
+ access properties.
+ 
+123.What is Nonstatic member classes?
+=> Nonstatic member classes is used when inner class object needs to access to enclosing object
+   -Enclosing object created first 
+   -Maintain hidden reference to enclosing object
+      -building it takes time & space
+   - Enclosing object not garbage collected if inner is alive 
+   -cannot have static members 
+ Access :
+  Outer access of inner 
+     innerObject.innerMethod();  
+   Inner's access of outer 
+     -go()//Inner go() if exists else outer's
+	  this.go();//you can use this in inner classes 
+	  
+124.What is Anonymous class?
+=>	It is a nameless class,Annonyms class are good for defining function objects while non static member is good for defining adapters classes 
+   -Anonymous classes should be short ~  10 lines or fewer 
+   -can have enclosing instance iff it occurs in a non -static method
+   -Cannot have named constructor 
+   
+ 125.What is local classes?
+ => Classes that is declared within a methods,They are just like local variables.Since they are part of the method it can only be instantiated inside method, can have 
+    multiple constructor,subtypes,short for readability, Local variables from enclosing method ~final.Local classes are rarely used 
+
+126.What is Enums?
+=> It is similar like a Constant but in constant variable there is so many issues like type safety Brittle, no name space protection, Not easy to print constant names, cannot 
+   iterate over constant of a group.Instead of having one class ,we can store this into 2 separate class with that we can have nicer variable name
+   for eg:
+   public class genre{
+    public static final int MOVIE_GENRE_HORROR =0; // no Type safety 
+	public static final int MOVIE_GENRE_DRAMA=1;
+   }   
+  enum is fixed set of class and enum constant is a full - blown object means it is a instances of a class
+  - constants ~ static & final
+  - Same naming convention as constants
+  - elements, members or enumerators of type  
+  use enums instead of int constants 
+
+127.what are state and behavior of enum?
+=> - can have instance variable 
+   - can have methods 
+   - can have constructors with private access   
+	  - cannot have public or protected modifier 
+	  - No access modifier -> it is private(not default)
+ 
+    for eg:
+	 enum BookGenre{
+	 BIOGRAPHY(12),
+	 HORROR(15);
+	 
+	 private BookGenre(int minAgeToRead){
+	  this.minAgeToRead= minAgeToRead;
+	 }
+	 
+	 private int minAgeToRead;
+	 public int getMinAgeToRead(){
+	   return minAgeToRead;
+	 }
+	 
+	 
+128.What is nested enums?
+=> enums can also be nested within a class or interface, If  a enum is generally  useful you can make it a top level one, if it make sense to make some part or interface then it 
+   can be nested. 
+	 
+ for eg:
+  public class book{
+    enum BookGenre{
+	 BIOGRAPHY(12),
+	 HORROR(15);
+	 
+	 private BookGenre(int minAgeToRead){
+	  this.minAgeToRead= minAgeToRead;
+	 }
+	 
+	 private int minAgeToRead;
+	 public int getMinAgeToRead(){
+	   return minAgeToRead;
+	 }
+	 }
+	 enum nested class are implicitly static so it means it does not have a access to instance members
+     enum can be nested within other enums 
+	 Static member can also have nested enums 
+	 impossible to define enums in inner class 
+	 
+129.What is Exception?
+=>	As  a professional programmers we want our code as error free as possible but despite at runtime we might face some runtime errors and normally those are exception rather than 
+   null. It could happen in exceptional situation like :
+   - Partner server is down 
+   - database is down 
+   This things are not in our control, But good programmers should think about those exception and write a code for eg: connect to another server once this sever is inaccessible.
+   This leads to robust software otherwise the code could be very fragile.This is refer as exceptions.Exception is basically a language feature when exception happen we should be
+   able to handle them.Exception is an object and throwable is java.lang package 
+   for eg : Object of class java.lang.Throwable   
+   
+130. how many exception can be handle by throw clause?
+ - Multiple exception 
+ for eg:
+   try{send()}catch(IOException e){...}catch(FilenotFoundException e){...}
+ - exception can be referenced polymorphically , For eg IOException is a parent class of FilenotFoundException instead of using both exception we can just use IOException.
+   Also Exception is a parent class of all you can use Exception as well as Throwable 
+ 
+131.What is checked exception ?
+=> it is caused by exceptional situation which is not under our control for eg partner server been down or DB is unavailabe.If you throw checked exception compiler gurantee 
+   2 things 1st you must announce throw exception by specifying in throws clause 2nd invoking code must acknowledge by wrapping calling code in a try catch block.
+   
+132.What is unchecked exception ?
+=> It happens due to programming flaws or system errors or internal memory errors.If they are caused by programming flaws then it is called runtime exception  but it is caused 
+   by system error then they are just refers to errors.Since runtime exception programming error you can minimize at development & testing.Error are JVM related in abnormal condition
+   which caused rarely and program terminates.In summary we can say that unchecked Exception is not checked by a compiler.We dont catch unchecked exception because it is due to 
+   programming flaws.
+   
+132.What is finally block?
+=> if you code for finally it will execute once. For eg you write a code to output a file into Excel, After you perform then you need to close those file ,if you code at the 
+   end of the try block and for instance something happen between the code then JVM will look for matching exception , also if you put in catch block if there is no problem in 
+   the code it will not invoke.Thats why we use finally because it will invoke once.  
+   -Must follow any catch blocks
+   -try must have at least one catch or a finally    
+   
+133.What is try with resources ?
+=>  resources are created within the parenthesis that follows the try keyword ,so the declearation also done in parenthesis and it will not wotk if declaration done outside of the 
+    parenthesis and intitialization is done within parenthesis. in the old syntax declearation is done outside the try block 
+	for eg:
+	try(FileInputStream in = new FileInputStream(filename)){ --> you can also instanciate If you initialization in try parameters that is final,
+	 //Read data 
+	}catch(FilenotFoundException e){
+	
+	}catch(IOException e)
+	
+	Both FileInputStream and output stream use Autocloseable class so if you implement this class you dont need to use catch and finally 
+	
+134.What is BufferedInputStream and BufferedOutputStream ?
+ =>	BufferedInputStream is used to reading and BufferedOutputStream is used to Writing 
+ 
+135.What is java input and output ?
+=> it any software its ver common to read some data into the source and write data from the source it could be in some remote machine or some FTP folder.It is a specialized 
+   component which read and write into the system.We can use java.io and java.nio(since Java 4) package to handle I/O .Java.io is most commly used.Stream IO is divided into 2 parts 
+   Byte stream and Character stream Byte stream are used for handling binary data such as images and Character Stream is used to character. 
+   Within binary data we can handle images in a efficient ways
+   
+136.What is character Encoding?
+=> Before we learn programming and application is used to deal with the text.
+   Files ~ binary & text 
+   Fundamentally, all files are binary
+   Look alike to hardware 
+   Software makes a distinction 
+    -Text files ~ text processing s/w , e.g notepad,eclipse 
+	-Images ~ image processing s/w, eg window photo viewer 
+	
+138.Explain character set?
+=> ASCII : 7-bit codes for unaccented English characters
+           41H to 5AH ~ 'A'	to 'Z'
+   ISO/IEC 8859: Standard 8-bit ASCII extentions 
+   DBCS(Double Byte Character sets:)Asian characters 
+Resulted in decoding issue 
+         for Eg R`esum`e -> Resume  (For eg: the hexdecimal code is different in for every different langauage and when we have a internet it make it worse )  
+	for that Unicode comes into the play which aims to cover all languages in the world 
+	
+139.What is Unicode?
+-Maintain by Unicode Consortium
+- Backward compatible with 7-bit ASCII	
+-Initial Assumption 
+   - 16 bits for 65536 char would suffice
+   -Basic Multilingual plane(BMP)
+   - UCS-2
+-But there were more characters 
+  -UCS-4,UTF-16,UTF-8,UTF-32
+ it covers 120K character & 129 script 
+ 
+140.What is stream io?
+=> Reading and writing handles by streams
+  for eg: Java program -->Stream-->Source/Sink  
+  there are 3 operation in stream  io
+  1.Open stream
+  2.Read/Write
+  3.Close Stream 
+ 
+141.Explain stream classification ?
+=> streams are of 2 types 
+  a) Byte streams
+  1. InputStream 
+  2. OutputStream 
+  
+  b)Character streams 
+  1. Reader 
+  2.Writer 
+  
+142.Explain byte stream ?
+=>Byte stream are used when we deal with raw bytes serially or we want to write serially
+  -Character streams are build on the top of it 
+  
+143.What is input stream ?
+-Base abstract class for all byte input streams 
+-It is used to read data in groups of 8-bit bytes 
+
+144.What is output stream?
+=>Base abstract class for all byte output stream
+  To Write data in groups of 8-bit bytes 
+  
+145.How do you read byte-oriented file (Images) ?
+=>
+  
+	
+146.What is fileInput stream and FileOutputStream?
+=> Read/Writes bytes from/to files 
+ FileOutputStream(String filename) throws FilenotFoundException--> this methods will create a new file if file did not exists, if exists it will override this files  
+ it will hit for each byte  
+ 
+147.What is Buffering?
+=>With buffering you need a block of bytes into a memory buffer then you read into a memory buffer in single file 
+ - There is 2 types of Buffering BufferedInputStream and BufferedOutputStream
+ - FilterInputStream & FileOutputStream 
+ - Buffer ~ byte array
+ - Default buffer size ~ 8192 bytes 
+ 
+148.What is Chained Streams?
+=> Java Program <-BufferedInputStream <- FileInputStream <- Database or file location 
+
+149.
+ 
+   
+	
+	

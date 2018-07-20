@@ -1,0 +1,576 @@
+What is method decleration and parts of the method declearation?
+=> method declearation sample 
+ 
+ #public final void walk(int minutes) throws exception{
+ public --> access modifier
+ final --> optional specifier
+ void --> return type
+ walk--> method name 
+ int minutes --> parameters
+ throws exception --> optional
+ 
+ 
+ }
+
+2. How many types of access modifier in java ?
+-> public : it means this method can be called in any class 
+-> private : can only be called within same class 
+-> protected : can be only called packages in the same package or subclass
+-> default or private excess: can only be called classes from the same package, default does not any keyword
+   for eg: void jump(){}//no access modifier is mention on this method 
+
+3. How many types of optional specifier in java ?
+->Static 
+->Final 
+->Abstract 
+->Synchronized
+-> Native
+
+4. What is method return type?
+=> method return type is a type of value that method return.If method is void then it does not return value.For the method return type we have to 
+   have a return keyword.If you dont specify return type the code will not compile.
+    for eg:
+public string jump3(){return ""}// it is returning empty string 
+	
+5.What are parameters and how do you write methods with parameters ?
+->method parameters are the variables that are in the definition of the method they specify type and value that method can accept.Arguments are actual 
+  value that is passed into the method. 	
+
+6.What is variable argument?
+=> It is not allowed to have more than 1 var args parameters in the method. I you specify var args into a method you can put array parameters 
+    public void jump1(int... number){}
+    public void jump2(int start,int...number){}
+    public  void jum5(int[] start,int[] numbers){}
+    //public void jum3(int... number,int start){} varargs parameters must be last
+   // public void jump4(int...start,int... last){} only needs to have varargs
+   
+7. Access modier chart with access modifier 
+   Modifier    Class   package   subclass    world 
+---------------------------------------------------
+ Public        yes		yes			yes		  yes 
+ protected 	   yes		yes			yes		  no
+ No Modifier   yes      yes         No		  No
+ Private       yes      No 			No 		  No 
+ 
+
+8.What is static and how to create static method and field ?
+=> to call a static method we dont need to call instance of a class. If any method is declare as static we dont need to create instance of the class to 
+   static method . we can just directly call the method.If static method you are trying to use instance method or variable that is not legal and it 
+   will not compile.Instance method can use static method or call instance variable and that is legal.Static Method they have 2 main purpose they use 
+   for utility or helper method that dont reqiure any object state since there is no need to access instance variable, static method eliminating the need 
+   of instance object, you can call directly.For eg you have a static method in class A and you can call that method into class B 
+   you dont have to create instance variable just call class name A.Staticmethod    
+   Type               Using                            Legal     Example                      Explanation 
+   ---------------------------------------------------------------------------------------------------------------
+   Static method      Another static method or var      yes      Arrays.asList(1,2)           Using class name
+   ----------------------------------------------------------------------------------------------------------------
+   Static Method      Instance method 					No
+   ---------------------------------------------------------------------------------------------------------------------------------------
+   Instance Method    A Static method or variable       yes       public void myMethod(){         Using class name or reference variable
+                                                                  int[] array= Arrays.asList(1,2)
+																   }
+	----------------------------------------------------------------------------------------------------------------------------------------
+   Instance Method   Another instance or variable       Yes 		List<String> list = new arrayList<>(); Using reference variable
+																	list.add("dog")
+   
+9.How to use final variables ?
+=>In programming some variables change during execution for eg: counter while some other variables was never meant to change during programme execurion,those 
+  variable are know as constant.Constant variables name use all upper case letter  and underscore between those.Once the variable is final that can't be change 
+  We can use constant in expression but we cannot change that in size.
+  for eg:
+    Private static final int =10;
+	if you want to crate a array 
+	int[] myarray=new int[SIZE]
+	
+10.What is static initialization and how to use ?
+=> static initialization is use when the class is run.If the final variable is not initilized it can only be initilized in static initialization.	
+  for eg private static int SiZE;
+       
+	   static{
+	   int row = 1;
+	   int column = 3;
+	   SIZE = row * column;
+	   }
+11.what is method overloading ?
+=> Java will try to find exact match with type or method that is declared as jump with 2 int parameters, If that method does not exists then int will be promoted to 
+   larger primitive type, in the below case it is long, if that doesnt exists it will jump to method outbox type, if that method doesnt exists java will try to find
+   Varargs and it will call that method.If non of the method exists then the code will not compile. In simple words if you have a same method name with a different
+   type  parameters.For eg: Arrays.toString(),Arrays.binerySearch().
+  Rules:
+  ----------------------------------------------------------------------------
+   Rule                           Example what will be called for jump(1,2)
+-----------------------------------------------------------------------------
+ Exact match by type				public void jump(int a,int b){}
+ Larger primitive type  			public void jump(long a,long b){}
+ Autoboxed type 					public void jump(Integer a,Integer B){}
+ Varargs						    public void jump(int...number){} 
+
+12.What is constructors ?
+=> It just a special method that has a same name as class and does not have return type. Constructor are mostly used to initialize instance variable.
+ class Dog{
+    private String color;
+
+    public Dog(String color){
+        System.out.println("Constructor");
+        this.color = color;//this refers to class variable
+    }
+    public void printColor(){
+        System.out.println("color ="+ this.color);
+    }
+
+
+   // public void Dog(){}//This is not constructor it has a return type
+}
+ class cat{
+    private String color;
+    private int length;
+    private int height;
+
+    public cat(int length,int theheight){
+     //length= this.length;
+        this.length=length;
+        height=theheight;
+        color = "white";
+    }
+
+    public void printinfo(){
+        System.out.println("Length="+length+" height="+height+" color="+color);
+    }
+
+ }
+public class ClassConstructor {
+    public static void main(String[] args) {
+        Dog dog= new Dog("grey");
+        dog.printColor();
+        cat Cat = new cat(10,12);
+        Cat.printinfo();
+
+
+    }
+}
+
+13.What is instance variable?
+=>  Variables which are defined without the STATIC keyword  and are Outside any method declaration are Object specific and are known as instance variables.
+ They are called so because their values are instance specific and are not shared among instances. 
+ 
+14.What is default constructor and how it is generated ?
+=> If there is no constructor java will automatically create default constructor without any parameters if there is no any constructor.
+
+15.What is constructor overloading ?
+=> Every class have more than 1 constructor if there is no constructor defined then java will create a default constructor. constructor overloading is similar
+   like a method overloading.With constructor the name needs to be same as classname, constructor must have a different parameters in order to overload. we can 
+   say that every constructor which have a multiple constructor is overloaded constructor    
+   
+ 16. What is the difference between this reference and this() method?
+=> this reference always points to object of a instance, any object can use this reference.this reference only be used when code executing within a method block.
+   needs to differenciate in instance variable,Local variable or method parameters.this can also be used to access inheritance member of a base class.Its is mostly used
+   in constructor and methods where you are setting the variable. 
+--> this() method is used to call another constructor and it cannot be used on methods   
+    for eg: this() method is calling second constructor 
+    public ThisVSthis(){
+      this("Megh","Thapa");
+    }
+    public ThisVSthis(String firstname,String lastname){
+        this.firstname = firstname;
+        //String lastname= "lastname";
+        this.lastname = lastname;
+    }	
+17.What is order initialization,what are the rules and instance initialization?
+=>	Instance initializer used a code block similar to static, Initilizer just without the code static, it is called before constructor, it is not a good practice ,looks 
+    confusing,it does a same thing as constructor  
+   Rules:
+   -If there is superclass initialize first
+   -Static variable decleration and inheritance initializers in order they appear in the file 
+   -Instance variable decleration and instance initializers in order to appear in the file 
+   -The constructors
+   
+   eg: class example{
+    private String name="dog";
+    {
+        System.out.println(name);
+    }
+    private static int COUNT =0;
+
+    static {
+        System.out.println(COUNT);
+    }
+    {
+        COUNT +=10;
+        System.out.println(COUNT);
+    }
+    public example(){
+        System.out.println("Constructor");
+    }
+
+}
+public class Initialization {
+
+
+    public static void main(String[] args) {
+        example example = new example();
+
+        // ways of call 1st static method 2nd instance initializer , constructor
+   
+ 18.What is data encapsulation,How to encapsulate data and getter and setters ?
+ => The whole idea of Data Encapsulation is to hide implementation from users. If data member is private, it means it can only be access within the same class.
+    So neither class cant access private data member or variable of other class. it is also known as data hide by making a private variable.getter and setter are
+	just name which is used to get or set of private variable.hiding data outside the world
+	public void setName(String name){
+        if(name ==null){
+            System.out.println("Name cannot be null");
+        }else {
+            this.name = name;
+        }
+    }
+    public String getName(){
+        return name;
+ 
+ 19.What is immutable class and how to create class ?
+=> If you make a class immutable they cant be changed at all, Immutable classes is always helpful because thay can always be the same, this helps make your code 
+   easier to maintain ,It also helps performance by limiting number of copies.In immutable class variable and method is final we can set that in constructor.In 
+   immutable class we dont setter only getter, 
+   For eg:
+   public class Complex{
+    private final double real;
+    private final double imaginary;
+
+   public Complex(double real,double imaginary){
+       this.real = real;
+       this.imaginary = imaginary;
+   }
+   public double getReal(){
+       return real;
+   }
+   public double getImaginary(){
+       return imaginary;
+   }
+
+   public Complex plus (Complex b){
+       double newreal = real +b.real;
+       double imagenary = imaginary + b.imaginary;
+       return new Complex(newreal,imagenary);
+   }
+   public Complex minus(Complex othercomplex){
+       double newminus = real - othercomplex.real;
+       double newImaginary = imaginary - othercomplex.imaginary;
+       return new Complex(newminus,newImaginary);
+   }
+   public Complex multiply(Complex multiple){
+       double newmultiple = real * multiple.real-imaginary * multiple.imaginary;
+       double newmultiple1 = imaginary * multiple.imaginary;
+       return new Complex(newmultiple,newmultiple1);
+
+   }
+} 
+20.What is  inheritance how to extend class and class heirarchy?
+=> In jave all classes inherit from single class which is java lang object. This is the only class that does't have any parent object class. 
+
+21.If you instantiate a child class why it parent class called ?
+=> because you instantiate all the parent class. In java for example constructor call another constructor in the same class using this() then we are calling constructor 
+   in another constructor, there is also a way to constructor from parent class.If parent constructor has argument calling super constructor also have argument, parent
+   super constructor are just a different name for same constructor.Whenever we instantiate a class if there is a parent automatically constructor of parent is called
+   and compiler generate super call  
+		
+22.What is super() method and where do you use it?
+=> Super method are used to call parent class constructor.Whenever we instantiate a class if there is a parent automatically constructor of parent is called
+   and compiler generate super call 
+   
+ 23.What is constructor definition rule ?
+=> a.The first statement of every constructor is a call to another constructor within the same class using this(), or a parent class constructor super()
+   b.If super() cal in NOT declared in a constructor compiler will insert no argument super() as the first statement of the constructor 
+   c. The super() call cant be used after the first statement of the constructor 
+   d. If the parent class does not have no-argument constructor and the child does not define any constructors, compiler will show error and try to insert a default 
+      no-argument constructor into the child 
+   e. If the parent does not have a no-argument constructor, the compiler requires an explict call to parent constructor in each class 	  
+ 
+24.What is method overriding and how do you override?
+=> By inheriting a class you get a access to members of a class like variable and method.What if the method defined in both the parent and child,Lets say you 
+   want to change something into method from a parent class, in this scenerio you can use @override, signature of a method is going to same but logic is different.
+   If you wnat to use same method as parent class in child class and change the method intent using @override method.if you want to use same method we can use 
+   super.method name
+
+25.What is the difference between super keyword and super() method ?
+=> Super() call is a statement that calls a parent constructor and it can only use in the first line of constructor. Super keyword is used to reference member defined
+  in parent class  
+  
+26. What is the difference between overloading and overriding?
+=> overloading and overriding is similar they both are involved in redefining the method using the same name, they are also different overloading methods using 
+   different parameters unlike overriding used same signature and parameters.This means that overloaded method and more freedom in syntax since we can change parameters
+   type.Private and final method cannot be overridden.
+ 
+27.What is Abstract class?
+=> The main point is object oriented programming but also we can have common behavior or functionality that you can program everything except the part of that we 
+  changes in each subclass.So we need that functionality you can just extend class and implement missing parts.
+   Abstract class rule:
+ - Abstract classes can not be instantiated directly
+ - Abstract classes can have 0 to many abstract methods 
+ - Abstract classes cannot be private and final 
+ - Abstract class that extends another abstract class inherits all of its abstract methods as its own abstract methods 
+ - The first concrete class that extends an abstract class must provide implementation for all of the inherited abstract method.
+ 
+28.What are the rules for defining abstract method?
+=> If you create a abstract method in a class, and you are extend class to non abstract class, you just need to implement method and abstract method cant have a 
+   body in the method for eg public abstract example();//Way to declare  
+   Rules:
+  - Abstract method can only be defined in abstract method 
+   - Abstract method cannot be define private or final
+   - Abstract methos must not provide a method body/implementation in the abstract class in which is declared
+   - Implementing abstract method in subclass follows the same rule for overriding a method,
+     eg: method signature must be the same and access modifier needs to be smaller or higher   
+
+29.What is interface and how do you create interface?
+=> Every interface can contain variable but that is constant,by default that public static and final. It cannot change once it is declare.Every method can have 
+   method declaration which by default it is public and abstract,method cannot be protected and final.In interface we cant have method with body.You can implement 
+   a method or variable into the class but it is not required
+   public interface canfly{
+    Int DEFAULT_HEIGHT =5;
+	void fly(int height);
+ } 	
+
+30.How do you implement interface?
+=> Classes can extent one class but you can implement multiple interface
+=> Public class Bird implements Canfly{
+  void fly(int height){
+   System.out.println("Flying to height"+ height);
+  }
+ 31.what is default interface methods?
+ =>for eg: Deafult void eatplants(){
+            System.out.println("Eating plants");   
+ }
+ Rules:
+  a)Default method can only be creating in the interfaces and not within a class or abstract class
+  b)Default method must be marked with default keywords and provide default implementation(needs to have a body)
+  c)Default method is not assumed to be static final or abstract as it may be used or overridden in classes that implements the interface 
+  d)Default method is assumed to be public and it will not compile if marked as private or protected 
+  
+ 32.What is interface static method ?
+ => Rules:
+   a) Static method in interface is assumed to be public and will not compile if marked as private/protected
+   b)To reference static method, a reference to the name of the interface must be used 
+   
+   for eg: static int getAveragejump(){
+     return 2;
+   }
+   
+   to call this method into the class first you need to implement interface the class and Hop.getAveragejump();
+   
+ 33.What is the difference between abstract class and interface and when to use?
+=> Use Abstract class when:
+ - you want to share code among several colesly related classes 
+ - You expect that class that extend you abstract class have many commom field or required access modier other than public(private,protected)
+ - you want to declare non static or non final field (name,age), this enables you to define methods that can access and modify the state object(getname,setName)
+   with abstract you can implement data Encapsulation,Other classes can do more in comparison to interface, Abstract classes can have constructors
+   they can have private,Protected methods.When you override method in a child class you call same method in super class using super keyword.In interface that 
+   is not possible.Before jave 8 it is forced to use Abstract class now we can use default keyword into the interface for convenience method.
+-> Use interface when:
+  - you expect unrelated classes would implement you interface
+  - You want to specify the behavior of a specific data type but you are not concerned about who implements its behavior
+  - when you want to seperate different behavior  
+  
+ 34.What is polymorphism ?
+ => Java support polymorphism it means object can take many different forms.Precisely java object can be accesssed using reference with the same type as object
+   or a reference of a superclass object or reference defines an interface.Object implement directly or a super class.Remember is converting one object to another,
+   casting is not required if a object is reassigned a  super type interface of a object.We used casting with the primitive.
+   -Once the object is assigned to new reference,Only the methods and variable types are callable.
+   For eg:
+         Husky husky = new Husky();This is a new instance of a class 
+		 
+		 Dog dog=husky;//another reference to Husky object in memory 
+		 dog.printdetails();
+		 
+		 HasTail hastail =husky;// another reference to interface object 
+		 
+		 CanRun canrun = husky;
+		 
+		 Animal animal = husky;
+		 
+		 // This is how object takes a several form 
+	The most important thing is we have one object type in memory of type husky,the ability of husky to be used as instance of 
+	interface or super class Dog ,canrun is the nature of polymorphism
+		 
+35.	What are virtual methods?
+=>	 Is a specific implementation is not known until runtime or until we run the code.In java if a method is not static,final or private are 
+    consider virtual methods since they can be overridden.You can call method on object that override a method, you get the overridden method 
+	even if the method is in parent reference.
+	For eg:
+	
+     Animal rabbitanimal = new Rabbit();
+	 rabbitanimal.printdetails();
+	 
+	 In this example printdetails() method belongs to superclass but it is overridden in child class it will call the overridden class method.
+	 In otherword we have a reference as a Animal class.Even we Animal class method it does not know about printdetails on Rabbit until the runtime.
+	 
+36.What are polymorphic parameter ?
+=> Let's say we have a super class animal,There are other subclasses that extends animals. if you want to use a printdetails from a sub class. everytime you 
+   need to create a intance of a class and call those parameter.With the help of polymorphic parameter we can eliminate so many different method by using polymorphic 
+    parameter.
+   For eg: Husky husky = new Husky();
+           husky.printdetails();
+      -to use this another class we need to create another instance of a class 
+	  - This is where polymorphic parameters comes into play 
+	  We can just create a method put parameters into it 
+	  
+	  For eg: 
+	  public static void printdetails(Animal animal){
+	   animal.printdetails;
+	   }
+   	  
+   Another example: If you want to create a name in one of the subclasses 
+
+   Animal rex = createAnimal(rex,4);
+
+
+  You can simply create a function 
+
+  public  static Animal createAnimal(String name,int age){
+      if(name.equal("Rex")){
+	   Animal animal = new Husky(age);
+	   animal.setName(name);
+	   return animal;
+	  }
+  }  
+
+37.How do you create date and times in java ?
+=> There is a three new class in java 8 that you can use localdate,localtime,localdatetime.All this date classes is immutable that means we can change them.
+   We need to reassign or deassign our variable to change the date.
+   System.out.println(LocalDate.now());
+        System.out.println(LocalTime.now());
+        System.out.println(LocalDateTime.now());
+
+        LocalDate localDate = LocalDate.of(2018, Month.APRIL,14);//you can set through this method 
+        LocalTime localTime = LocalTime.of(10,30);
+        LocalDateTime localDateTime = LocalDateTime.of(localDate,localTime);
+
+        System.out.println(localDate);
+        System.out.println(localTime);
+        System.out.println(localDateTime);
+
+
+        // before java 8
+        UseDateTime date = new UseDateTime();
+
+        Calendar calendar = Calendar.getInstance();
+        calendar.set(2018,calendar.APRIL,14);
+        java.util.Date april = calendar.getTime();
+        System.out.println(april);
+
+ 38.How to use date and time ?
+=> LocalDate localDate = LocalDate.of(2018, Month.APRIL,01);
+        System.out.println(localDate);
+        localDate=localDate.plusDays(5).plusMonths(1).plusYears(2);//if you dont mention localDate it will add into the current date
+        System.out.println(localDate);
+
+        LocalTime time = LocalTime.of(10,00);
+        System.out.println(time);
+        time = time.plusHours(2).plusMinutes(0);
+        System.out.println(time);
+
+        LocalDateTime localDateTime = LocalDateTime.of(2015,01,01,10,00);
+        System.out.println(localDateTime);
+        localDateTime = localDateTime.plusDays(1).plusMonths(1).plusYears(1).plusHours(2).plusMinutes(0);
+        System.out.println(localDateTime);
+  
+  39.What is Periods class in Date?
+  => LocalDate start= LocalDate.of(2018, Month.JANUARY,01);
+        LocalDate end = LocalDate.of(2018,Month.APRIL,30);
+        Period period = Period.ofWeeks(1);
+
+
+        cleanAnimalCage(start,end,period);
+        System.out.println(start.plus(period));
+        System.out.println(LocalDateTime.now().plus(period));
+        //System.out.println(LocalTime.now().plus(period));// unsupported unit day localdate doesnt have a days 
+
+        Period yearOfMonth = period.plusMonths(1).plusYears(1);
+        System.out.println(yearOfMonth);
+
+
+
+    }
+    public static void cleanAnimalCage(LocalDate start,LocalDate end,Period period){
+        while (start.isBefore(end)){
+            System.out.println("Need to clean the cage on date="+ start);
+            start = start.plus(period);
+        }
+    }
+40.How do you format date and time?
+=> We can format date and time into string,there are many methods to get data out of time.for eg: getyear(),getmonth().., we can use those information to 
+   display date and time but that will require too much work.For that java have a class called datetime formatter  that we can use any type of date and time.
+   for eg:
+   
+     LocalDate date = LocalDate.of(2010, Month.APRIL,1);
+        LocalTime time = LocalTime.of(11,00,00);
+        LocalDateTime localDateTime= LocalDateTime.of(date,time);
+
+        System.out.println(localDateTime.format(DateTimeFormatter.ISO_LOCAL_DATE));
+        System.out.println((localDateTime.format(DateTimeFormatter.ISO_LOCAL_TIME)));
+        System.out.println(localDateTime.format(DateTimeFormatter.ISO_LOCAL_DATE_TIME));
+
+        DateTimeFormatter shortFormater = DateTimeFormatter.ofLocalizedDate(FormatStyle.SHORT);
+        DateTimeFormatter MediumFormater = DateTimeFormatter.ofLocalizedDateTime(FormatStyle.MEDIUM);
+
+        System.out.println(shortFormater.format(date));
+        System.out.println(shortFormater.format(localDateTime));
+        System.out.println(MediumFormater.format(localDateTime));
+        //System.out.println(shortFormater.format(time));
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MM dd,yyyy,hh:mm");
+        System.out.println(localDateTime.format(formatter));
+
+        SimpleDateFormat sf= new SimpleDateFormat("hh:mm:ss");
+        System.out.println(sf.format(new Date()));
+		
+41. How to parse date and time?
+=> 	 DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MM dd yyyy");
+    LocalDate date = LocalDate.parse("01 01 2018",formatter);
+        LocalTime time = LocalTime.parse("10:00");	
+		
+42.what is exception ?
+=>	In programme and application there are many things that can go wrong, or programme and application fail for some reason.For eg if code is trying to connect 
+   to website there is no internet connection , in this scenerio the code will fail, if you try to access invalid array we will get array out of bound exception.
+    If method calls another method with wrong value. method itself can handle exception or you can make it callers resposibility or in order words method can throw'
+   Exception.other methods indexof() methods does not throw exception it just throw -1 if there is a issue.
+   
+43.What is checked exception and unchecked exception ?
+=> Runtime Exception is parent class if all runtime exception , it occur when you are running the code.this is not a fatal issue.This is also known as unchecked 
+   exception.Checked exception ,they include all subclasses of exception that dont extend runtime exception, checked exception is usually excepted. for eg:
+   if you try to open a file doesnt exists.In java there is a rule handle or declare checked exception,That means we need to handle them or declare them in method
+   signature 
+
+   Types of Exception table
+   Type                            Recognizing                       Ok to catch              Require to handle/declare 
+   --------------------------------------------------------------------------------------------------
+   Unchecked exception 			Subclass of Runtime exception  			yes						No
+   Checked exception 			Subclass of exception                   Yes						Yes
+                                but not subclass of Runtime exception 
+   Error 						Subclass of error 						No 						No
+  
+44.How do you handle exception ?
+=>  eg for unchecked exception  
+
+  public static void method()throws exception{
+    throw new Exception ("Failed to load ")
+	}
+	In this case this method always throws an exception 
+	but in some other case it may throws exception or not , it depends on the condition.For example if you try to read a file it may throws an exception
+	or may not throw an exception.This is a checked exception
+
+  Eg for checked exception:We dont have to handle this exception and code will compile sucessfully
+ public static void anotherMethod()throws RuntimeException{
+  throw new Runtime exception("Wrong parameters")
+ }  
+	
+45.How do you use try and catch block ?
+=> try{
+   //try block  
+   }catch(Exception_type identifier){
+    // exception handler 
+   }	
+   
+46.What is Lambdas ?
+=> Is just a block of code that paste around.Lambdas is a anonymous method or a method without name that you can use as normal variable or a pointer 
+   to a method.In some other languages they are called closures 
+   
+48.How do you create lambdas?
+=>   
+ 	
+  

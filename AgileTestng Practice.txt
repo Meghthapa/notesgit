@@ -1,0 +1,158 @@
+1. implement a java method boolean is_prime(N) 
+=> static boolean is_prime(int N){
+    for(i=0; i<1000; i++)
+    {
+        for(n=0; n<i; n++)
+            if(i%n==0) 
+                return false;
+            else 
+                return true;
+        }
+    }
+}
+2. What is XPath and what is use of it in WebDriver?
+=> X-path is used to select nodes or node-sets in an xml document.We use xpath to to find dynamic element in webdriver.
+
+3. How do you write a locator to identify paragraph elements that are the immediate child of a div element, or the descendent of a div element? 
+=> //parenttag[@attribute ='value']//tagname[@attribute='Value']
+
+4. Rate yourself on the following (1 - 10 highest) 
+a. C                   3
+b. C++ 				   5	
+c. Java                8
+d. Perl 			   0	
+e. Python 			   0
+f. HTML 			   9
+g. JavaScript          7
+h. Performance Testing 7
+i. Scalability Testing 7
+j. High availability Testing 0
+k. Mobile Test               6
+
+5. Please list the automation tools that you have used
+=> SeleniumRC, Selenium, Selenium webdriver, TestComplete ,Framework TestNG, Maven, Jenkings, Selenium grid, Cucumber, 
+
+6.What is Test Environment?
+=> It is where software application is deployed and executed,basically environment is needed to host any kind of application .
+
+4.what is 4 tier deployment environment ?
+=> a) devlopment --> accessed by devlopers 
+   b) Test --> Accessed by Testers(manual feature testing only
+    i) Regression --> Accessed by Testers(automation testing mostly)
+   c) Staging --> Accessed by internal business team and client 
+   d)Production --> accessed by end user 
+   
+5. What are the common Environment issue you face when you testing?
+=> Configuration : File is not up-to-date or wrong configuration 
+   Database: missing/failed deploy script.missing or bad data 
+   Servers : Firewall/proxy issues.Wrong software version issue 
+   Other : Environment not available 
+
+6.How does your typical day at the work look like in your last company?
+=> any project specific tasks and constant collaboration with different group of people like dev,devops,project manager in order understand gain 
+   knowledge on the requirement,Write proper test cases,In order to perform day to day testing activities.
+   
+7.What test environment do you have?
+=> Established test env QA/System testing,Regression   
+
+8.Mention few challanges or issues you face everyday?
+=>Environment issues,Unclear req's,deployment issues etc
+
+9.What is agile and how it is executed?
+=>
+  Agile model 
+  -------------    Features
+  Analysis         .Iterative and incremental
+  ----------       .Needs lot of collaboration
+  Design           .Customer constantly sees subsets of product 
+  -------
+  coding           waterfall drawback addressed:
+  -------          .Reduce risks
+  Testing          .Allows changes
+  -------
+  Release
+  --------
+  Agile is a approach for software development.It goes to the phases as like waterfall but the phases are divided into the iteration.It means 
+  the whole project is divided into separate set of features that can be developed and delivered independently.only one or two phases are worked 
+  on each iteration.Each feature or couple of feature goes into the SDLC as part of each iteration and will be released.Each iteration that can be 
+  developed and delivered to the customer independently.It iteration divided into sprints and usually between 2-4 weeks and number of iteration depends
+  on the Size of the project.It needs a lot of collaboration between dev and Qa because each iteration is a complete implementation of SDLC phases.
+   
+10.What is Agile Testing ?
+=> It means following Agile principles.
+   a) Testing isnt a seperate phase but continues: It means development happens in iterations usually in 2 week cycles,Test engineer continuesly work 
+      along with the developers or product owner.Here QA looks at the requirement,Prepare test plan and test cases gets any clarification , set Test 
+	  Environment and begins to test the application it a continue process.
+   b)Shorter cycle execution and provide faster feedback: This is challenge for the testers , If there is any requirement changes into core feature then 
+     it comes comes quickly into the testing 	 
+   c)Testing isn't just raising bugs,but preventing them: Throw continues collaboration between everybody involved tester will be more proactive rather then
+     reactive in identify bug and raise them also helping product owner to making any requirement changes and helping devloper handling any node 
+     use cases etc
+
+11.What is scrum?
+=> is a execution framework for Agile.Scrum is a popular framework which execute Agile principles and it is currently implemented in most of the 
+   company.Scrum defines certain roles,Artifacts in order to implement agile.
+  
+    Roles:
+    product owner -> Is responsible for talking to stakeholders writing the requirement into multiple user stories
+    Scrum Master -> is reponsible for all the events into the scrum and resolving any blockers team might face 
+    Team(Developer/QA)	
+	
+	Arifacts:
+	->User Stories : is a description and a feature to be developed in testing,It is the responsibility of the produt owener to create User stories.Product 
+	 owner create some requirement and create multiple user stories.Each user stories have dev and QA to work on it 
+	->Tasks: it is created under a user stories,For eg dev create 2 tasks for development and unit testing.QA Engineer can create two more tasks under 
+      same user stories one task is to create a test cases and other is to execute.So under a user stories dev and QA create multiple tasks  
+    ->Sprint backlog:Consists a pipeline of user stories order by priority and can be worked on next sprints,These are created and pritioze by 
+      product owener and agreed by the team that they will be able to work on them	
+	  
+	Events:As we know agile used iteration, In scrum this iteration is called as sprints 
+	->Sprint iteration (2 weeks usually)
+    ->Sprint planning meeting(Conducted beginning of sprint)
+   	->Daily stand up meeting 
+	->Sprint review meeting (Conducted end of the sprint)->Features worked on the current sprint demonstrated to the stakeholder in QA or staging environment
+	->Sprint retrospective meeting(Conducted end of the sprint)-> Facilitate by a scrum master and takes feedback from the team
+
+12.What is sprint as a tester standpoint?
+=>Sprint is a time box effort,QA should be proactive and reactive.Tester is accepted to finish the work in the stupilated time	
+   Estimation:
+   Check any dependency,Consider pre-requisites:test data setup,tools installation etc 
+   Requirement:
+   learn quickly and ask for clarification only, req change:re estimate and re-work test cases
+   Blockers: raise flag early on so that it can be resolved early 
+   
+13.Describe the challanges with Agile testing ?
+=>Contineous,time boxed and shorter test execution cycles,limited documentation 
+
+14.How do you handle requirement changes ?
+=>work closely with PO and estimate the work of requirement change,So in that scenerio i create generic test plan, And if there is any major changes into
+  the application with Product owner handle in the next sprint   
+
+15.What is compile time and runtime?
+=>Compile time is when .java file is build into .class file by java compiler
+  Runtime is when the .class file is executed by JVM  
+  
+16.What are local,instance and class variable?
+=> local variable: Created at the beginning of the method execution and destroyed at the end of the method execution
+   scope: Visible only in the method or block is decleared 
+
+   Instance variable/member variable: Created when an object is created and destroyed when the object is garbage collection
+  Scope: visible to all the method in the class and createed per each object class 
+
+  Static variable:created when the program starts(loaded by JVM ) and destroyed when the program quits 
+  scope: visible to all the method in the class and created per class 
+
+17.What are stack and heap?
+=>Stack and heap are 2 primary area used by JVM 
+  Stack-> Method and local variable(both primitive and reference variable) are stored into Stack
+  Heap-> Object and instance variable are stored in heap
+  
+18.What is WebDriver in selenium?
+->Webdriver is the name of key interface in selenium against which tests should be written 
+ -Webdriver implementation classes include(but not limited to)
+   firefox,chrome etc
+
+19.Why webdriver needs different driver executables from browers vendors?
+=> WebDriver makes a direct call to browser through browser native support for automation(binary executable file)
+   the executable act as a bridge/proxy between the "driver" and the "browser"   
+   

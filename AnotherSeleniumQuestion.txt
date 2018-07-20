@@ -1,0 +1,125 @@
+Selenium Questions
+Question (Locators):
+What are the most common locators to find
+WebElement?
+Answer:
+• id
+• name
+• CssSelector
+• Xpath
+Question (Locators):
+Can you show me how to find the highlighted WebElement, given this
+snippet of HTML? Please notice the id attribute will change overtime
+page reloads?
+Answer:
+• Xpath: "//div[contains(text(), 'Recipients')]"
+• CssSelector: "div[class='oL aDm']"
+• **Please note this snippet is from Gmail compose window.
+Question (Sync):
+What are the synchronization strategies in WebDriver
+Automation Test?
+Answer:
+• Implicit wait
+• Explicit wait
+• Prefer to use Explicit wait to make test suites stable
+• Please refer to here for details: http://
+www.seleniumhq.org/docs/04_webdriver_advanced.jsp
+Question (Sync):
+How to determine when can I click a WebElement?
+Answer:
+• You have to wait for the element become
+clickable. You can use ExplicitWait with predefined
+Expected Conditions, e.g.
+public final int WAIT_TIMEOUT = 30;
+WebDriverWait wait = new WebDriverWait(driver, WAIT_TIMEOUT);
+wait.until(ExpectedConditions.elementToBeClickable(By.id(“name”)));
+Question (Actions):
+How to input words into an input box, e.g.
+username?
+Answer:
+• After you find the WebElement, let’s say
+WebElement username = driver.findElement
+WebElement element = driver.findElement(By.id(“username”));
+element.clear();
+element.sendKeys(s); 
+Question (Actions):
+How to click a login button?
+Answer:
+• After you find the WebElement, let’s say:
+WebElement element = driver.findElement(By.id(“submit”));
+element.click(); 
+Question (Actions):
+How to right-click on a WebElement?
+Answer:
+• After you find the WebElement, let’s say:
+WebElement element = driver.findElement(By.id(“submit”));
+Actions action = new Actions(driver).contextClick(element);
+action.build().perform();
+Question (Switch):
+How to dismiss(or accept) an alert box and get its alert
+text?
+Answer:
+• switch to alert first and then deal with it. Example code:
+public static String tryDismissAlert(WebDriver driver) {
+ String alertText = "";
+ try {
+ Alert alert = driver.switchTo().alert();
+ alertText = alert.getText();
+ alert.dismiss();
+// or accept as below
+// alert.accept();
+ } catch (NoAlertPresentException nape) {
+ // nothing to do, because we only want to close it when pop up
+ }
+ return alertText;
+} 
+Question (Page Object):
+How to make your test framework easy to maintain and
+expansible?
+Answer:
+• Code reuse is very important for future maintenance. Model
+the software according to the business logic will help people
+understand the framework easier, hence an expansible
+framework.
+• Page Object design pattern is a good practice when
+designing and developing the Web UI Automation framework.
+• **Please refer to the course for details.
+Question (Test Framework):
+How to categorize critical tests and non-critical
+tests?
+Answer:
+• One option is JUnit Category.
+• **Please refer to course for details
+Question (Test Framework):
+How to integrate with Jenkins the CI environment?
+Answer:
+• Select a version control system, e.g. Git
+• Select a Web Host of Git, e.g. BitBucket or GitHub
+• Create a job in Jenkins and link it with BitBucket or
+GitHub
+• Configure the trigger conditions in Jenkins job
+• **Please refer to course for details
+Question (Test Framework):
+How to implement Cross-Browser testing, e.g.
+include Chrome?
+Answer:
+• Config the path to include chromedriver
+• Use other config, e.g. environment var to config
+browser type dynamically
+• **Please refer to course for details
+Question (Test Framework):
+How to generate QA Report?
+Answer:
+• There are many ways. One option is to use
+Apache SureFire. Another is use Jenkins test
+result report.
+• **Please refer to course for details
+Question (Test Framework):
+What is maven?
+Answer:
+• Maven is a Java project management tool. One
+of the great feature is to use maven to manage
+dependencies. e.g. upgrade from Selenium
+2.46.0 to 2.48.2 will be just change the pom.xml
+file.
+• **Please refer to course for details

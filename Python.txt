@@ -1,0 +1,223 @@
+How do you run python code ?
+-> You can run with IDLE(Core IDE ) or using INtellij 
+
+2.What is Python?
+=> It is object oriented interpreted language,It is much easier to learn compare to other languages. It runs on many operating system like mac, Windows,Linux.Python supports 
+   basic data types such as number and strings and also support most complex type like list dictionary it also supports multiple inheritance. It is a dynamically type language 
+   you dont have to worry about type conversion.Most of the programming is done in python 2.7 and it will continue to support till 2020   
+   
+3.How do you print in python?
+=> print('Hello Megh !')
+  print(2+3)
+  print()
+  print(2 % 11)
+  print("The End")
+  print("Python's strings are easy to use")
+  print('We can even include "quotes" in strings')
+  print("Hello"+" world")
+  greetings = "Hello"
+  name = "World"
+#This is a demo of the comment 
+  print(greetings +" "+name)
+  you can declare string with "" or '' it does not matter 
+  
+4. how do you add comment?
+=>#This is a demo of the comment  
+
+5.What is input method does?
+-> It will allow you to type in the console 
+
+6.How do you split string ?
+->splitname="This string\nwill split\n in lines"
+
+7.How do you use tab in string?
+->"1\t2\t3\t4"
+
+8.How do you type "" under a ''?
+=> print('The pet shop owner said "No,no,\'e\'s uh...he\s resting')
+print("The pet shop owner said\"No,no,'e's uh,...he's resting\"")
+
+9.How do you print string without using above function ?
+=>anotherSplitString="""This string has been
+  split over
+  several lines"""
+  print(anotherSplitString)
+  
+10.What are the rules of creating variable?
+-  Each variable name should be start with lowercase or underscore 
+- Cannot start with number 
+- Megh45,Megh_thapa_37 is a valid variable name
+  greeting ="Megh"
+  _myName="Megh"
+  my_Name="Thapa"
+  name45="12"
+  name_first_name="Samyra"
+  
+11.How many datatypes in Python?
+=>  Numeric,Sequences(String being a sequence type),Mappings,classes,Instances and exceptions
+
+12.Explain Numeric data types ?
+-> Int,long,float and complex number,In python 3 no longer int as a long as a data type
+
+13.Explain Int 
+-> a=12
+b=3
+print(a+b)
+print(a-b)
+print(a*b)
+print(a/b)#If you put "/" it will return float
+print(a//b)# "//" will return whole number
+print(a % b)
+
+14.How do you create a loop in python?
+=> for i in range(1,4)
+   print i;
+   
+15.How do you create variable and strings ?
+=> parrot="Norwegian blue"
+print(parrot)
+print(parrot[0])#print first index
+print(parrot[3])#print 3rd index
+print(parrot[-1])#print last index
+print(parrot[0:6])#This will print from index 0 to 6
+print(parrot[:6])#This will print from index 0 to 6
+print(parrot[6:])#This will print from after index 6
+print(parrot[-4:-2])#This will print last index-2
+print(parrot[0:6:2])#Start index is 0,6 will be the length,2 will skip index
+
+number="9,223,372,036,854,775,807"
+print(number[1::4])
+numbers="1,2,3,4,5,6,7,8,9"
+print(numbers[0::3])
+
+string1="he's"
+string2=" probably"
+print(string1+string2)
+
+print("he's" " probably" " pining")#You can add string without using + operator
+print("Hello " * 5)#multiply string 5 times
+
+today="Friday"
+print("day" in today)#Checks if day in today return true or false
+print("Fri" in today)#
+print("parrot" in "asdf")#Comapare strings return true or false 
+
+16.How do you format String in python?
+=> print("There are {0} days in {1},{2},{3},{4},{5},{6} and {7}".format(31,"January","March","may", -->{0}->Takes first value from the list and so on 
+        "july","August","October","December"))
+		print("My age is {0} years".format(age))#{0}->Put age in
+	Another way of doing 
+    print("""
+ january:{2}
+ February :{0}
+ march:{2}
+ April:{1}
+ May:{2}
+ June:{2}
+ July:{2}
+ september:{1}
+  October:{2}
+ November:{1}
+ December:{2}
+""".format(28,30,31))	
+
+17.What does str()method does in python?
+=> it will convert int to String 
+   age =30
+  print("My age is "+str(age) +" Years")
+
+18.What is %d and %s ?
+=>%d => Refers to current variable 
+  %S => Refers to string 
+  **=> square root  
+  %2d=>allocating a number in front of %d for formatting you can also used {0:2} or (1:4) and use .format() method which is old approach
+  for eg:
+  print("My age is %d years" % age)
+  print("My age is %d %s, %d %s" %(age,"Years",6,"Month"))
+  print("My age is %d years" % age)
+print("My age is %d %s, %d %s" %(age,"Years",6,"Month"))
+
+for i in range(1,12):
+        print("No.%d square in %4d and cubed is %4d" %(i,i **2,i**3))
+--------------------------------------------------------------------------------------------------
+Program flow statement 
+----------------------------
+19.What is indent ?
+=> Lets say you start a loop it must have to have atleast a space to know python that this is a statement, if you dont give space you will get a compilation error 
+   for eg:
+   for i in range(1,12):
+ print("this is {0} square in {1} and cubed in {2}".format(i,i**2,i**3))
+
+20.How do you change indentation ?
+File->Setting-> Editor->Code style-> python -> select smart tabs 
+
+21.How do you define if statement?
+-> name=input("please enter your name: ")
+age=int(input("how old are you {0}? ".format(name)))
+print(age)
+
+if age >=18:
+    print("You are old enough to vote")
+else:
+    print("Please come back in {0} years".format(18-age))
+	 
+22.How do you convert string to int?
+=> by using int
+   for eg:
+    age=int(input("how old are you {0}? ".format(name))) 
+	
+23.How do you intialize if elif statement?
+=> print("Guess a number between 1 to 10")
+guess=int(input())
+
+if(guess<5):
+    print("please guess higher")
+    guess=int(input())
+    if guess == 5:
+        print("you guess a correct number,you guessed it")
+    else:
+        print("You havent guess correctly")
+elif guess > 5:
+    print("please guess lower")
+    guess=int(input())
+    if guess==5:
+        print("well done you guessed it ")
+    else:
+        print("you have not guess correctly")
+else:
+    print("you got it first time")	
+	
+Instead of using if we can use following code too 
+# if (age>=16) and (age <=65):
+if 16 <=age <=65:	
+	
+24.How do you return boolean ?
+=> print(not False)
+   print(not True)	
+   
+25.How do you declare for loop?
+=>  for i in range(1,20):
+    print("i is {}".format(i)) 
+	
+   number=9,10,11,18,12,13,14,15,16,17
+string="Megh,Sangam,Samyra,mom"
+for i in range(0,len(number)):
+    print(number[i])
+for i in range(0,len(string)):
+    print(string[i])
+for i in range(0,len(number)):
+    if number[i] in "0123456789":
+        clearednumber=clearednumber+number[i]
+        print(clearednumber)
+newnumber=int(clearednumber)-->Converts string to int 
+print("the new number is {}".format(newnumber))	
+
+26.How do you loop char ?
+=>number="9,10,11,18,12,13,14,15,16,17"
+   clearednumber=''
+   for char in number:
+    if char in '1234567890':
+        clearednumber=clearednumber+char
+
+newNumber=int(clearednumber)
+print("the new number is {}".format(newNumber))

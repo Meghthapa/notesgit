@@ -1,0 +1,740 @@
+1.How you return or set a value from a private method ?
+=> By using getter and setter method
+ for eg: Private Stirng name;
+         private String lastname
+		 
+	you will create a function 
+
+   public String Getname(){
+    return name;
+   }	
+   public String setname(String name){
+   this.name=name;
+   }
+   
+ 2. What is main method and what is the signature ?
+ =>public static void main (String[] args)
+ -String[] args - This means its a string[] array 
+ -If you want to print this array size 
+  System.out.println(args.length) // This will print 0 
+ - if you want to add argument into the array 
+ go to main->You can edit argument there and argument is determine from the space for eg you add a argument megh thapa
+ 
+ 3.How do you print array ?
+ => using for loop 
+   for(int i = 0;i<args.length;i++){
+   System.out.println(i + args[i])
+   }
+
+ 4.How do you create multiple package?
+ => From "." operator for if you want create main package and sub-package  mainPackage.subPackage //This will create 2 pakages
+ 
+ 5.How do you generate a random number ?
+ => by calling a Random class 
+   Random random= new Random();
+   System.out.println(random.nextInt(5));// You will get from number 0 - 5;
+   
+ 6. What is java lang package?
+ => This class is already imported automatically. For eg System class is imported from java lang package Other Integer 
+ 
+7.why do you don't wanna use wildcard all the time ?
+=> Lets say you want to import Date class from Java.util and also from sql date class.If you put wildcard import in both places IDE is confused which
+ Date class should be imported.
+ For eg import java.util.*; and import sql.java.sql.*
+ 
+8.How do you format code in intellij?
+=>ctrl+alt+Enter
+
+9.What is static import ?
+=>This is used to import static members of classes they are usually  constants or method.Main idea of static import that you dont have to import class name.
+  In simple words if you create static method or varible you dont have to create a object of a class to use into another class or method
+  For eg: 
+  
+  Import static java.lang.Math.*;
+  import static java.lang.System.out; // this is a static class if you import this class you can just write out.println unlike System.out.println
+
+  public class abc{
+   public static void main(Stirng[] args){
+     int a = Math.min(5,7);// we can just use min(5,7) because Math class is imported unlike we can just call Math.min(5,7) without importing a class
+	 System.out.Println(a)
+   }
+  }  
+  
+ 10.What is primitive data type?
+=> In java there are 8 build in data types 
+  a)Boolean -
+  b)byte    - 8-bits -> 1 
+  c)short   - 16-bits -> 12
+  d)int     - 32-bits ->100
+  e)long    - 64.bits ->12
+  f)float   - 32-bits ->123.45
+  g)double  - 64-bits ->123.45
+  h)char    - 16-bits ->'a'
+  
+ 11.What is literal ?
+ => 
+ 
+ 
+12.What is octal ?
+=> Octal is binary number system which is calculated groups of 3. It is calculated from 0-7. Sample table 000 -> 0, 001->1, 010->2, 011 -> 3, 100 -> 4,
+   101 -> 5, 110 -> 6, 111 ->7. Lets say you have a number 101 110 100 101 010 011 => 5 5 4 5 2 3
+   
+13.What is hexaDecimal number?
+=>  Number which contains number 0-9 and letter (A-F)
+   you can define hexaDecimal like int firsthex = 0xF,
+                                   int secondhex = 0x1E;
+
+14.How do you define Binary number in java ?
+=> int firstbin= 0b1001; // 9 decimal
+   int secondbinary= 0b0111;// 7 decimal
+  int sum = firstbin + secondbinary;
+  
+15.On what condition you cannot put underscore or literal?
+=> before initial number, before decimal and after last number 
+    for example a= 10_.25;//this does not compile 
+	does not double a= 10._25; does not compile 
+	double first = _10.25; does not compile 
+	
+ 16.What is the literal for the float and double 
+ => For float we can put f at the end of the number. For eg: float a = 123.4F;
+    for double you can put d at the end for eg: double b = 123.45d; you can also f in but its count as a double and d is optional 
+	For scientific double for eg double f = 5.0000125E03 which is equivalent to 5000.125 E03 -> represent to 3 number from the decimal and(F) is not valid 
+	
+17. How do you use Primitive in char and boolean?
+=> 	char ch ='a';
+    char ch ='ab'; // does not compile 
+	char ch='1'; 
+	for unicode :
+	char unichar = '\u03A9'; //this represent greek omega char
+	char romannumber='\u216c'; // roman 50 number 
+	You can find this on table 
+	
+18.how do you declare variables ?
+=> it can initialized in single line or multiple lines.	
+   two lines :
+   int mynumber;//Initialiazation
+   mynumber=3; // declareration
+   
+19.Can variable name begin with "$" and "_", can variable numbers begins with numbers ? can u
+=> Yes, variable name begin with "$" and "_" but you cant begin with numbers for example double 3Point;// does not compile also you cannot have @ sign 
+
+20.What are the default value for   a)Boolean,b)byte,     c)short  d)int   e)long   f)float   g)double   h)char ?
+=> For boolean => false, everything is 0 except double and float = 0.0
+
+21.What is global and local variable?
+=> If variable is declared outside of the method it is called global variable and can be used anywhere on that class.
+   for eg:
+   public class VarScope {
+
+    static int myNewint;-->THIS IS GLOBAL VARIABLE
+    public static void main(String[] args) {
+        int mylocalInt=10; --> THIS IS LOCAL VARIABLE 
+        {
+            int myotherint=20;--> IF YOU WANT TO USE THIS VARIABLE OUTSIDE OF THE BLOCK, YOU CANNOT USE THAT 
+            System.out.println("MyOtherInt= "+ myotherint);
+            System.out.println("myLocalint="+ mylocalInt);
+        }
+        //System.out.println("Myotherint="+myotherint);
+        System.out.println("mylocalint= "+ mylocalInt);
+        System.out.println("mynewInt= "+ myNewint);
+    }
+    public static void myMethod(){
+
+    }
+}
+   
+20.	What is java ordering Element in class ?
+   --Element ------------- Example---
+  a)package declaration  -- package abc;
+  b)import statement  -- import java.util.*;
+  c)class declaration -- public class C 
+  d) Field declaration -- int myint;
+  e)Method declaration -- void method()
+  
+21.What is nullpointer exception?
+=> This occurs most of the time when you are developing any application.In java everything is object, Java is OOP language, Variables are containers but 
+  it reference to an object. It means this is a unset reference or reference is empty.Object is class in java every class in java automatically extending to 
+  Object.All object is initialized to null. Primitive are not object are initialized differently.If you declare variable without initialized we wont be able
+  to use.If you cant initialized we cant use it.There you get a null pointer exception 
+  for eg :
+
+22. What are wrapper types and what is Boxing,Unboxing and autoboxing?
+=> All wrapper types are started with Capital letters similar like class.Wrapper are objects and can hold null.Converting wrapper to primitive is unboxing.
+   int myInt3 = myInteger3;//unboxing. Boxing is converting int to wrapper Integer myInteger= new Integer(10);, 
+   eg Integer myInteger = new Integer(10);//This Integer class wraps a primitive int
+  package PrimitiveWrapperTypes;
+
+/**
+ * Created by meght on 3/6/2018.
+ */
+public class WrapperTypes {
+    public static void main(String[] args) {
+        int myInt= 10;
+
+        //This is a wrapper
+        Integer myInteger= new Integer(10);//This is boxing scenerio when you box the int value into wrapper this is unnessary 
+        Integer myInteger2 =20;--> Assigning to primitive
+        Integer myInteger3=Integer.valueOf(10);
+        Integer myInteger4= Integer.parseInt("3");
+        Integer myInteger5 = null; 
+
+        //int cannot hold null
+        // int myint2 = null;
+
+        System.out.println("myInteger= "+ myInteger);
+        System.out.println("myInteger2= "+myInteger2);
+        System.out.println("myInteger3= "+ myInteger3);
+        System.out.println("myInteger4 "+ myInteger4);
+        System.out.println("myInteger5= "+ myInteger5);
+
+        //converting wrapper to primitive -> unboxing
+        int myInt3 = myInteger3;//unboxing
+        //int myInt4 = myInteger5;// throws null pointer exception primitive cant contain null
+
+        //Boxing -> converting primitive to wrapper
+        Integer myInteger6 = new Integer(10);
+        Integer myInteger7 = myInt;
+        printSum(1,5);// outerBoxing
+        printSum(myInteger,myInteger2);
+
+        String A$B = "Wass up honeymoon";
+        int _hello=20;
+        int Public = 20;
+
+        Short myPets=5;
+
+        boolean empty;
+
+
+
+    }
+    private static void printSum(Integer first,Integer second){
+        System.out.println("Sum= "+ (first + second));
+    }
+}
+
+23.What are java benefits?
+=> a) Java is object oriented language that means all code defined in classes,Most of the classes can be instantiate into objects
+   b) Java support Encapsulation access modifier to protect unintended access
+   c) java is a platform independent it gets compiled to byte code benefit is  
+   d) java is robust this is the major advantage over C++, java prevents memory leaks it manages memory management
+   e)  java is secure 
+   
+24.Can we call .length() on primitive?
+=> no primitive does not have a length() method. you can call this on string.
+
+25. What are the java operators and precedence ?
+ => Operators are special symbols that is applied to variables,They can be applied to one two or three, it calculates left to right 
+ Category	Operator	Associativity
+ Postfix	>() [] . (dot operator)	Left toright
+ Unary	>++ - - ! ~	Right to left
+ Multiplicative	>* /	Left to right
+ Additive	>+ -	Left to right
+ Shift	>>> >>> <<	Left to right
+ Relational	>> >= < <=	Left to right
+ Equality	>== !=	Left to right
+ Bitwise AND	>&	Left to right
+ Bitwise XOR	>^	Left to right
+ Bitwise OR	>|	Left to right
+ Logical AND	>&&	Left to right
+ Logical OR	>||	Left to right
+ Conditional	?:	Right to left
+ Assignment	>= += -= *= /= %= >>= <<= &= ^= |=	Right to left
+ 
+ Java precedence table
+ 
+ The table below lists the precedence of operators in Java; higher it appears in the table, the higher its precedence.If you use brackets order of precedence
+ changes.
+
+Java Operator Precedence
+Operators	Precedence
+postfix increment and decrement	++ -- (This is Unary operators)
+prefix increment and decrement, and unary	++ -- + - ~ !
+multiplicative	* / %
+additive	+ -
+shift	<< >> >>>
+relational	< > <= >= instanceof
+equality	== !=
+bitwise AND	&
+bitwise exclusive OR	^
+bitwise inclusive OR	|
+logical AND	&&
+logical OR	||
+ternary	? :
+assignment	= += -= *= /= %= &= ^= |= <<= >>= >>>=
+
+25.What is Numeric promotion, what are the rules for this and what is Converting primitives(casting)?
+=>Rules :
+  -- When two values have different data types, java will auto promote one of the values to the large data types 
+  -- When one of the values is integral and other is floating - point, java will auto promote the integral(byte,short,int,long) value to the floating
+    point (double-value) data types 
+  -- Small data types(byte,short,and char) are promoted to int any time they are used with binary arthmetic operator, even when nither of the operands is int
+  -- After all promotion has finished and the operands are the same data type(e.g all double), the result value will have the same data type as its promoted 
+     operands 
+ --> cating is something that you to convert data type into some other type. Casting only occurs when you are converting data type to  lower 
+   lets say you have double mydouble =5.55;
+                     int myint = (int) mydouble; --> Casting
+					 
+26. What is unary operators,how to use unary operators and what are the common  errors ?
+=> 	+ - ++ -- ! these are the sample unary operator. There is pre increment operator and post increment operator 
+      int x= +3;//+ sign is redundent
+        System.out.println(x);
+
+        double y = -3;//This does not chanage any value 
+
+        System.out.println("x="+x+" y="+y);
+
+         y = -y;// Just put Minus in the front
+        System.out.println("x="+x+" y="+y);
+
+        boolean a = true;
+        boolean b = !a;
+
+        System.out.println("a="+a+" b="+b);
+
+        b=!b;
+        System.out.println("b="+b);
+
+        // int myint = !5; // Does not compile
+       //boolean mybooolean= - true;// does not compile
+        //boolean z=!0;//does not complile
+		
+		Pre increment operators : 
+		
+		int myint=5;
+		int otherint = ++myint;
+		this will print 6 in both because this is a pre increment operator 
+		
+		Post increment:
+		int newInt = 5;
+		int newOtherInt = newInt++;
+		This will print newInt =6 and newOtherInt = 5; 
+		
+27.What is wrapping overflow?
+=> If you go over the value that can fit into the datatype or large number 	java will automatically break the value.it will go into the lowest value and
+  starts counting from that.The lowest number starts from -32767 .This is called wrapping overflow 
+  for eg : short y = (short)19812345; 
+
+28.what is underflow?
+=>   
+
+29.What is compound assignment operator?
+=> int x =2;
+   int y =3;
+   int z = x*y;//This is simple assignment operator 
+   x *= z;// shorter from of x * z ,This is a compound operator 
+   The reuslt of this value will be 18 because first it multiply z then then multiply with x 
+   
+   another example int a += 5; This will not compile because a is not define previously, You can only assign compound operator if it is assigned previously
+    // Without explecit cast 
+	long a = 10;
+        int b = 4;
+
+       // b= b * a; does not compile
+
+       // b= (int)(b*a); does not compile
+
+       b *=a;// short form of b =(int)(b*a);
+	   
+	   it will save from the casting
+   
+   
+ 30.What is rational operator ?
+ => Operator       Descriptiom 
+     <			   Strickly less than 
+	 <=            Less than or equal to 
+	 >             Greater than
+	 >=            Greater than or equal to 
+	 They compare two value and return boolean
+	 
+31.What is conditional operators ?
+=> Using && operator 
+    for eg x&&y => it will return true if both operance are true 
+           x||y => it will return true if one of the operation is true 
+		   x^y => This is exclusive or operator  works on boolean type, It will only return ture if both are different 
+
+32.What is equality operators?
+=> 	it is used in 3 types 
+    a)comparing primitive number 
+    b)comparing boolean number 
+    c)comparing 2 object reference 
+	d)Including null and string value 
+	you cannot compare numbers with boolean
+	
+33.what is the difference between == operator and equal() method?
+=> you need to careful when comparing objects and primitive. Objects are used to compare equal method where == for primitive data types.when you are 
+ using == object we are comparing reference variable.lets say memory location.
+ 
+34.what is character Arithmetic ?
+=>Char is represented as integer from 0 - 65535. char is a single character it can be used in any character special character to number.Char have a method 
+like isLetter(),isDigit(),
+ 
+	
+36.How to use if else statement ?
+	Sample eg:
+	  
+	  if(booleanExpression){
+	  // branch if booleanexpression is true 
+	  }else{
+	  //optional else statement 	  
+	  }
+	 
+	 if else is a control flow expression and only execute if expression is true 
+	 
+37.What is Tenary operator ?
+=> simple if else statement 
+   int x =10;
+   int y;
+   
+   if(x > 5) y= x * 2;
+   else y= 4 * x;
+   
+   if you convert this statement in Tenary operator 
+   y= x >5 ? x * 2 : 4 * x;
+   
+   with brackets y=(x > 5) ? (x * 2):(4 * x); // nicer to read 
+   
+ 38.What is switch statement?
+    It is used for complex decision structure where single value is evaluated.Flow is redirected to the case statement.If the matching case statement is not
+	found default option is called 
+	Data type that supported by switch are primitive short char byte string enum values, long and boolean are not supported 
+ => Switch (variable){
+ 
+   case constantExpression 1 :
+       // branch for case 1
+	   break;
+	case constantExpression 2 :
+       // branch for case 2
+	   break;
+    case constantExpression 3 :
+       // branch for case 3
+	   break;
+    default 
+    // branch for detail;
+	}
+For eg:
+   int dayofweek=0;
+   
+   Switch(dayofweek){
+   Case 0:
+   system.out.println("Monday");
+   break;
+   case 1:
+   system.out.println("Tuesday");
+   break;
+   default:
+   system.out.println("Weekend for you");
+   }
+ 	
+ 39.Define while loop?
+=> it starts from the keyword while 
+  while (booleanExpression){ --> Curly braces required for multiple statements,Optional for single statement.During the execution of while statement
+  or while loop boolean expression is evaluated before each iteration.In if statement we have only one iteration.If the boolean expression is false then 
+our while loop is never executed.  
+    //body 
+  }
+   for eg:
+    int spaceOnHdd =5;
+	
+	while(spaceOnHdd >5 ){
+	 spaceOnHdd--;
+	 system.out.println(spaceOnHdd);
+	}
+	for this scenrio it loop for 5 times util the condition is false.the problem of while loop it is easy to create loop will never end 
+	for eg: 
+	 int x=2;
+	 int y = 5;
+	 
+	 while(x < 10){
+	  y++;
+	 }
+	 
+	 This scenerio while looo will never end 
+	 
+40.	Define do while loop?
+ => do{--> curly braces is needed for multiple statement for 1 condition it is optional 
+ 
+    //body
+  }while(booleanExpression);
+   The main difference of while and do while is structure,It will check the expression after the block execute once 
+   
+   int a = 0;
+   
+   do{
+    a++;--> This will be 1 
+   }while(false);--> and the condition will be false so it execute once
+   system.out.println(a);
+    for eg: x= 20;
+	
+	do{
+	x--;
+	}while(x > 10);
+	output will be 10, It loops for util it reaches to 10
+ 41. Define for loop?
+ => for(initialization,booleanExpression,updatestatement){-->Curly braces required for multiple statement,optional for single statement 
+   //}
+   for eg:
+   for(int i=0;i<10;i++){ --> For this loop it will execute if the boolean condition is true,you cannot print anything outside of the code block 
+   system.out.print(i);
+   }
+   you can execute multiple statement 
+    for (int x=0,z=4;x < 5 && y < 10;x&&y;x++,y++){
+	} 
+   for loop needs to have 3 condition to execute 
+ } 
+ 42.How do you create  string and concatenate String?
+ => we can use double quotes to create a string unlike primitive we have to put literals,Rules for string 
+   if both operands are numeric  if you have 2 numbers and plus operator between 2 numbers its numeric addition. If one of the operands is string it means 
+  string concatenation.Expression is always evaluated from left to right.
+  for eg: concatenate means to add 
+     system.out.println(2+3);
+	 system.out.println("a"+"b");// ab
+	 system.out.println(1+2+"d")// 3d
+ 43. what is append means?
+=> to add  
+
+44.What is immutability and why string class is so special?
+=> String is immutable it means if you create string that cannot be changed.It means you can make string larger or smaller or change character inside the string.you can create 
+   another string.mutable is another word for changeable.Once the object is created cannot be changed 
+   For eg:
+    String hello="hello";
+	String hi = hello + "world";
+	hi = hello;
+	
+	system.out.println(hi + hello);
+	This will print hellohello
+	
+	hello.toUpperCase();
+	system.out.println(hello);
+	this statement will print hello
+	
+	to change to uppercase you need to assign hello = hello.toUpperCase(); 
+ 45. what is string pool?
+ => In java string are everywhere and they use lot of memory. when you double quotes for the string java will look for the same value in the pool. if the string is found 
+   it just return reference else it creates a new string and returns the reference.
+   for eg:
+   String name = "John";
+		String anothername = "John";
+		String john = "Jo" + "hn";
+		String newname = new String("john");// we are creating another string 
+		
+		System.out.println(name == anothername);// this will be true 
+		System.out.println(name == john);// true
+		System.out.println(john == newname);// false because this is reference to another reference
+		
+		if you want to compare we should use .equals() method. if you use == method it will check for equivalent so this is not proper way to compare in string.If same value of 
+        string is compared with == method at runtime which one value of string is concatenate it will return false 
+        for eg :
+         String str = "abc";
+         Stirng str1="ab";
+         Stirng str2= str1 +"c";
+
+        this will return false if you compare with ==	
+ 
+46.What are the string method?
+=> length(): Return length of the string
+   charAt() :Return specific character eg str.charAt(1), return first character at the string 
+   indexOf(): Return index of the string for eg : you have "Hello" if you code indexOf('H',2). this will return 0, 2 is starting from it means it will skip 0-2 
+   subString(): Return character  from specified index for eg str.subString(0,2). This will only return from 0 2 index. if you dont specify end index it will start from last index
+   toUpperCase(),toLowercase(): convert uppper case and lower case 
+   equals(): compare two values
+   equalsIgnoreCase():compare with ignore case 
+   StartsWith(),endsWith():Return boolean true or false if that string is present 
+   Contains(): Return boolean if string is contain 
+   replace(): It does simple search and replace the string.For eg : str.replace('a','A')
+   trim():It will remove spaces from the string 
+   
+ 47. What is Method chaining ?
+ => It is common to call  multiple method when you are coding which is callled method chaining.
+ for eg 
+  str.trim().toLowercase().replace('a','A').charAt(0,5);
+  
+ 48.What is stringBuilder class?
+ => A small programme can really quickly create lot of objects that take memory. Since string is immutable whenever you call or append that creates a new string.creating a 
+    object all the time which is inefficient.It is better to use stringBuilder class, String builder class is used to build string and string builder is not immutable.You can 
+	also imagine string builder as a container where you can put strings and after you are finished building string, You call toString() method to convert all into string.You 
+	can also chain method in string builder but chaining does not create a new string if you return the same string builder.
+   for eg: String alphabet = "";
+    for(char c='a');c <='z';c++){
+	    alphabet += c; // for each iteration it will create a new object
+	}
+	//with string builder 
+	StringBuilder sb = new StringBuilder();
+	
+	for(char c='a');c <='z';c++){
+	    sb.append(c);// add character to string builder, reuses string builder without creating string each time, instead of + method String Builder uses append method
+	}
+ 49.what are the methods in the stringBuilder class?
+=> charAt(),indexOf(),length(),subString()
+   append(): adds string, append method returns same stringBuilder
+   insert(): You can insert into string by giving index number.For eg: str.insert(2,'i') --> it will add "i" on index 2 string
+   delete(),deleteCharAt()
+   reverse()
+   toString(): Just convert stringBuilder to string 
+   
+ 50.What is array and how do you declare it ?
+ => 
+=> Array could be on anytype, Array can contain duplicates,Array uses indexes and it starts from 0.Arrays are just container of objects which holds a fixed number value.For each 
+   value or item inside array is of the same type.index range is 0 to length of the array -1. Because index starts from zero.Main disadvantage of array is they have a fixed size.   
+   int[] myaray= new int[3]; Basic structure of array, First us the data type and [3] represents size of the array , This crate array with 3 elements 
+   int[] number = new int[]{10,12,13};// Anonymous array array with 3 elements but it have 3 value 
+   double[] a= new double[2.75];// this does not compile because you are creating 2.75 array which is illegal
+   double[] b = new double[4*5/2];//This will create a 10 elements
+   int[] three = {10,11,12}// Anonymous array 
+   
+  51.How to print arrays,access element and nicely print array content?
+ => example array :
+string[] pets ={"parrot","cat","Dog"};
+ to get array 
+ pets[0];//this is you get array
+ 
+ for(int i=0;i<length;i++){
+  system.out.println(pets[i]);// This is how you print arrray
+ }
+ 
+ you can use toString() method to print array nicely
+ Array.toString(pets)
+ 
+51. what are common Arrays problems?
+=> Index problem : Index starts from 0
+   looping problem : for(int i =0;i <=a.lenth-1;i++){ // If there is no -1 it will throw an exception 
+    }
+	int[20] nums; // this will not compile it has to be on the right side
+	
+52.What is for each loop ?
+=>For each starts from the first elemant and go till last element 
+ for(datatype variablename:collection)	{--> curly braces are required if you have multiple statement,optional for single  
+  // body 
+}
+
+52.What is break statement ?
+=> optional label: 
+     while(booleanExpression){
+	 //body
+	 break optional label;
+	 }
+ for example:
+  String[] animal= {"dog","cat","horse","cow"};
+		
+		for(String animals:animal) {
+			System.out.println(animals);
+		}
+		MY_Loop:for(String animals:animal) {
+          if(animals.equals("horse")) {
+        	 break MY_Loop;
+        	 }
+          System.out.println(animals);
+          } 
+ 53.What is continue statement and how to use continue statement? 
+ 
+  optional label: 
+     while(booleanExpression){
+	 //body
+	 continue optional label;
+	 }
+	 for example:
+	 String[] animal = {"Dog","Cat","Lizard","Bird","Snake"};
+	
+	
+	Test_Label : for(String ani:animal) {
+		if(ani.equals("Dog")) {
+			 continue Test_Label;
+		}
+		System.out.println(ani);
+		
+54.How do you sort array?
+=> There is utility method we can use Arrays.sort() method.
+
+55.	How do you search arrays and waht are the citeria for binary search ?
+=>	Scenerio                           result
+----------------------------------------------------
+  Element found(Sorted array)        Index of element was found
+  Element not found (Sorted array)   Negative value,Showing 1 smaller than the negative of index,where a match needs to be inserted to preserve sorted order
+  Unsorted Array                     Result not predictible/undifined result
+  
+  For eg:
+  int[] numbers = {1,3,5,6,7};
+		System.out.println(Arrays.binarySearch(numbers, 2));
+		System.out.println(Arrays.binarySearch(numbers, 5));
+		System.out.println(Arrays.binarySearch(numbers, 7));
+		System.out.println(Arrays.binarySearch(numbers, 3));
+		System.out.println(Arrays.binarySearch(numbers, 6));
+		
+		int[] notSortedNumber = {5,4,10,8,6};
+		
+		Arrays.sort(notSortedNumber);
+		System.out.println(Arrays.toString(notSortedNumber));
+		System.out.println(Arrays.binarySearch(notSortedNumber, 5));
+		System.out.println(Arrays.binarySearch(notSortedNumber, 8));
+
+55.What is variable argument ?
+=>	They represented as array but you can place as argument as you can 
+    public static void main(String... args) {--> This is a valid main method	
+	
+56.What is nested loop?
+=>	its a loop inside a loop
+ // TODO Auto-generated method stub
+		for(int hours = 0;hours <=6;hours++) {
+			for(int minutes =0;minutes<60;minutes++) {
+			
+			System.out.println(hours +":"+minutes);
+		}
+	
+57.What is Arraylist ?
+=>Arraylist is a part of java collection API.Its similar to array it internally uses array. We can say that this is a dynamic array.Arraylist uses generics
+ ArrayList<Object> mylist = new ArrayList<Object>();
+		
+		ArrayList<String> mystringArray = new ArrayList<>();//diamond operator
+		
+		 
+		
+		//ArrayList<String> list4 = new List<>();// does not compile 
+		
+		List<String> list5 = new ArrayList<>(20); 
+
+58.What is list ?
+=> list is a interface 	
+List<String> list3 = new ArrayList<>();// using interface as type	
+
+59.What are the method in Arraylist ?
+=>add(),remove()
+  set() 
+  isEmpty(),size()
+  clear()
+  contains()
+  equals()
+ 60.How do you use primitive in ArrayList?
+=> List<Double> doubleLIst = new ArrayList<>();
+		doubleLIst.add(20.5);// autoboxing
+		doubleLIst.add(80.0);
+		
+		double x = doubleLIst.get(0);//Unboxing to primitive
+		
+		System.out.println(x);
+		
+		
+		System.out.println(doubleLIst);
+		
+		List<Integer> myInteger = new ArrayList<>();
+		myInteger.add(null);
+		
+		System.out.println(myInteger);
+		
+		//int number = myInteger.get(0);//primitive int does not hold null 
+		
+		//System.out.println(number);
+		
+		List<Integer> myint = new ArrayList<>();
+		myint.add(1);//Index 0
+        myint.add(2);//Index 1	
+        
+        System.out.println(myint.remove(1));
+61.How do you convert ArrayList into array?
+=> List<String> names = new ArrayList<>();
+		names.add("Tiny");
+		names.add("Jimmy");
+		names.add("Anthony");
+		
+		String[] stringArray = names.toArray(new String[names.size()]);// This is converting array 
+		System.out.println(names);
+		

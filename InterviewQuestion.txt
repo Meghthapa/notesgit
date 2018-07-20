@@ -1,0 +1,1075 @@
+Have you created a test plan?
+
+Yes, I have. I have been working in IT industry as a QA for more than 5 years and every project I have done, I was required to create test plan.
+
+In my last job , i was the only QA , so I was always responsible for creating test plan as test plan is very important  for every project. 
+
+What are some of the component of a test plan?
+Different companies have different format or standard but majority of them have:
+ Summary, Introduction,  Scope of testing , Milestones , Deliverables ,Resources -,Test Strategy,Test Planning, Test Execution,Risk etc
+
+Have you ever given LOE (Load of effort)?
+
+Yes, as a tester, I was always required to give LOE. But Whenever, I was assigned a user story for testing, before I give LOE, 
+I always review details in the user story. I look at the business requirements like; the purpose of the user story, 
+the acceptance criteria and make sure that I clearly understood the requirement. Then I look for technical details like; 
+information of the database, tables, web services and API, process flow diagram, and once I make sure that I have received all the required documents 
+that I need to write test case, then only  I can give accurate LOE.
+
+What do you do if you see there is not enough detail in a use case?
+
+If I find out any missing documents or details like user acceptance criteria, functional requirement or technical details like; database or table information, 
+web service or API etc. in the user stories I will set up a meeting with my PM or BA or the developer who is working on that particular user story and gather all 
+the missing information on that user story. Because with out proper detail information on the user story it is not possible to create a proper test case for a quality deliverable. 
+
+IF you cannot finish your work on time what will be your approach to handle it?
+
+There were some situations where I was not able to complete my work on time due to some factors like environmental issues, 
+or changes on the requirements. In that kind on situation I always notify my team like; to my PM, dev team or to a BA time a head.
+ And reprioritized my incomplete tasks and complete the high prioritized task first, and try my best to finish other low prioritized task on time as well,
+ by putting my 100% effort, but, if I still would not be able to complete those low prioritized tasks on time then I will ask my PM to see if he can move those 
+ low prioritized incomplete task to next sprint.
+
+However, if everything has to go within the same sprint then depending on my PM decision I will either do over time or get extra resources from other team for those 
+remaining task to be complete.
+
+
+Have you created the test data and how did you created it?
+Yes, I have created the test data numerous amount of time; I created from database, flat files,  front-end application and some time they are provided by the client.
+
+What is exploratory and ad hoc testing?
+
+Ad hoc testing is an on demand testing which is done 	with out any documentation. I will give one example from my previous job;
+ there was an instance where we had a production issue, we have to create hot fix for the issue and have to go to prod immediately. 
+ In that situation I did a ad hoc testing and release the fix to the prod without creating and test plan or test case. 
+
+Exploratory testing:
+Exploratory testing, is all about discovery  and learning the application.  it is a process of test design and test execution all done at the same time.
+
+How do you do a troubleshooting?
+
+While doing testing, whenever I find any defects, I don’t just create defect immediately. First of all, I always try to find out the actual cause of the issue.
+
+I will retest multiple times to ensure it’s not a data issue.
+
+I will check the configuration to ensure the application is pointing to the right test environment database or test server.
+
+I will also check the error log in the database.
+
+Once I conformed it’s a true defect then I will create a bug and assign it to the developer with the;
+
+Test data
+
+Steps to reproduce the issue
+
+Screen shots
+
+And error log message.
+
+
+Have you worked on Automation?
+
+Yes I have used Selenium for automation. 
+Automation is usually used during regression testing, once the application is stable. Automated testing tools are capable of executing tests, 
+reporting outcomes and comparing results with earlier test runs. Tests carried out with these tools can be run repeatedly, at any time of day. 
+It saves time, effort and money.
+
+
+Have you used SOAP UI? What you know about it?
+
+Yes, I have used it for multiple times on my previous jobs.
+
+It is a tool use to test web services. And web services are nothing but are the collections of API that communicate between front end and back end.
+
+I have used SOAP UI for web service testing.
+
+As an example, in my last job we had a web service to create a loan. I would use the webervice wsdl to open a project in the SOAPUI.
+ Then I would populate the required parameter and send a request, if the parameters are valid it would return a response displaying a loan has been approved. 
+ I would than verify the details in the database. 
+
+
+
+do you know SQL:
+yes i know how to write and execute SQL queries.
+Some the SQL query I use everyday are - Select, Update, delete, join, where, order by
+
+what is the key concept that allows you to join multiple tables:
+A JOIN clause is used to  combine columns from two or more tables by using values common to each. 
+Primary key of one table is used to link with the foreign key of another table.
+
+1.What is the difference between relative and absolute xpath?
+xpath is basically travels through the node to get desired xpath results
+=> Relative does not depend on parent node (.//)
+=> Absolute is parent node tag name means it has follow the parent to child node to get element
+  in short parent/child relation
+  
+2.whats the preference ?
+=>Relative Xpath because if there is a change in any of the node or div that will fail to locate the element 
+
+3,how do you handle dropdown in selenium ?
+=> Using select class diff option from INdex,value,multiple option from the dropdown,deselect all the option
+
+4.how do you handle java alerts ?
+=> using Alert class driver.swithto().alert().accept()//for positive scenerio
+   driver.swithto().alert().dismiss();
+   driver.switchto().alert().sendkeys();
+   driver.switchto().alert().getText();
+   
+5. How do you handle hidden element?
+   isDisable();
+   isEnabled();
+   isSelected();
+   By putting this checkpoint validation
+
+6.What is Synchronization in selenium?
+=> When you go into the Websites clicking any button functionality takes a time to load.But when you write a code you 
+  find element and perform but page does not go with our code so expect our code is fail saying element is fail.
+  This is called Synchronization.
+  
+7. How do you achieve synchronization ?
+ => By using following wait command 
+  1.Implict wait: a wait time globally putting into the script wait for n number of second before throwing exception  
+    For eg if you write a code to wait for 5 second,If element is found before that, it will execute does not wait for 5 sec
+   disadvantage=> in this scenerio webpage take more than 5 second it will fail 
+   driver.manage().Timeouts().implicitlywait(5,Timeunit.SECONDS);
+  2.Explict wait: you can target specific element and wait for n number of time, and it is applicable to that specific locator only 
+    For eg when you have a implict wait for 5 sec and page is taking more than that we use Explict wait for that 
+	WebDriverwait w =new Webdriverwait(driver,20);
+	w.until(ExpectedConditions.visibilityOdElementLocated(By.xpath("")));
+	driver.findElement(By.xpath("")).click();
+	=>applied for one element
+  
+  3.Thread.sleep : this make idle for n number of time (This is not a part of selenium, this is a part of JAVA)
+  
+  4.Fluent wait : 
+  
+ 8. what is action class in selenium ?
+ -> designed to handle mouse and keyboard interaction 
+ 
+ 9.how do you handle child windows ?
+ -> Selenium only stick with parent window 
+ a)you can handle with the getwindow handle 
+ Set<String>ids=d.getWindowHandles();
+		Iterator<String> it=ids.iterator();
+		String parentid=it.next();//Switch to child element
+		String childId=it.next();//switch to another window 
+		d.switchTo().window(childId);
+		System.out.println(d.getTitle());
+		d.findElement(By.xpath("//div[@class='IMH1vc lUHSR Hj2jlf']")).click();
+		d.switchTo().window(parentid);
+
+10. How do you handle Frame ?
+ -> selenium cannot identify frames 
+ driver.switchto().framenumber()|| frameID
+ 
+11.How do you find what is FRAME?
+ driver.swithto().frame("path");
+ 
+12. how do you handle drag and drop ?
+=> Actions action = new Actions(d);
+	WebElement source=d.findElement(By.id("draggable"));
+	WebElement target = d.findElement(By.id("droppable"));
+	action.dragAndDrop(source, target).build().perform();
+	//To get back into the normal content 
+	d.switchTo().defaultContent();
+  
+13.How do you get all the links from the web?
+-> driver.findElement(By.tagName("a")).size();  
+
+14.What are the tricky part of handling captcha?
+-> This are the frame, so you need to switchto().frame();
+   once you click another window will open and that keep on changing get back into the default window 
+   then switch into another frame
+   
+15. how do you handle dynamic dropdown list ?
+-> you have to use Keys.down
+ eg  driver.findElement(By.xpath("")).sendkeys(Keys.DOWN) 
+ 
+16. what is javascriptExecutor?
+-> javascript DOM can extract hidden elements because selenium cannot identify hidden element which is AJAX implementation.
+   It will investigate the properties of the object if it any hidden tester
+-> for this reason javascriptExecutor comes to play 
+   javascriptExecutor js = (javascriptExecutor)driver;
+   String value = "return document.getElementById(\"fromPlaceName\").value;";
+   
+   String text = (String) js.executeScript(value);
+   System.out.println(text);
+		
+		while(!text.equalsIgnoreCase("BANGALORE INTERNATION AIPORT")){
+			d.findElement(By.xpath("//input[@ id='fromPlaceName']")).sendKeys(Keys.DOWN);
+			 text=(String) js.executeScript(value);
+			System.out.println(text);
+			
+   
+   }
+   While loop is to use for run multiple Keys.down command
+   
+ 17.How do you handle table grid data ?
+ -> 1.Find a table 
+    2.find a rows using LIst with tagname("tr");
+	3.Use for loop 
+	4. find a column with tagname("th");
+	5. then you print column size
+	6. then we use again for loop column.size 
+	7.print out get text()
+ 
+ 18. What is the concept of subsection elements?
+ -> From getting a parent element, and create a web element variable for that variable reference you write a code to find all 
+ the child elements of the parents 
+ eg code : WebElement abc = driver.findElement(By.cssSelector("Parent"));
+           abc.findElement(By.cssSelector("child")).size();// This will give you a size
+		   abc.findElement(By.cssSelector("child(3)")).size();if you mention (3)in the element it will select the third div under child element
+		   
+ 
+ 19.How do you handle SSL certification?
+ -> There is a class called chromeOption which let you customize the browser 
+     DesiredCapabilities ch= DesiredCapabilities.Chrome();
+	 ch.acceptInsureCerts();
+	 ch.setCapabilities(capabilityType.ACCEPT_INSECURE_CERTS,true)// another method
+	 ch.setCapabilities(capabilityType.ACCEPT_SSL_CERTS,accept)//also another method
+	 ChromeOption c= new ChromeOption();
+	 c.merge(ch);
+	 WebDriver driver=new Webdriver(c);// This will take case of SSL certification class 
+ 
+ 20.What is desired capabilities?
+ -> It  is a class which helps to customize browser.Desired to run on which environment.Basically, the DesiredCapabilities help to set properties 
+ for the WebDriver. A typical usecase would be to set the path for the FirefoxDriver if your local installation doesn't correspond to 
+ the default settings.In simple words we can say that if you want to run your test on old chrome version but you have a another version 
+ of chrome into your machine.by default it will run test on new version.To resolve this issue desired capability is introduced. This happen when you are
+ testing on clouds. 
+ 
+ 21. when do you use chromeOption?
+ -> to set your local browser setting
+ 
+ 22.how do you delete cookies from selenium?
+ -> driver.manage().deleteAllCookies();
+   for specific driver.manage().deleteCookieName("name");
+   
+ 23.How do you take screenShot in selenium?
+ ->  TakesScreenshot srcshot = ((TakesScreenshot)d);
+		 File srcFile=srcshot.getScreenshotAs(OutputType.FILE);
+		 File destFile= new File("C:\\Users\\meght\\seleniumscreenshot.png");//you cant put screenshot directly into the c: driver,
+		 Go into the users then specify the png file name  
+		 FileUtils.copyFile(srcFile,destFile);
+		 FileUtils needs to imported from apache.commons.io need to add dependency in Maven or jar file in project 
+ 
+ 24.How do you kill the process?	
+ ->WindowsUtils.killByName("for example : excel.exe")
+ 
+25. what is the customize way of identify element?
+ -> Go to the inspect and click console
+   eg: $x("//input[@name='abc']") click enter it will give you a value, You can check xpath into the console
+   if one attribute is not sufficient then we go with 2 attribute
+   eg: $x("//input[@name='abc' and @id='abc']")
+
+26.what is selenium grid ?
+ -> Allows to run your test cases in different machines, when you trigger your test cases automatically it will run on 
+    different machines.It support distributed test execution, for eg: if you run your test cases in different machine your result 
+ will publish in your local machine	
+
+ 27. What is hub?
+  -> that your local machine means where you run all your test cases from or central point 
+  
+ 28. what is node?
+ ->  when you distribute all test cases in different machine that is called node or different server 
+ 
+ 29. what is the advantage of selenium grid?
+ -> For eg you have to test your test in IE 11, Unfortunately company only supports IE9, In this scenario you need to change
+  the version or write a code for IE9.You have a mac you cannot run those test because you don't have a mac machine.On this 
+  scenario selenium grid will help to run those cases using hub and node relationship. you can run your test  choosing a 
+   node which have a correct version of browser or operating system. Also if you have a 50 test cases, it will take a time
+   to execute these test cases in your local machine. If you distribute those Test case in 4 nodes it will parallel execute 
+   these test cases and saves time
+   
+ 30.What is the steps of run selenium jar?
+ 1. download selenium standalone server from selenium hq
+ 2. You have to register HUB
+ 3. login to another machine register as a hub 
+ 4. download selenium jar in node machine 
+ 5. Invoke jar same command as hub (java -jar selenium path -role webdriver)
+ eg: code 
+  steps:
+grid command prompt should be open 
+for node 
+
+C:\Users\meght\Documents>java -jar selenium-server-standalone-3.3.1.jar -role webdriver 
+-hub http://localhost:4444/grid/register -port 5555
+
+if you want to run on another machine you can specify address instead of localhost(Everything has to be on small letter)
+
+if you want to run only firefox browser into the computer 
+C:\Users\meght\Documents>java -jar selenium-server-standalone-3.3.1.jar -role webdriver 
+-hub http://localhost:4444/grid/register -port 5555 -browser browserName=firefox
+
+if you only want to run IE firefox and chrome only into the node 
+C:\Users\meght\Documents>java -jar selenium-server-standalone-3.3.1.jar -role webdriver 
+-hub http://localhost:4444/grid/register -port 5555 -browser browserName=firefox -browser browserName =iexplore -browser browserName=chrome
+
+if you want to run 3 chrome instances in a computer 
+C:\Users\meght\Documents>java -jar selenium-server-standalone-3.3.1.jar -role webdriver 
+-hub http://localhost:4444/grid/register -port 5555 -browser browserName=firefox -browser browserName =iexplore 
+-browser browserName=chrome.maxinstances=3
+
+31.how do you run test cases in remote server?
+-> you have to use disiredCapability class, if you have to run all test on diff browers you have to write below code 
+eg: DisiredCapability  dc = new DesiredCapabilities();
+  dc.setBrowserName("chrome");
+  dc.setPlatform(PLATFROM.WINDOWS);
+  dc.setBrowserVersion()// you can set version 
+  
+  // for local you give WebDriver driver = new ChromeDriver();
+  for remote :
+  WebDriver driver= new RemoteDriver(new URL("http://localhost:4444/wd/hub",dc)); to 
+  
+
+ 32. what is selenium framework?
+ ->If you have a 1000 of testcases, it is very tedious to run every class and hit run. For this Framework come into place. If you 
+   want run your test cases specific time.Framework will help you maintain selenium test cases you developed.
+   
+ 33.what is TestNG?
+ -> Its a unit testing frameworks which helps control your test execution.For eg: you have a 400TC and 200TC for regression and
+   200TC for smoke test. you can control these scenerio from the help of TestNG.Its a testing framework.If you have a prereqisit 
+   that before. You can control test execution from the help of testNG
+ 
+ 34.How do you convert TestNG to XML File?
+-> Right click on project -> TestNG ->Convert to TestNG. Test hierarchy start from test suite and test name which is package 
+   and class name.
+  
+ 35.How do you execute all test cases in TestNG?
+ -> Through the help of XML file.All the test cases run in a single click, Thats the beauty of having a XML file 
+    Right click run as a testNG suite
+
+ 36.how do you execute single class if you have a multiple classes in testNG?
+ -> For eg if you want to run specific class test cases. We can go into the XML file comment out other folder XML and execute
+    that particular class 
+
+ 37. how do you manage test execution when you have multiple test cases in one class and only one method should run?
+ -> you can exclude that particular method by below code in XML file and if you want to run only paticular TC add <include> instead 
+ of <exclude>
+    <suite name="Suite">
+  <test name="Test">
+    <classes>
+      <class name="TestNGProject.NewTest">
+      <methods>
+       <exclude name="thirdTest"/>
+      </methods>
+      </class>
+    </classes>
+  </test> <!-- Test -->
+  </suite> <!-- Suite -->
+  
+ 38. How do you handle dynamic datetime?
+=> driver.get("https://www.path2usa.com/travel-companions");
+		driver.findElement(By.xpath(".//*[@id='travel_date']")).click();
+		//driver.findElement(By.className("day")).click();
+		List <WebElement>dates =driver.findElements((By.className("day")));
+		driver.findElements(By.className("day")).size();
+		int count=driver.findElements(By.className("day")).size();
+		for(int i=0;i<count;i++)
+		{
+			String text=driver.findElements(By.className("day")).get(i).getText();
+			if(text.equalsIgnoreCase("16"))
+				
+			{
+				driver.findElements(By.className("day")).get(i).click();
+				break;
+			}
+		}
+		 
+
+38.If you a scenario to exclude a test case for mobileApplication out of 100 test cases how do you handle this?
+ -> In that scenario if lets assume all the method name is started from mobile, We can easily exclude those by 
+  <exclude name="mobile.*"/> that a beautiful feature of testNG XML file. Thats also called regular expression(regex)
+   
+ 39.what are the annotation of TestNG?
+ ->@BeforeTest => You can use before method when you have prerequisite that  some kind of operation needs to perform before 
+   executing a test cases (Remove data, remove temp int folder). it will execute first 
+->@AfterTest => I will execute last  with some condition 
+->@BeforeSuite => It will execute before execute the whole package(You can set up environment variable in before suite)
+  for eg: To run REST api calls you need a API keys for that we can set up in global variable 
+->@AfterSuite => it will run after all the class test cases is executed 
+->@BeforeMethod => It will execute before executing method. it is specific to class file. for eg 
+  you have to delete cashe file before executing method 
+->@AfterMethod => This will execute after all the method is execute 
+->@beforeClass => it is specific for class only.It execute before running any method 
+->@AfterClass => It execute all the method in all the class 
+
+40.In what order TestNG run test cases?
+-> In alphabetic order
+
+41.How do you run your testcases if you have to run 1 TC from each class out of 100 test cases ?
+-> 1st you need to give a group name in your test cases for eg: @Test(groups={"Testgroup"}).If you want to exclude instead of <include>
+   type <exclude>
+   Then you go to XML and specify that groupName for eg:
+   <suite name="Suite">
+  <test thread-count="5" name="Test">
+        
+      
+      <groups>
+            <run>
+                
+                <exclude name="Abc"/>
+                
+            </run>
+        </groups>
+
+        <packages>
+            <package name="Less1"/>
+        </packages>
+      
+       
+    
+  </test> <!-- Test -->
+</suite> <!-- Suite -->
+ 
+42.How do you handle dependency test cases in testNG?
+-> IF there is a scenario that specific test cases has to run before running another TC we can use 
+ for eg:@Test(groups={"Testgroup"},dependsOnMethods="thirdTest") thirdtest=> method name 
+ 
+43.If you have to stop the test case in one of the class how do you handle this ?
+ -> by using @Test(enabled=false) This are TestNG helper attribute 
+ 
+44.How do you handle a test case in a class which take longer time to execute in a class?
+ -> If you a have 20 test case in the class and that one specific class causing the script to fail you can use @Test(timeOut=4000) 
+ 
+45.How do you parametrized value from XML ?
+-> First you have to go into the XML file and add a parameter tag for eg:<parameter name="URL" value="qaacademy.com">,
+   Then you go into the class @Parameter({"URL"}) and import parameters from package.
+   Once you specify that parameter you can use into any method.You have run this test from XML not from class.you can also 
+  define into the test level with <parameters> with diff URL or variable    
+   <suite name="Suite">
+<parameter name="URL" value="http://www.google.com"/>
+  <test name="Test">
+    <classes>
+      <class name="TestNGProject.Testday2"/>
+            <class name="TestNGProject.NewTest"/>
+      <class name="SeleniumMaven.MavenProject.AppTest"/>
+    </classes>
+  </test> <!-- Test -->
+</suite> <!-- Suite -->
+   for eg:
+    class abc{
+	@parameters({"URL"})
+	
+	@Test
+	public void parameterTest(String urlabc){
+	 system.out.println(urlabc);
+	}
+	}
+46.How do you handle multiple data sets by running tests for multiple combinition?
+-> We can acheive with Dataprovider annotation.
+  @DataProvider
+  public Object[][] getData(){
+	  Object[][] data= new Object[3][2];//this means 3 rows and 2 columns
+	  //this will create a first combinition of data  
+	  data[0][0]="meghthapa"; //This a username 
+	  data[0][1]="password";
+	  //This is going to be second set of data 
+	  data[1][0]="Meghthapa1";
+	  data[1][1]="password1";
+	  //This is going to be third set od Data
+	  data[2][0]="meghthapa3";
+	  data[2][1]="password3";
+	  return data;
+ 
+ 47.What is testNG listeners?
+ -> There is a scenario that if a test cases fail you have to take a screen shot. For that we write a code in a specific 
+  block. Listner is a intelligent part of a TestNG.There is interface called ITestListner that you need to implement with 
+  your class. you can override those method by using your custom code also need to add into the XML tag.
+  eg: 
+  <suite name="Suite">
+ <listeners>
+  <listener class-name="test.Listner"/>
+ </listeners>
+ <parameter name="URL" value="http://www.google.com"/>
+  <test name="Test">
+    <classes>
+      <class name="TestNGProject.Testday2"/>
+            <class name="TestNGProject.NewTest"/>
+      <class name="SeleniumMaven.MavenProject.AppTest"/>
+    </classes>
+  </test> <!-- Test -->
+</suite> <!-- Suite -->
+ 
+ 48. when you catch a failed case through listnner how do you get the name?
+-> you can create a object and use getName(); 
+ eg: public void ontestFailure(ITestResult result){
+  syso(result.getName());
+ } 
+ 
+49.How do you generate TestNG report?
+->refresh you project,Test-output folder will display right click -> properties -> copy the path and paste it into the browser
+
+50. What is properties in java and how do you create variables ?
+->  Its a java class which reads .properties file, From the help of properties file we can define our variables into a file
+  and run.For eg you have a 100 of test cases that needs to log in user name and password for each test.This is really tedious process 
+  to write a same code on each and every step.To handle this scenario we can create properties file in the project and call it from
+  Properties file
+  eg code:
+  Properties prop = new Properties();
+  FileInputStream fis = new FileInputStream("C:\\Users\\meght\\workspace\\NewWorkspace\\MavenProject\\src\\test\\java\\DataDrivenFramework\\dataDrivern.properties");
+  prop.load(fis);
+
+51.If you have a testcases configure to run in Firefox but client comes in says we need to run all 1000 test cases in Chrome,
+how do you handle this scenario?
+-> You can code for every browser and specify brower in properties file so only that brower can run 
+
+ for eg:   public void login() throws IOException {
+ Properties prop = new Properties();
+ FileInputStream fis = new FileInputStream("C:\\Users\\meght\\workspace\\NewWorkspace\\MavenProject\\src\\test\\java\\DataDrivenFramework\\dataDrivern.properties");
+ prop.load(fis);	
+ 
+ if(prop.getProperty("browser").contains("chrome")){
+	  driver = new ChromeDriver();
+ 
+ }else if(prop.getProperty("browser").contains("firefox")){
+	 driver= new FirefoxDriver();
+	 
+ }else {
+	  driver = new InternetExplorerDriver();
+ }
+  driver.get(prop.getProperty("URL"));
+ 
+  }
+  
+  sample properties file :
+  username = selenium
+   password = megh
+  URL = http://www.google.com
+  browser = chrome
+  
+52.How do you reuse those method ?
+-> We can extend this class to another class, or we can create a class variable and execute the method.So you dont have to
+  re-write those code again
+  
+53.What is Apache POI?
+=>This is a jar file which help to read,write excel file 
+
+54.Why do you use fileInputStream ?
+=> to find a path of excel in your local 
+
+55.How do read files from Excel ?
+=> File xlFile = new File("C:\\Users\\meght\\Desktop\\datasheet.xlsx");
+		xlFile.createNewFile();
+        FileInputStream fis = new FileInputStream(xlFile);
+        XSSFWorkbook wb = new XSSFWorkbook(fis);//this code goes to excel 
+        XSSFSheet sheet=wb.getSheet("Script");//This will take into specific Excelpage 
+        XSSFRow row=sheet.getRow(2);//Gets row 
+        XSSFCell cell=row.getCell(2);//This will give you a column
+        String value =cell.getStringCellValue();//return value from the column
+        System.out.println(value);
+		
+		
+0.012
+
+230
+56.what is Maven? and why maven ?
+=> Maven is a software project management and built management tool for java framework.
+  a).Lets assume you have a 40 people are working on the same project, If you want to share your project with the other 
+    team via mail or some shared folder, person who is getting all the project have to do download all the jar file also 
+	configure some path. If there is a version changes you have to update and delete. To resolve maven have a central repo
+	sitory.In Maven you dont have to download jar file you just need to add dependency from Maven repository.
+  b). my-app
+|-- pom.xml
+`-- src // in this package we will define all the utility files or data 
+    |-- main
+    |   `-- java
+    |       `-- com
+    |           `-- mycompany
+    |               `-- app
+    |                   `-- App.java
+    `-- test // In this we write our test cases 
+        `-- java
+            `-- com
+                `-- mycompany
+                    `-- app
+                        `-- AppTest.java	
+	Thats why it is maintaining common structure accross the organization. Means maven a built in structure for the project 
+
+  c).If you have to run your test cases assume 100 TC, For that you have go to each class and run those test. Maven have 
+    a easy configuration to Jenkins ot it has a flexibility in integrating with CI tools 
+	
+  d).Plugins for Test framework execution : they support TestNG and Junit 
+
+57. what is Artifact and groupID?
+=> Artifacts: An artifacts is a file,Usually a jar, that gets developed to a Maven repository (Project name)
+   GroupID: groupid will identify your project uniquely across all the project(package name) 
+   
+58.How do run all your test cases in MAVEN from different class?
+=>With the help of maven surefire plugin 
+
+59.what is the Mvn command prompt ?
+=> you have to route to the directory from the command prompt 
+  a). mvn clean: it will clean all the project 
+  b). mvn compile: This will compile all your code, If there is any syntax error on the code it will display message but it will not run 
+     test cases
+  c).mvn test:This command will execute all your test cases 
+  
+60. How do create a maven project from command prompt ?
+  => command archetype=> actually generate a project 
+     -DgroupID=> could be wesite 
+	 -DartifactID=> Actual subproject you are working on could be your project name
+	 -DarchetypeArtifactID =maven-archetype-quickstart(for testing framework)
+	 -DinteractiveeMode=false
+	 
+	 Simple way to create a project 
+	 
+	 egcode: >mvn archetype:generate -DgroupId=EndtoEnd -DartifactId=ProjectEndtoEnd -Dpackagename=FirstProject -DarchetypeArtifactId=maven-archetype-quickstart
+62.Why do your class name at end Test in Maven?
+=> thats how maven recognize test to run.It reads algorithm which have name test at the end.if there is no test name at the 
+  end it will skip those test 
+  
+62A.How do you make maven project compatible to eclipse?
+=>C:\Users\meght\ProjectEndtoEnd>mvn eclipse:eclipse (you need to drive into the project folder) 
+  
+ 63.How do you run specific class on MAVEN?
+=> mvn -Dtest=Appiumtest.java test
+   if you have to run multiple classes 
+   mvn -Dtest=Appiumtest.java,Apttest.java,Seleniumtest.java test   
+   
+ 64.What is profiling?
+ => Lets say we have a 2 different test to run in our MAVEN project. one is regression and one is for smoke,we can acheive those
+ by going to change xml or POM file.since this is occuring we dont want to change the name of the file. for that reason we 
+ create a <profiles> in POM file .Once we create a profile than we can run these profile through command prompt 
+ for eg:  
+ <profiles>
+   <profile>
+   <id>regression</id>
+   
+   <build>
+    <pluginManagement>
+      <plugins>
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-surefire-plugin</artifactId>
+          <version>2.12.4</version>
+           <configuration>
+          <suiteXmlFiles>
+            <suiteXmlFile>testng2.xml</suiteXmlFile>
+          </suiteXmlFiles>
+        </configuration>
+        </plugin>
+      </plugins>
+    </pluginManagement>
+  </build>
+   </profile>
+         <profile>
+         <id>smoke</id>
+   
+   <build>
+    <pluginManagement>
+      <plugins>
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-surefire-plugin</artifactId>
+          <version>2.12.4</version>
+           <configuration>
+          <suiteXmlFiles>
+            <suiteXmlFile>testng.xml</suiteXmlFile>
+          </suiteXmlFiles>
+        </configuration>
+        </plugin>
+      </plugins>
+    </pluginManagement>
+  </build>
+   
+   </profile>
+  </profiles>
+   
+65.How do you run from command prompt?
+=> mvn test -pregression 	
+
+
+66.What is Jenkins?
+=>Jenkins is a continuous Integration tool.this is basically for daily things.You have a 500TC, You can run those test cases 
+  through maven and testng but thats also a manual work. you have to go into the command prompt or xml file to run those tests.
+  Lets say you have a thousand of test cases and it will take 7 hours to execute those. By the time when you have to come to 
+  the office that needs to done. For that scenerio we can give a command into the Jenkins to run those test cases at 2Am in 
+  the morning then when you are at your office all test cases is ran and have results.so we dont have to run that manually.
+  And also business wants to see your test execution they did not go into the eclipse and run those test cases from Jenkins;
+  
+67.how do you run Jenkins?
+=>Install war file from jenkins site and run below command into command prompt
+  C:\Users\meght\Desktop>java -jar jenkins.war -httpPort=9090(or what port number you want to run)
+  
+68.How do you configure maven project in Jenkins?
+=> Go to manage jenkins->Global tool configuration -> Provide Java_Home as a name from environment variable 
+  -> Go to the maven -> provide environment variable name for Maven  
+  
+69.How do you open a workspace and provide local file into Jenkins?
+=> click new item->Enter item name -> click FreeStyle project->click advance->Use custom workspace ->go to the eclipse and copy project
+  -> paste into the .jenkins folder-> Go to the Jenkins and on directory ${JENKINS_HOME}/ProjectEndtoEnd  
+  -> Go to the build and select version of maven 
+  -> On the goals you need to provide mvn command like test(you dont need to write mvn in jenkins)
+  ->Go to the project and run your test 
+    
+70.What is apache log4j?
+=> its an logging framework,It is used to capture all the log for eg clicking on the button ,sending text.
+   for eg you have a 50 test cases in package a and 30 test cases in package.client only wants to see log for package A
+   and only wants to see failure logs.How do you generate all the failure log and package b all the log ? also i want to get
+   a timestamp.if client ask log for last week. how do i know if there is an error by looking at log?
+   All the question we can log4j API.
+   
+71.How do you download lo4j?
+=> Download from the site -> unzip the file -> go to the eclipse -> configure build path-> import only log4j-core-"" and log4j-api-"version" 
+   private static Logger log=LogManager.getLogger(Demo.class.getName());//calls Logger class you can also run those another package class 
+   just change the name of the class
+	public static void main(String[] args) {
+		log.debug("I am debug");
+		if(5>4){
+			log.debug("object is present");
+			log.error("Object is not present");
+			log.fatal("this is fatal"); 
+	you can get all information from https://logging.apache.org/log4j/2.x/manual/configuration.html	
+
+72.Where to log all the file and how do you add dependency into it?
+=> To add dependency into the maven go to https://logging.apache.org/log4j/2.x/maven-artifacts.html header USing log4j in you Apache Maven build
+   and add into the POM.xml 
+  for eg:
+   <dependency>
+    <groupId>org.apache.logging.log4j</groupId>
+    <artifactId>log4j-api</artifactId>
+    <version>2.11.0</version>
+  </dependency>
+  <dependency>
+    <groupId>org.apache.logging.log4j</groupId>
+    <artifactId>log4j-core</artifactId>
+    <version>2.11.0</version>
+  </dependency>
+You can log it into the console or in a separate file.This is found in Appenders tag 
+<Configuration status="WARN">
+  <Appenders>
+    <Console name="Console" target="SYSTEM_OUT"> // where to print
+      <PatternLayout pattern="%d{HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n"/>// what format that you want to print
+    </Console>
+  </Appenders>
+  <Loggers>// what to log 
+    <Root level="error"> // root level is for entire test you need to all logs enter ="Trace"
+      <AppenderRef ref="Console"/>
+    </Root>
+  </Loggers>
+</Configuration>
+ 
+73.How do log all the log4j into the file?
+=>This can be intregrated any java framework.This is a utility for framework.you can add below code with your filename
+   <RollingFile name="File" fileName="${basePath}/prints.log" filePattern="${basePath}/prints-%d{yyyy-MM-dd}.log">
+     <PatternLayout pattern="%d{HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n"/>
+      <SizeBasedTriggeringPolicy size="500" />
+          </RollingFile>
+74.What is Page object model?
+=>Lets say, You used a object for 500 test cases, for some reason that is changed, now we have to change those object in 500 TC, its going to take 
+more than 3 days to manage. This is very tedious process. for that reason POM is comes into the place. There are other popular framework into the 
+market datadriven,keyboarddriven,hybrid and POM. This is very easy to maintain, Easy readabilty to maintain, Reduce or eliminate duplicates, re-usa
+bility of code, Reliability.
+For eg: In POM we create a class for every module. Lets say we have rediff.com so we will create a class called homepage then another class for sigh in. 
+all the object for each module have seperated from the class.Since this seperated from the class if something changes into element class we can change 
+we can just go into that class and it changes everywhere.
+
+75.How do you run POM?
+=> First you create a package called repository where you store all the element of the page and a constructor which accept webdriver.also method 
+ for each element
+ for eg:WebDriver d;
+	public RediffLoginpage(WebDriver d){
+		this.d=d;
+	}	
+		By username = By.xpath("//INPUT[@id='login1']");
+		By password=  By.xpath("//INPUT[@id='password']");
+		By gobutton=By.xpath("//INPUT[@type='submit']");
+		
+		public WebElement Emailid(){
+			return d.findElement(username);
+		}
+		
+		public WebElement password(){
+			return d.findElement(password);
+		}
+		public WebElement  gobutton(){
+			return d.findElement(gobutton);
+		}
+		
+		
+		}
+ 
+    Then you create a testNG and call those into the test 
+	 for eg:
+	 System.setProperty("webdriver.chrome.driver", "C:\\Users\\meght\\Desktop\\chromedriver.exe");
+		WebDriver d= new ChromeDriver();
+		d.get("https://mail.rediff.com/cgi-bin/login.cgi");
+		d.manage().window().maximize();
+		RediffLoginpage rediffLogin = new RediffLoginpage(d);//create a class instance and call those method 
+		rediffLogin.Emailid().sendKeys("abc@gmail.com");
+		rediffLogin.password().sendKeys("12345");
+		rediffLogin.gobutton().click();
+	 
+	 
+ 
+ 76.What is page object factory ?
+ =>page object factory is used to store webelement.Regular POM we have to write driver.findElement("any parameters") in method.In page object factory
+ we just return webelement variable;
+  for eg:
+  WebDriver d;
+	public LoginpagePageObjectF(WebDriver d){
+		this.d=d;
+		PageFactory.initElements(d, this);//This needs to added into the constructor
+		
+	}
+	
+	@FindBy(xpath="//INPUT[@id='login1']") WebElement username;
+	@FindBy(xpath="//INPUT[@id='password']") WebElement password;
+	@FindBy(xpath="//a[text()='Home']") WebElement Home;
+	
+	public WebElement uesrname(){
+		return username;
+	}
+	public WebElement password(){
+		return password;
+	}
+	 public WebElement Home(){
+		 return Home;
+	 }
+}
+
+78. How do you connect with database?
+=> First you need to download jar file from internet for eg: mysql download and configure into the buildpath on project 
+
+79. How do you create connection URL?
+=> "jdbc:mysql://"+host+":"+port+"/databasename";
+DriverManager.getConnection("jdbc:mysql://"+host+":"+ port+"/employeeportal;","root","root");
+  code sample: public static void main(String[] args) throws SQLException {
+	String host="localhost";
+	String port ="3306";
+	 Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/employeeinfo?autoReconnect=true&useSSL=false&maxReconnects=10","root","root");
+	 Statement s=con.createStatement();
+	 ResultSet rs=s.executeQuery("SELECT * FROM employeeinfo where balance=0;");
+	
+	 while(rs.next()){
+		 
+	 rs.getString("name");
+	 rs.getString("location");
+	 }
+	}   
+80.What is java collection?
+=> It is  a framework which have class and interfaces.
+1.List collection : insert multiple values into this list containers.it may contain duplicate values, you can delete or insert between 10 and 11th.
+ in array you cannot perform any 
+2.set
+3.hashmap
+
+81.What is arraylist class?
+=> Its a dynamic size class (you can add remove)
+
+82.What is behavior driven development?
+=>For eg business analyst or project manager talks to business or stakeholder and write those information that document get distributed to all across to 
+the team dev,tester,stakeholder.It may have a different prespective for dev qa and business. So it may development leads to diff way for this confusion.
+To resolve this issue they developed a Ubiguitous language so everyone can read in the same way.it is a common language.BA needs to write those laguage which 
+is understood by technical and non techinal person.There should not be confusion , all should undertand in a same way. 
+Devlopemnt and testing should be happen in proper way.This document is shared with all the people in the team techinal or non-techinal. And have a common format 
+We can tag this annotation to selenium automation to execute business test cases. Also common standard testcase templete to manual and automation. We 
+are tagging this annotation to selenium
+Eg syntax: 
+
+In order to (Acheive something)-> business outcome 
+AS a (Role)
+ i want to do this 
+ 
+ these are common templete standard (This is a simple syntax so everbody can understand)
+ 
+ Another example :
+  In order to pay credit card payment 
+  As a NetBanking sole owner who have credit section access 
+  I want to navigate to credit card section,Enter amount and process my payment 
+  
+83.How do you write a test cases on BDD?
+=> Given: Account with a access and amount into the card 
+   when : navigate to credit card payment system
+   then : Should be able to process 
+   
+Another test cases 
+ Given: Account with zero balance 
+ when: navigate to Credit card payment system and click submit button 
+ then: should Get error message 
+ 
+ Another test cases 
+ Given: Accoutnt with the balance who does not have a access
+ when: navigate to credit card payment
+ then: give amount less than payment
+ 
+84.What are the advantages of BDD?
+=>This can be used as Standard Template where all QA can stick to one common standards of defining Testcases
+
+-Each Scenario reflects a Business Value
+
+-We can estimate the Test coverage happened for Each Business outcome by going through Test Cases
+
+-We can tag these Annotations to Selenium Automation and execute the Business Testcases
+
+-Common Standardised Testcase template for both Manual and Automation testing
+
+85.What is feature file in cucumber?
+=>  Feature file have test scenerio or a test cases which is injected into the cucumber framework
+
+86. How do you tag test cases feature file to automation ?
+=> From annotation @given, @When, @then
+  for eg:
+  @When("I meet watchman")
+	public void Imeet(String str){
+		
+	}
+	@Given("I work in latenight")
+	public void in(){
+		
+	}
+ 87. Lets assume you have a hundred test cases in feature file how do you automate this?
+=> from the help of regular expression.If you put regular expression it will execute remaining matching sentence 
+   For eg you have a two testcases into the feature file, to write a single code, below is the example 
+
+@When("I meet ([^\"]*)") ([^\"]*)=> This is regular expression 
+	public void Imeet(String str){
+		if(str.equals("watchman")){
+			System.out.println("watchman test");
+		}
+		if(str.equals("Newspaperboy")){
+			System.out.println("newspaperboyTest");
+		}
+		
+	}
+	@Given("I work in ([^\"]*)")
+	public void in(String str){
+		if(str.equals("latenight")){
+			System.out.println("Latenight test");
+		}
+		if(str.equals("Morning")){
+			System.out.println("Morning test");
+		}
+	} 
+88. how do you run testcases from cucumber?
+=>	From the testrunner class 
+ package step_definitions;
+
+ import org.junit.runner.RunWith;
+
+ import cucumber.api.CucumberOptions;
+import cucumber.api.junit.Cucumber;
+
+@RunWith(Cucumber.class)
+@CucumberOptions(plugin={"html:outpu"})
+public class testRunner {
+
+}
+    
+ 
+89. How is the  business scenerio?
+ => In order to understand Atitude
+    As a ITworking guy
+    I want to know whom he is wishing
+     you have to derive how do you write a testcase from this scenerio 	
+	 
+90.How do you run selenium on cloud or how do you Automate on clouds?
+=>From the help of Sauce Labs 	
+@Test
+	public void setup() throws MalformedURLException{
+	DesiredCapabilities dc = new DesiredCapabilities().chrome();
+	dc.setCapability("version", "66.0.3359.139");
+	dc.setCapability("platform", "Windows 10 Home");
+	
+	WebDriver driver=new RemoteWebDriver(new URL("https://saucelabs.com/beta/tunnels"), dc);
+	
+	driver.get("http://www.google.com");
+	System.out.println(driver.getTitle());
+	
+	}
+This will all your test cases on clouds 	
+	 
+	 
+91.why do you chooose selenium?
+=> -free and open source
+   -Have larger user base and helping community 
+   -Cross browser compatibility like firefox,googlechrome,safari,etc 
+   -Platform compatibility - you can ececute your test cases any platform like mac, windows,linux 
+   -Multiple programming language support -Java,C#,.net.php,pearl,node.js,python 
+   - Easy integration with testNG,jenkins,maven,cucumber,AutoIt(for pop up testing and file upload)
+   - Also can be integrated in cloud machines like sauce labs 
+   
+92.What is the difference between QTP and selenium?
+=>QTP is a licensed tool and its very heavy and it only support IE and firefox, it around more that 1GB,Selenium is free of its around 28MB.
+  QTP have its own data driven,Keyword Driven,Object repository,Own spy concept,Own look at feel structure but in selenium there is no look and feel or GUI. In selenium 
+   its purely form of API. In QTP they are using VB script , its not complete object oriented language.
+  Disadvantages of selenium is it cannot support any webservices testing,it cannot do any mobile testing,It cannot do any desktop application testing      
+  
+93.What is selenium architecture?
+=> There are 4 components 
+   1.Selenium Client library which is Ruby,C#,JAVA,PHP etc 
+   2.JSON Wire Protocol over HTTP
+   3. Browers Drivers
+   4.Real Browers like chrome,firefox,safari,IE 
+   
+   When you call Driver = new Firefox or any other browser, it will create a JSON rest API call to Browser call in the server, Then it will verify those information and run those 
+   test cases.For any line of code it have a seperate API call into the server.
+   
+ 94.What are the operating system supported by selenium?
+=> 1.Windows
+   2.Linux
+    3.Apple
+
+95.What are the Open-source Framework supported by selenium WebDriver?
+=> Junit (TTD framework)
+   TestNG 
+   Cucumber (BDD framework)
+   Jbehave
+
+ 96.What are the locators are available in Selenium?
+ There are 8 types of locators 
+ 1.ID 
+ 2.Name 
+ 3.Class
+ 4.LinkText
+ 5.Partial Link Text
+ 6.CSS selector
+ 7.Xpath
+ 8.TagName
+
+97.What is HTML DOM?
+=> There are 3 types of DOM 
+   1.Html dom --> its a structure of html like it start with <document><HTML><title><body> 
+   2.XML dom 
+   3.Core Dom
+   It is a interface which is available as API,provided by specific browser vendor,Dom is done by page wise,Dom is created on Runtime,From the help of javascript we can 
+   perform into multiple pages, We have 4 API CRUD which means c->Add,r->Get,u-change,d-delete.javascript will  Run from DOM and calls CRUD API's.JS makes HTML code dynamic 
+   
+98.What are the verification points available in Selenium?
+=> In selenium there is no build in features for verification points.It totally depends on our coding.To verify we have to use TestNG assertion or Junit accession, 
+    for eg check title of the page verify certain text   
+	
+99.What is the meaning of WebDriver driver = new chromeDriver()?
+=>	Webdriver is an interface and chromeDriver is implement webdriver interface.All the browser class is implementing webdriver interface this is called dynamic polymorphism.
+    driver is not the object is a reference object for interface because we cant create a object of interface, it means we are creating a object of chromeDriver or other browser class.This 
+	concept is called dynamic polymorphism or dynamic runtime polymorphism or dynamic binding
+
+100.Why dont we use FireFoxDriver firefox = new FireFoxDriver() or other ?
+=> You can achieve your target just by calling direct class.Lets say you initialize browser with this tomorrow manager comes in and wants to change. If you did not implement
+   Webdriver class then we have write a method like get(),getTitle().Also once if we initialize webdriver we can call any browser class and write a code in any browser.
+
+101.What are the different exception you found in selenium Driver?
+=> -WebDriverException -> some mismatching with the version either with selenium or browers
+   - TimeOutException -> If you put explicit wait or implicit wait if the element is not found it will give you a timeout exception 
+   - NoAlertPresentException 
+   - NoSuchWindowException 
+   - NoSuchElementException 
+   - StaleElementReferenceException   
+   - IllegalStatException -> you dont specify setProperty() and just run browser you will get that 
+
+102. How To Login Into Any Site If It Is Showing Any Authentication Pop-Up For Username And Password?
+      To do this we pass username and password with the URL
+      http://username:password@url
+     e.g. http://admin:admin123@xyz.com
+	 
+103.What is staleElement exception?
+=>	Element is stale for somereason,Something is gone from the page,may be get refreshed, element may be not be visible at the time.Lets say there is a price that you want to get 
+    a text from the element, it keeps refreshed by AJAX that time you will get staleElement exception.It means the element is present in the DOM but it gets refreshed and ID gets 
+	expired.
+
+104.What is AJAX?
+=>With the help of AJAX only particular things can be refreshed not whole page 
+
+
+	 

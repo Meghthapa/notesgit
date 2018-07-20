@@ -1,0 +1,25 @@
+JMeter Basics:
+
+1.To recorrd and run you use tool called Badboy
+2.Test structure :
+ a.Test plan
+  -test steps
+    -- Use can create as many users to test
+	-- use can also define loops 
+	-- also tool have a ability to interact user with defined time
+  -test result 
+  
+  Elements in Jmeter 
+ - in j meter we dont call a test case, it is a thread group or a number of users in a particular test case 
+ - Samplers are used to send request to server. As we all know that Jmeter supports testing HTTP,FTP,JDBC and many protocols 
+ - Loop controller controls loops as many times user wants 
+ - user define variable you can define your variable and call it into Test cases by using $(variable)
+ - Timers-> with the help of the timers we can delay requset
+ - Pre Processer-> IS used to do some action 
+ -Listner are used to see result
+ 
+ 
+ 
+ 
+ 
+  

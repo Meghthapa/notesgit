@@ -1,0 +1,71 @@
+1.What is the REST assured?
+=>Rest assured is a jar file which is used to automate API.Testing and validating using this rest assured API.This is getting popular day by day because this is 
+  a open source.It support Post,Delete,Get,Put,option and head request
+
+2.what is Rest API ?
+=> Rest ApI defines a set of operation where developers can perform request and receive responses via HTTP protocol in a form of JSON/XML data.Rest API takes a 
+input of XML or JSON format. Once you hit the API with correct parameters it will response.It does not matter what platform you are sending the request, As long
+as API parameters requirement matches.It will not expose the code to access to the DB it will give a API to connect with the DB.
+
+3.What is endpoint?
+=> It is a place where you call API. It is divided into 3 values:
+ a)Base URL:www.abc.com ()
+ b)Resources : What module that you want to go 
+ c)Parameters : what are the parameters that you can sent 
+
+4.What are the types of REST request?
+a)Get 
+b)Post
+c)Delete
+d)Put
+
+
+5.What is headers?
+=>This is just a API Keys and other parameter required by a API 
+
+
+6.how do you build rest api script?
+   base URl
+=> given()
+    request header 
+	parameters 
+	request cookies
+	
+   when()
+   a)Get(resource)
+   b)Post(resource)
+   
+   then()
+   a)You will get a response 
+   
+   extract()
+   
+  for eg:
+  import io.restassured.RestAssured;
+import io.restassured.http.ContentType;
+
+import static io.restassured.RestAssured.*;
+import static org.hamcrest.Matchers.equalTo;
+
+public class FirstAPI {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+       
+		RestAssured.baseURI="https://jsonplaceholder.typicode.com";
+		
+//		given(). This is how you send parameters into API
+//		  param("Key","Value").
+//		  param().
+//		  param()
+//		.header("dfd","gfjgghhl").
+//		cookie("dsfs","csder").
+//		body()
+		get("/posts/1").
+		then().assertThat().statusCode(200).and().contentType(ContentType.JSON).and().body("title",equalTo("sunt aut facere repellat provident occaecati excepturi optio reprehenderit"));
+		
+		
+	}
+
+}
+    

@@ -1,0 +1,26 @@
+Selenium Grid 
+C:\Users\meght\Documents>java -jar selenium-server-standalone-3.3.1.jar -role hub
+
+you have to specify a jar file path 
+
+steps:
+grid command prompt should be open 
+for node 
+
+C:\Users\meght\Documents>java -jar selenium-server-standalone-3.3.1.jar -role webdriver 
+-hub http://localhost:4444/grid/register -port 5555
+
+if you want to run on another machine you can specify address instead of localhost(Everything has to be on small letter)
+
+if you want to run only firefox browser into the computer 
+C:\Users\meght\Documents>java -jar selenium-server-standalone-3.3.1.jar -role webdriver 
+-hub http://localhost:4444/grid/register -port 5555 -browser browserName=firefox
+
+if you only want to run IE firefox and chrome only into the node 
+C:\Users\meght\Documents>java -jar selenium-server-standalone-3.3.1.jar -role webdriver 
+-hub http://localhost:4444/grid/register -port 5555 -browser browserName=firefox -browser browserName =iexplore -browser browserName=chrome
+
+if you want to run 3 chrome instances in a computer 
+C:\Users\meght\Documents>java -jar selenium-server-standalone-3.3.1.jar -role webdriver 
+-hub http://localhost:4444/grid/register -port 5555 -browser browserName=firefox -browser browserName =iexplore 
+-browser browserName=chrome.maxinstances=3
