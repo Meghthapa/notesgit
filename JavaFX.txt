@@ -1,0 +1,64 @@
+1.What is JavaFX?
+=>It is a software platform for creating and delivering desktop application as well as Rich Internet Application
+
+2.What is a Lambda expression?
+=>
+
+
+3.How do you add event in buttons ?
+=> button.setOnAction(new EventHandler<ActionEvent>() {
+
+			@Override
+			public void handle(ActionEvent event) {
+				System.out.println("Event is sucessful");
+				
+			}
+			
+		});
+  Above is a old style 
+  we can acheive this with Lambda 
+  for eg:
+  button.setOnAction(e ->{
+			System.out.println("Checking button with Lambda");
+		});
+		
+4.How do you add sceneBuilder in your project?
+=> Download sceneBuilder in your local
+  -Create a FXML .go to project ->select other ->CreateFXML file ->give name Main 
+  - Install scenebulder in eclipse go to window -> Preference -> click JavaFX ->specify path -> select SceneBuilder.exe ->Apply and close 
+  -go to FXML file right click ->open with sceneBuilder
+  
+5.What is controller class in javaFX?
+=>We write all the code into the controller class 
+
+6.What is main class?
+=>To run our UI 
+
+7.How do you add action on FXML file ?
+=> By adding attribute called onAction="#eventButton" 
+
+8.What is initialize interFace?
+=>We can implement method and write our all action code in there.
+
+9.How do you setup radioButton?
+=> RadioButton btn = new RadioButton();
+			btn.setToggleGroup(group);
+			RadioButton btn1 = new RadioButton();
+			btn1.setToggleGroup(group);
+			RadioButton btn2 = new RadioButton();
+			btn2.setToggleGroup(group);
+			
+			group.selectedToggleProperty().addListener(new ChangeListener<Toggle>() {
+
+				@Override
+				public void changed(ObservableValue<? extends Toggle> observable, Toggle oldValue, Toggle newValue) {
+					// TODO Auto-generated method stub
+					System.out.println("old toogle"+oldValue);
+					System.out.println("New toogle"+newValue);
+				}
+				
+			});
+			
+			
+10.How do you specify your image into the CSS ?
+=> -fx-background-image:url("../Images/Back.jpg") -> it will look for a package called image and get the file 			

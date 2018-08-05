@@ -1,0 +1,44 @@
+1.What is Framework?
+=> A framework defines a set of rules or best practices which we can follow in a systematic way to acheive the desired result.There are different types of 
+   framework and most common are 
+  -Data Driven framework
+  -keyword Driven framework
+  -Hybrid Testing framework 
+  
+2.Have you created any Framework?
+=>Yes, I have designed a framework as well as used the framework already available and also contributed in designing 
+
+3.What is Page object model ?
+=>Lets say in you web application you have multiple module,In POM we create a separate java classes for each module.All the separate class we will define webelement and method into
+  this class which is also called as first layer, Then we will create another class called test classes where we write our test cases, this is a second layer.On the top we will 
+  create a base class where we write all browser information, This is also called a parent class,In base class we initialize browser, also properties file, also URL, maximize window,
+  pageloadTimeOut(), deleteAllcookies, This is a third layer then properties file will be 4th layer and data driven test will be 5th layer, i Also create a utility class like screen
+  shot method, sendmail(),This is a 6th layer.Another component is reporting it could be HTML,TestNG,XML Report this is 7th component,all the layer are in package   
+  
+
+4.what do you define in properties files?
+=>Environment variables like browser, URl, username, password   
+
+5.Where do you store your Data?
+=>Read and write Apache POI 
+
+6.What is apache MAVEN?
+=> Maven is build automation tools,As we do in our regular project we have to download a jar file and add that into the project. In MAVEN they have repository that we can
+   add into our project in the form of dependency.in the form og gropuID,artifactID, Version
+   
+7.What is Maven lifecycle?
+=> It has 3 major lifecycle 
+   1.Maven compile - it will comile all your java class by using maven compiler plugin 
+   2.Maven test -  It can execute test cases with the help of surefire plugin 
+   3.Maven resources or generate jar   - It will create JARs/WAR's/EAR's 
+   
+8.How do you execute Maven project from eclipse?
+=> Right click in the project run as Maven Test   
+
+
+9.How do you just want to compile your build only test cases in MAVEN?
+=> mvn package -Dskiptests
+
+10.How to integrate Jenkins with selenium?
+=>
+ 

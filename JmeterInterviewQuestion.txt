@@ -1,0 +1,219 @@
+Q #1) Explain the architecture of Jmeter.
+
+Ans: Jmeter is a Java based open source application that is basically designed for the purpose of Load Testing.
+
+It supports all major protocols that are supported in Load Runner. Unlike any browser, Jmeter works on levels of protocols and does not execute JavaScript present in HTML web pages.
+
+Q #2) Does Jmeter simulate actual browser behavior?
+
+Ans: No, Jmeter does not support the actual browser behavior. It does not render the HTML webpages as the normal browser does. Response can be viewed in HTML format but the actual timings are not present in the generated samples.
+
+Q #3) What is Distributed testing?
+
+Ans: Distributed Testing means using multiple machines for load testing in which one of the machine can be made master and others can be kept as slave. It is very important to note that all the machines should be on the  same network and should have the same version of Java and Jmeter
+
+Q #4) What is the use of Regular Expression in Jmeter?
+
+Ans: Regular Expression can be used for extracting some values dynamically from the responses so as to use to it in the subsequent request or save it for reporting purposes. Regular Expression is used in both Pre-Processors as well as Post Processors.
+
+Q #5) What are the types of processors in Jmeter?
+
+Ans: Basically there are two types of processors in Jmeter namely Pre-Processor and Post Processor.
+
+Pre-Processors execute before the main sampler and can change the scope of the sampler whereas Post Processors execute after the main sampler and are applicable to all samplers in the same scope of Test Plan. They can be used to extract some fields from the server response and store them in variables.
+
+Q #6) What are the different ways of Data Parametrization in Jmeter?
+
+Ans: Data Parametrization makes the scripts reusable where the values need not be hardcoded for the same request with different parameters.
+
+Below is the data parametrization that is supported in Jmeter:
+
+CSV Data Set Config
+User Defined Variables.
+Q #7) What are the maximum recommended threads on a single system?
+
+Ans: It depends on the hardware configuration of your system which includes a processor, JVM, allocated memory -Xmx, etc.
+
+Other factors which impact this are the number of components in your test plan i.e. the number of config elements or processors and it also depends on whether you are using GUI/Non-GUI Mode.
+
+Q #8) Explain the difference between Gaussian and Poisson Timers.
+
+Ans: Both Gaussian and Poisson Timers work on a mathematical formula with some constant Delay and additional offset. Difference between the two lies in the fact how the lambda value is calculated in case of Poisson timer and how deviation is calculated in case of Gaussian Timer.
+
+Q #9) What are the major differences between Jmeter and Load Runner.
+
+Ans: Jmeter is considered as the major competitor of Load Runner in the  industry but there are some differences between the two.
+
+Mentioned below are some of the major differences:
+
+Load Runner	Jmeter
+Licensed Software	Open Source tool.
+Developed by Mercury	Developed by Apache.
+UI is very impressive	It lacks in UI
+It has more technical capabilities.	Less technically sound as compared to Load Runner.
+Supports SAP, Siebel and Peoplesoft.	Doesn’t support SAP and Siebel
+Q #10) What is the use of co-relation in Jmeter?
+
+Ans: Co-relation is a process in which values can be extracted from the server response and stored in a variable and then can be used in any other request which is to follow.
+
+For Example, for testing any login functionality if you have to use session ID/cookie ID , you can extract the value from the response of GET request of the login page and then dynamically use the same while making POST request for login.
+
+Q #11) What are the different types of listeners?
+
+Ans: Listeners are used for storing the execution results of load testing in different forms be it a table, graph, tree or in any other presentable format so that it can be presented to the client. There are different type of inbuild listeners in Jmeter and many others can be imported into it by using plugins as per the requirement.
+
+Below are some of the inbuild listeners:
+
+View Results in Table
+View Results Tree
+Graph Results
+Aggregate Graph
+Aggregate Report
+Assertion Results
+Response Time Graph
+Q #12) Explain the flow of Test Script Recorder.
+
+Ans: HTTP(s) Test Script Recorder is used to record all the http(s) request going to the server from your application. There are some configurations which need to be done in Jmeter in order to make it work.
+
+Below are the steps followed to record https traffic:
+
+Add HTTP(s) Test Script Recorder to WorkBench.
+Enter the port number which you want to start your proxy server from.
+Choose the Target either as “Workbench” only or add a Recording Controller in your test plan and select the same as Target so that all the recordings are stored under it.
+Start the Proxy Server now.
+Configure your browser with manual proxy settings pointing to the same port number used in the test script recorder.
+Q #13) Can Jmeter record actions from Mobile? If yes, how?
+
+Ans: Yes, Jmeter can record HTTP or https request going to the server from your mobile application also. Mobile and Jmeter should be on the same network.
+
+Below is the configuration required:
+
+Configure your proxy server in JMeter to run at a specified port.
+Set up a proxy on your mobile wifi settings and enter the same port number that is used in the recorder.
+Install the Root CA certificate on your mobile.
+Hit server request from your mobile and observe it getting captured by the specified controller.
+Q #14) How to do master-slave configuration in Jmeter?
+
+
+
+ 
+Ans: Master-Slave configuration is a part of Distributed Testing in which more than one machine is used to perform load testing of the server under test.
+
+It is very important that all machines are on the same network and all have the same version of Jmeter. In distributed testing, one machine is made as the Master and the others are kept as slaves by doing some configurations.
+
+The process is specified below:
+
+On master machine, edit the jmeter.properties file and add the IP addresses of slave machines against the remote_host field in the file.
+Save the file and open the Jmeter again.
+Now from the RUN menu in Jmeter, select Remote Start and choose the IP of the machine to be invoked.
+Choose RUN menu and select Remote Start all to start all the slave machines for your testing.
+Q #15) What are the Jmeter supported protocols?
+
+Ans: Jmeter supports various standard protocols as listed below:
+
+HTTP/HTTPs
+SOAP
+LDAP
+FTP
+SMTP
+TCP
+Q #16) Explain the Syntax of Jmeter variables and functions.
+
+Ans: Just as in any other programming language, variables and functions are used in Jmeter also in order to make the scripts reusable.
+
+Syntax of Variable – ${var}
+
+There are many inbuilt functions that are available in JMeter to perform various actions. Function string can be generated from the Function Dialogue Box itself.
+
+For example, if you want to get the machine IP stored in a machineIP variable, you can use the string ${__machineIP(machineIP)}.
+
+Q #17) Why is it recommended to run Jmeter in GUI mode?
+
+Ans: Jmeter tests can be run both GUI as well as Non-GUI Mode.
+
+It is highly recommended to run the load test in Non-GUI mode because AWT Event Thread can kill the tests in case of high load scenarios.
+
+There are various Non-GUI mode supported with Jmeter such as:
+
+Command Line
+ANT Plugin
+MAVEN Plugin
+Jenkins
+Q #18) Is it possible to run Selenium scripts in Jmeter? If yes, how?
+
+Ans: Yes, it is possible to run selenium scripts in Jmeter to get some ideas on their performance.
+
+There are two ways of doing it. Either you can use Junit libraries to build Selenium scripts and save as Jars and copy the same in Jmeter directory. And then add Junit sampler to your test plan and import the Jar file.
+
+Otherwise, Webdriver sampler plugin can be added in the JMeter ext folder and then restart the Jmeter. Write your selenium code in the Webdriver sampler and then execute to see the performance.
+
+Q #19) How do you manage sessions and cookies in Jmeter?
+
+Ans: Sessions and cookies can be managed in Jmeter by using config elements such as HTTP Cache Manager which provides an option to clear the cookies in every iteration and also allows to add user-defined cookies.
+
+HTTP Cache manager helps you in clearing cache after each iteration as per your requirement in the load tests and also limits the number of elements which can be stored in the cache. Both of these config elements can be attached to the HTTP sampler.
+
+Q #20) What are the important steps for testing JDBC request?
+
+Ans: JDBC Requests are used to establish a connection with the databases and then measure the response time of the queries.
+
+Important steps for testing JDBC requests are:
+
+Setting up Config Element – JDBC Connection Configuration in which Database URL and JDBC Driver Class needs to be added as per the database which is being used. Also, add the variable name for this connection configuration so as to use it in sampler.
+Add JDBC Request, add the same variable name added above and write your queries to test.
+Q #21) What is BeanShell scripting?
+
+Ans: BeanShell is a lightweight Java scripting that is used in JMeter to perform some complex task.
+
+BeanShell sampler can perform various functions with the use of coding. You can print the thread number, get the current sampler executed, fetch the cookies etc.
+
+Q #22) Can Jmeter measure the performance of a complete application? For example, you have multiple screens in your mobile app. Can Jmeter measure the time taken to flip the screens?
+
+Ans: No, Jmeter does not measure the transition time between the screens. It can only measure the server actions not the UI interactions.
+
+Q #23) What is a Root CA Certificate?
+
+Ans: HTTPS connection requires a certificate to authenticate the connections which get established when the browser hits the web server.
+
+Jmeter generates it temporarily to intercept the SSL traffic in order to record the actions. For recording actions via mobile, you need to have this certificate in your mobile to record the actions.
+
+Q #24) Which factors decide the maximum threads that one should generate per system?
+
+Ans: It depends on the hardware of the system.
+
+For Example, on a 2-3 GHz CPU, 400-600 threads can be generated. It also depends on the components in your test plan. More the processors and XML parsing elements, more the CPU load and hence less threads.  For high load, it is recommended to use multiple machines for load testing.
+
+Q #25) What is a Workbench and why is it required?
+
+Ans: Workbench is a storage area for adding some components which can be added to test plan if required.
+
+Components of workbench does not get saved with the test plan automatically. They have to be saved separately as test fragments. Most important part of the Workbench is HTTP(s) Test script recorder which is highly useful in recording the https request and later load can be applied on them to measure the response time.
+
+Q #26) What is Tidy Parsing?
+
+Ans: Tidy Parsing is a type of parsing that is used in Xpath extractor.
+
+If the response is in pure XML then tidy parsing is not required whereas, in case of XHTML, it is mandatory to check the tidy parsing option in order to fetch the correct results.
+
+Q #27) What are the important plugins that are supported in Jmeter?
+
+Ans: Jmeter supports different types of plugins which are helpful in generating high quality results.
+
+Below are the major plugins that are supported:
+
+Thread Group Plugin – Stepping Thread Group Plugin.
+Samplers Plugins like Webdriver.
+Listeners plugins.
+Q #28) What are the types of controller in Jmeter?
+
+Ans: Controllers are used in Jmeter to control the flow of execution of requests.
+
+Below are the controllers that are used in JMeter:
+
+Recording Controller
+IF Controller
+While Controller
+Transaction Controller
+Loop Controller
+Simple Controller
+Module Controller

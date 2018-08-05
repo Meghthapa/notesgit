@@ -353,7 +353,7 @@ for eg: do{
 	  input=getUserInput();
 	}while(input <=0)
      //perform some action	
-
+
 57.What is variable scope?
 => Variable decleared over a class level which is instance or static variable are consider as global variable	 
    local variable:local variable is accessible within methods,constructor, it will initialized when method is called and drop within the scope
@@ -1149,10 +1149,265 @@ Resulted in decoding issue
  - Default buffer size ~ 8192 bytes 
  
 148.What is Chained Streams?
-=> Java Program <-BufferedInputStream <- FileInputStream <- Database or file location 
+=> Java Program <-BufferedInputStream <- FileInputStream <- Database or file location
+  BufferedInputStream in = new BufferedInputStream(new FileInputStream("go.jpg")) //This is a Decorator pattern here BufferedInputStream is a decorator, this is also called The 
+  Open-Closed principles, According to this principle classes should be open for but closed for modification 
 
-149.
- 
+149.What is character streams?
+=> Is used to read or write character data like text files 
+    - They are build on top of byte streams everything is binary 
+
+150.What is reader class?
+=>Base abstract class for all character input streams and it is used to read 16-bit char data in UTF-16 format 
+  int read()throws IOException
+  --> This method reads 1 character & returns as int between 0 & 2(16)-1(65536) and returns corresponding int value 
+      return -1 if the end of stream is dectected 
+  --> abstract class read(char[] cbuf,int off,int  len)throws IOException 
+      This  method deal with with group of character
+	  -Return length # character into array starting at offset
+	  -Return # character read or -1 if end-of-stream detected 
+	
+151.What is Writer class?
+=> Base abstract class for all character output streams
+  -Write 16-bit char data to a sink(may use another char format)	
+  --> Void write(int c)throws IOException
+   -Writes a single character(lower two bytes )
+   -->abstract void write(char[] cbfu,int off,int len)
+     -Write length # characters from array starting at offset
+
+152.What is FileReader & FileWriter class?
+=> Handle text files 
+    FileReader in = new FileReader("go.tet");
+    FileWriter out = new FileWriter("go.txt")
+ -build on top of FileInputStream & FileOutputStream classes 	
+ - Uses default encoding (default jvm ) if you want to change encoding you can do in command prompt (-Dfile.encoding=UTF-8)
+   if you want to know what encoding property it uses you can use following code 
+   System.getProperty("file.encoding") OR Charset.defaultCharset()
+   Do not use this 
+ -> So the prefered approach is 
+   public inputStreamReader(inputStream in,String charsetName)
+   public OutputStreamWriter(OutputStream out, String charsetName)   
    
+   The general purpose of this classes is you can set char encoding by your choice 
+   for eg :
+    FileReader in = new FileReader("go.tet");
+    FileWriter out = new FileWriter(in,"UTF-8")
+   
+   To acheive top efficiency: Wrap them with BufferedReader & BufferedWriter class 
+   This is the constructor of BufferedReader and BufferWriter
+    public BufferedReader(Reader in)
+	public BufferWriter(Reader out)
+   
+    Default buffer size ~ 8192 character 
 	
+    BufferedReader have a method readline() which reads a line 
+    \n-line feed 
+	\r- carriage return 
+	\r\n
+   
+153.What is File class?
+=> it can be useful to manipulating files in the system.You can do things like creating files,creating directories, Deleting files and directories, renaming files and so on.
+   for eg:
+   File f= new File("C:\\Users\\meght\\workspace\\NewWorkspace\\JavaPractice\\src\\collection\\dheeruClass\\read.txt");
+		
+		System.out.println("GetAbsolutePath()"+f.getAbsolutePath());
+		System.out.println("CanonicalPath"+f.getCanonicalPath());
+		System.out.println("Seperator:"+f.separator);
+		System.out.println("seperatechar"+f.separatorChar);
+		System.out.println("GetParent"+f.getParent());
+		System.out.println("lastModified"+f.lastModified());
+		System.out.println("Exists()"+f.exists());
+		System.out.println("IsFile()"+f.isFile());
+		System.out.println("IsDirectory"+f.isDirectory());
+		System.out.println("length()"+f.length());
+		System.out.println("System.getProperty"+System.getProperty("user.dir"));
+		System.out.println("Creating a new directory"+ new File("Megh").mkdirs());
+		System.out.println("Creating a new file"+ new File("Megh\\test").mkdirs());
+		System.out.println("Delating a directory"+new File("Megh").delete());
+		System.out.println("Creating a multiple directory"+new File("Megh\\test1\\test2").mkdirs());
+		
+		File file2=new File("temp.txt");
+		System.out.println("file2.createNewFile()"+file2.createNewFile());
+		System.out.println("file2.rename()"+file2.renameTo(new File("Megh\\temp1")));
+		dirFilter(true);
+		
+		
+		
+	}
+	public static void dirFilter(boolean applyFilter){
+		
+		File path = new File(".");
+		String[] list;
+		
+		if(!applyFilter){
+			list=path.list();
+		}else{
+			list=path.list();
+			
+			for(String diritem: list){
+				System.out.println(diritem);
+			}
+		}
+
+155.What is multiThreading?
+=>Java support multithreading,Performing activity at a same time,Its very useful when the network is slow for eg if you using a facebook page, while you r using it photo or any other 
+  content get updated or downloaded,Advertisement,webcrawlers,Federated search 	
+  
+156.Why we need a multiThreading?
+=>We know sequential programming(SP)
+  certain tasks block,eg.,read() in IO
+  Blocking halts other tasks thus wasting CPU time
+ And solution in concurrency 
+
+157.What is Concurrency?
+=>Pre-OS era~IF there is no operating system computer ran a single program 
+   -Used all scarce system resources- very efficient
+  OS ~ Allowed multiple processes to run concurrency
+	- process~ And each process gets own memory, file handles, etc 
+	-Concurrency is achieved through multitasking which means switching CPU from process to another 
+	-Multitasking -> does not imply parallelism 
+	-Fast Switching -> illusion of parallelism 
+	-Concurrency -> better resource utilization 
+  	
+158.What is Thread?
+->Single sequential flow of control within a process 
+->Light weight process 
+->Process~ multiple thread 
+->Thread share process-wide resources,e.g ,memory 
+->Thread ~ Has own PC,stack and local variables
+
+159.What is the benefit of a Thread?
+->Exploiting multiple processer 
+  -Allow loosely coupled designs 
+  - Better throughput even in single CPU machines 
+  
+160.What are the Types of Threads ?
+-Daemon Thread ->Background threads for tasks such as garbage collection 
+-Non-Daemon Thread -> 
+   Created within application
+   main thread : Created by JVM to run main()
+ In java there is always a one thread even if you dont create it is a main thread 
+Thread is a class and which is in java.lang.Thread pakage and Runnable is a interface from java.lang.Runnable
+
+170.How do you lunch a Thread ?
+=> 1st you Create Task 
+   Runnable task = new MyRunnavle();
+   Runnable has exactly one method run();
+ Create Thread with Task 
+Thread thread = new Thread(task)//New 
+-Then start Thread 
+  thread.start();//Runnable
+  New call stack with run() is created for thread 
+  
+  public class threadExamples {
+
+	public static void main(String[] args) {
+		Task task = new Task();
+		Thread thread = new Thread(task);
+		thread.start();
+       System.out.println("Inside main....");
+       
+       try {
+		Thread.sleep(3000);
+	} catch (InterruptedException e) {
+		
+		e.printStackTrace();
+	}
+	}
+
+}
+class Task implements Runnable{
+
+	@Override
+	public void run() {
+		System.out.println("Inside run...");
+		go();
+		
+	}
+
+	private void go() {
+		System.out.println("Inside go()...");
+		more();
+		
+	}
+
+	private void more() {
+		System.out.println("Inside more...");
+		
+	}
+
 	
+}
+171.What is the another option for Thread.sleep()?
+=>TimeUnit.SECONDS.sleep(3);
+ 
+
+  
+154.What is Databases?
+=> Software for storing & retrival of data 
+   RDBMS -> eg mySQL,Oracle,Microsoft SQL Server
+   NoSQL-> eg MongoDB,Apache cassandra,Redis --> Deals for lagre amount of database
+   
+156.What are the benefits of RDBMS?
+- SQL
+-First data access
+-Integrity Constraints
+-Concurrent Access
+  
+155.What is Lambdas?
+=>Lambdas is essentially a function which can passed around, It is not associated with any class.This is the most important features that got added in java8 from that java has a 
+  functional programming tool.Lambda helps to code faster,cleaner and compact code.Lambda comes from Lambda-calculas whichis mathmatical notation for function.All function in 
+  Lambda-calculas is anonymous.
+  -It is a anonymous function 
+  -Compact way to define function 
+  -Useful for passing around functionality 
+  - LISP,Scala,C#,Ruby,C++,Python supports Lambda
+  For eg:
+  (Type param1,Type param2,..)->{
+   //Statement 1 
+   //Statement 2
+   ...
+   return something;
+  }
+  
+  Lambda expressed is assign to a variable which is assign to the functional interface and variable is method parameter.
+  
+156.What is Functional interface?
+=> Functional Interface is a interface that exposes a single abstract method.Functional interface is used to single strategy interface
+   For eg:
+   Set<String> set = new TreeSet<String>(new Comparator<String>(){
+     public int compare(String a,string b){
+	  return a.length()-b.length();
+	 }
+   })
+   We can acheive through this method easily by Lambda 
+   for eg:
+   TreeSet<String>((String a,String b)->{return a.length()-b.length();});
+                  (a,b)->{return a.length()-b.length();}
+				  (a,b)->a.length()-b.length();
+here the comparator is a functional interface, if it is not a functional interface then we will get a compilation error, Lambda expression cannot be assigned 
+to the method parameter or any variable whose type is not a functional interface	
+
+158.Give me a examples of Lambda Expression?
+=> ()->{}
+    (Book b)->{syso(b.gettitle())}->It is a void method which returns title
+	(Book b)->{return b.rating()>=45;}
+	(Book b)->b.rating()>=4.5
+	(Book b)->b.rating()>=4.5
+	 b->b.rating()>=4.5//This is the simplest thing possible
+	 
+	 Parenthesis is not required if you have only single parameter.Parenthesis is mandatory if you have more than 1 parameter or no parameter
+
+159.What are the differences between Annonyms Classes and Lambdas?
+=>	Anonymous class                                                        Lambdas
+    ---------------------------------------------------------------------------------- 
+	1.has associated object + verbose(like new)						  1.No Associated object(invokedynamic)+compact representation 
+	2.Instanciated on every use(unless declared as singleton)     	  2.Memory allocated only once for method 
+	3.Target type(class/Interface) can have multiple methods 		  3.Works with only functional interfaces 
+	
+160.What are the advantages of Lambda?
+=> -Enables functional programming	 
+   - Readable and concise code 
+   -Easier-to-use APIs and libraries
+   -Enables support for parallel processing
+   

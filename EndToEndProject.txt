@@ -1,0 +1,375 @@
+1. How do you start a maven project ?
+  => command archetype=> actually generate a project 
+     -DgroupID=> could be wesite 
+	 -DartifactID=> Actual subproject you are working on could be your project name
+	 -DarchetypeArtifactID =maven-archetype-quickstart(for testing framework)
+	 -DinteractiveeMode=false
+	 
+	 Simple way to create a project 
+	 
+	 egcode: >mvn archetype:generate -DgroupId=MyEndtoEnd -DartifactId=MyProjectEndtoEnd -Dpackagename=FirstProject -DarchetypeArtifactId=maven-archetype-quickstart
+	 
+2.What is the another step after crating a project ?
+=> We need to make maven project compatible with the Eclipse for that 
+  C:\Users\meght\ProjectEndtoEnd>mvn eclipse:eclipse (you need to drive into the project folder folder always located into user/meght/projectname)
+
+3.What is the another step after building a project ?
+=> We will add depency into the POM File
+
+4.Why do we need a base class?
+=> For eg if you have 1000 of testcases,Your manager came into and say i want to run all this testcases into IE, For this scenerio we need to change our code in 
+   1000 places.This is going to be very tedious process, Framework should make our testing process easier to execute and maintain. Thats why when we are building 
+   a framework we should create a class for every browser so once we change our setting in 1 and all our testcase should run with the help of properties file.It 
+   means we are not going to hardcode data into the code 
+
+5.What is properties files and how to create properties file ?
+=> right click on the test project-> Go to the other -> File-> you have to put .properties file 
+   To instantiate the properties file.below is the example that you can can properties file into the class.
+   public class base {
+	 WebDriver d;
+	public WebDriver initializeDriver() throws IOException{
+		
+		Properties prop = new Properties();
+		FileInputStream fis = new FileInputStream("C:\\Users\\meght\\ProjectEndtoEnd\\src\\main\\java\\EndtoEnd\\data.properties");
+		prop.load(fis);
+		String browserName=prop.getProperty("browser");
+		
+		if(browserName.equals("chrome")){
+		System.setProperty("webdriver.chrome.driver", "C:\\Users\\meght\\Desktop\\chromedriver.exe");
+		 d= new ChromeDriver();
+		
+		}else if(browserName.equals("firefox")){
+			d= new FirefoxDriver();
+		}else if(browserName.equals("ie")){
+			d= new InternetExplorerDriver();
+		}
+		d.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+		return d;
+	}
+
+}
+
+6.How do you parametrized data in TestNG ?
+=> From dataprovider annotation,You get a Array outof bound index if you specify [1][2],to execute multiple dataset you have to use [2][2]
+  for eg:
+  @DataProvider
+	public Object[][] getData(){
+		Object[][] data=new Object[2][2];
+		data[0][0]="nonrestricteduser@qw.com";
+		data[0][1]="123456";
+//		data[0][2]="Non restricted user";
+//		
+		data[1][0]="restricteduser@qw.com";
+		data[1][1]="456788";
+//		data[1][2]="Restricted user";
+		
+		return data;
+ 
+ 7. How you create a method with a dataprovider?
+=> If you create a dataprovider for 2 array ,test cases will execute twice.
+   @Test(dataProvider="getData")
+	public void basepagenavigation(String username,String password) throws IOException{
+	   d=initializeDriver();
+	   d.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+		d.get("http://qaclickacademy.com");
+		d.findElement(By.linkText("Login")).click();
+		Landingpage Lp = new Landingpage(d);
+		Lp.getEmail().sendKeys(username);
+		Lp.getPassword().sendKeys(password);
+		Lp.clickSubmit().click();
+		//System.out.println(text);
+
+8.How do you import your base class into the test classes ?
+=> we can just extend the class 
+
+9.what is Assert?
+=>Assert.assertEquals() validates expected and actual result 
+
+10.What is Assert.assertTrue and assertFail()?
+=> It will check if that particular element is displayed or enabled 
+   Assert.assertFail checks if that condition is false
+   
+11.How do you integrate testNG Xml into Maven?
+=>Using SureFire plugins,Copy Dependency from http://maven.apache.org/surefire/maven-surefire-plugin/examples/testng.html  Using suite XML Files section.
+  also need to add a <build> tag into the POM.XML
+   for eg:
+    <build>
+   <plugins>
+   
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-surefire-plugin</artifactId>
+        <version>2.21.0</version>
+        <configuration>
+          <suiteXmlFiles>
+            <suiteXmlFile>testng.xml</suiteXmlFile>
+          </suiteXmlFiles>
+        </configuration>
+      </plugin>
+    
+</plugins>
+  </build>
+  
+ 12.How do you run those testcases after integrating testng.xml file into Maven?
+ => we can execute this from command prompt 
+steps :
+  1.Copy project path for eg C:\Users\meght\ProjectEndtoEnd 
+  command will be = cd C:\Users\meght\ProjectEndtoEnd
+  2.Once you get into the project 
+   then = mvn compile
+  3.To run your test 
+   mvn test 
+13.How do you add logs into the framework?
+=>  To add dependency into the maven go to https://logging.apache.org/log4j/2.x/maven-artifacts.html header USing log4j in you Apache Maven build
+   and add into the POM.xml 
+  for eg:
+   <dependency>
+    <groupId>org.apache.logging.log4j</groupId>
+    <artifactId>log4j-api</artifactId>
+    <version>2.11.0</version>
+  </dependency>
+  <dependency>
+    <groupId>org.apache.logging.log4j</groupId>
+    <artifactId>log4j-core</artifactId>
+    <version>2.11.0</version>
+  </dependency>
+You can log it into the console or in a separate file.This is found in Appenders tag 
+<Configuration status="WARN">
+  <Appenders>
+    <Console name="Console" target="SYSTEM_OUT"> // where to print
+      <PatternLayout pattern="%d{HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n"/>// what format that you want to print
+    </Console>
+  </Appenders>
+  <Loggers>// what to log 
+    <Root level="error"> // root level is for entire test you need to all logs enter ="Trace"
+      <AppenderRef ref="Console"/>
+    </Root>
+  </Loggers>
+</Configuration>
+     
+14.How do you add log4j xml file into the project and where do you create this file?
+=> You need to have a xml for log4j into a base class 
+    <?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="WARN">
+<Properties>
+<Property name = "basePath">./logs</Property>
+</Properties>
+  <Appenders>
+<RollingFile name ="File"  filename = "${basePath}/prints.log" filePattern="${basePath}/prints-%d{yyyy-MM-dd}.log">
+<PatternLayout pattern="%d{HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n"/>
+<SizeBasedTriggeringPolicy  size ="500"/>
+</RollingFile>
+    <Console name="Console" target="SYSTEM_OUT">
+      <PatternLayout pattern="%d{HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n"/>
+    </Console>
+  </Appenders>
+  <Loggers>
+      <Root level="trace">
+      <AppenderRef ref="File"/>
+    </Root>
+  </Loggers>
+</Configuration>
+Add this Xml file into base class as a file name log4j2.xml
+
+15.How do you initialize log4j into the class ?
+=> public static Logger Log=LogManager.getLogger(CurrentClassName.class.getName());
+    
+16.How do you POM.xml file will know where exactly your log4j2.file is located?
+=> You need to specify the path of log4 file into the POM.xml. fot that there is a plugin for resources go to :
+https://maven.apache.org/plugins/maven-resources-plugin/examples/filter.html under  if we add a <filtering> tag to our POM and set it to true like this:
+and paste inside a build tag 
+for eg:
+ build>
+  <resources>
+  <resource>
+  <directory>src/main/resources</directory>
+  <filtering>true</filtering>
+  </resource>
+  when you specify this it will go into the resources folder and try to find that file and execute all our logs 
+
+17.Why do you need log4j ?
+=>In a framework there should be a multiple test cases, by running theough the MVN it does not give you a paticular test cases or what class or method
+  it is failed. For that we need a log file once we put log.info into the class it will create a log file what execute or not.We can just watch TC 
+  running it may take hours to execute for that we need a log file so that we know what method is creating the issues.
+
+18.How do you make your testngXML separate test ?
+=>  <suite name="Suite">
+  <test name="Test">
+    <classes>
+      
+      <class name="EndtoEnd.Homepage"/>
+       </classes>
+  </test>
+   <test name="Test1">
+    <classes>
+      <class name="EndtoEnd.ValidateNavigationBar"/>
+      </classes>
+  </test>
+  <test name="Test2">
+    <classes>
+      <class name="EndtoEnd.ValidateTitle"/>
+    </classes>
+  </test> <!-- Test -->
+</suite> <!-- Suite -->
+
+19.At the end of the test why do you make driver = null?
+=> For each and every test we are initialize webdriver it will take a lot of memory into the heap thats why.
+ for eg: @AfterTest
+	public void closeDriver(){
+		d.close();
+		d=null;
+	} 
+	
+20.How do you take screenshot?
+=>	public void getScreenshot(String result) throws IOException{
+	File src=((TakesScreenshot)d).getScreenshotAs(OutputType.FILE); 
+	File destFolder=new File("C:\\Users\\meght\\"+result+"seleniumscreenshot.png");
+	FileHandler.copy(src,destFolder);
+	}
+
+21.How do you take screenshot for only failed cases?
+=>There is a concept called TestNG listner.Create a class in test folder called listner and implements  interface called ITestListner.Once you 
+  implemented default methods will populated. It means there are method which will execute or do any kind of the function, and it will execute 
+  if you want to write a method into the interface you can do it .You write a method into a base class and extend you class into the listner class.
+  From there you can directly call your method into ITestListner method and also you need to mention into the TestNG that there is a listner class 
+  into testNG.XML 
+  For eg:
+  <suite name="Suite">
+<listeners>
+  <listener class-name="EndtoEnd.listners"/>
+</listeners>
+
+22.How do you handle multiple failed screenshot if there is a multiple failure ?
+=> ublic void onTestFailure(ITestResult result) {
+		
+		try {
+			base.getScreenshot(result.getName());
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}	
+	Also add a argument into screenshot method with string parameters.
+	
+23.How do you generate report?
+=> With the help of extend reports go to the http://extentreports.com/docs/versions/3/java/#maven copy dependency and paste into the POM.XML
+  <dependency>
+    <groupId>com.aventstack</groupId>
+    <artifactId>extentreports</artifactId>
+    <version>3.1.5</version>
+</dependency>
+
+then we need to write a programme after executing all the testcase it will give reports.
+Steps:
+a) Add two of the below dependency into the POM 
+
+ <dependency>
+    <groupId>com.aventstack</groupId>
+    <artifactId>extentreports</artifactId>
+    <version>3.1.5</version>
+</dependency>
+ <dependency>
+
+<groupId>com.relevantcodes</groupId>
+
+<artifactId>extentreports</artifactId>
+
+<version>2.41.2</version>
+
+2.copy this Excel file and paste it into the resources package 
+ package Resources;
+
+import java.io.File;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.List;
+import java.util.Map;
+ 
+import org.testng.IReporter;
+import org.testng.IResultMap;
+import org.testng.ISuite;
+import org.testng.ISuiteResult;
+import org.testng.ITestContext;
+import org.testng.ITestResult;
+import org.testng.xml.XmlSuite;
+
+import com.relevantcodes.extentreports.ExtentReports;
+import com.relevantcodes.extentreports.ExtentTest;
+import com.relevantcodes.extentreports.LogStatus;
+ 
+
+
+ 
+ 
+
+ 
+public class ExtentReporterNG implements IReporter {
+    private ExtentReports extent;
+ 
+    public void generateReport(List<XmlSuite> xmlSuites, List<ISuite> suites, String outputDirectory) {
+        extent = new ExtentReports(outputDirectory + File.separator + "ExtentReportsTestNG.html", true);
+ 
+        for (ISuite suite : suites) {
+            Map<String, ISuiteResult> result = suite.getResults();
+ 
+            for (ISuiteResult r : result.values()) {
+                ITestContext context = r.getTestContext();
+ 
+                buildTestNodes(context.getPassedTests(), LogStatus.PASS);
+                buildTestNodes(context.getFailedTests(), LogStatus.FAIL);
+                buildTestNodes(context.getSkippedTests(), LogStatus.SKIP);
+            }
+        }
+ 
+        extent.flush();
+        extent.close();
+    }
+ 
+    private void buildTestNodes(IResultMap tests, LogStatus status) {
+        ExtentTest test;
+ 
+        if (tests.size() > 0) {
+            for (ITestResult result : tests.getAllResults()) {
+                test = extent.startTest(result.getMethod().getMethodName());
+ 
+                /*test.getTest(). = getTime(result.getStartMillis());
+                test.getTest().endedTime = getTime(result.getEndMillis());*/
+ 
+                for (String group : result.getMethod().getGroups())
+                    test.assignCategory(group);
+ 
+                String message = "Test " + status.toString().toLowerCase() + "ed";
+ 
+                if (result.getThrowable() != null)
+                    message = result.getThrowable().getMessage();
+ 
+                test.log(status, message);
+ 
+                extent.endTest(test);
+            }
+        }
+    }
+ 
+    private Date getTime(long millis) {
+        Calendar calendar = Calendar.getInstance();
+        calendar.setTimeInMillis(millis);
+        return calendar.getTime();        
+    }
+}
+ 3. Once we are done with the you need to add listner into the testNG.xml file 
+     for eg:
+	 <listeners>
+  <listener class-name="EndtoEnd.listners"/>
+  <listener class-name="Resources.ExtendReporterNG"/>
+</listeners>
+
+24.Where do you find the report ?
+=> Refresh the project -> under target folder ->Maven sureFire reports -> ExtentreportTestNG.html->Copy the path from properties ->paste it into the browser
+  if you are running testcases from testNG then result will be on test-output
+  
+25.How do you install Apache Ant?
+=> Download from the site -> extract into c:/ drive and set up a Environment variable  check in command prompt with ant -v 
+    If you see this below message ant is installed into your computer.
+   Apache Ant(TM) version 1.10.3 compiled on March 24 2018
+   Trying the default build file: build.xml
+   Buildfile: build.xml does not exist!
+   Build failed

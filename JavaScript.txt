@@ -1,0 +1,224 @@
+1 what is javascript?
+=> javascript is a light weight,cross platform,Object oriented computer programming language. It means lightweight does use computer memory,Cross 
+   platform means it can be used in multiple platform and system and language based on object.
+   javascript is one of the three core techonology of web development 
+   javascript is mostly commonly used as a part of webpages but it also used without RAM  
+    this is actually run on client side: it is traditionally only used in the browser 
+	Server side: Thanks to node JS , we can use javascript on the server as well 
+  javascript is what made modern web development possible 
+  .Dynamic effects and interactivity 
+  .Modern web development that can intreact with 
+  There are tons of javascript libary and frameworks out there they are specilized in different factors and help develpoers to write complex application
+  Library like jQuery,frameworks like react and angular
+
+2 where does JS fit in ?
+=> we know HTML is for UI  CSS is to handle those and JS is for Dynamic effect into the HTML
+
+3.How do you write a code ?
+=> open Brackets =>Start a new project or import a new project.There is a 2 ways to write a JS one is inline code and another is <script> tag,creating a 
+   new file called JS at the end 
+   Eg for inline <script>Hello world!!</script> In line code example 
+   moslty we prefere to write into a JS file <script src="script.js"></script>
+   to print console.log('Hello world!!');
+  
+4.How do you define data type and variables in JS?
+=> To create a variable 
+    var name ='Megh';
+	console.log(name);
+	
+5. What are the primitive data types in JS?
+=> Number : floating point number,For decimal and integer(In JS it always have decimal like float ) 
+   String: Sequence of character,used for text
+   Boolean: Logical data type that can only be true or false 
+   undefined : Data type of a variable which does not have value 
+   NUll : also means non existence  
+   Primitive which means these are  not objects 
+  JS has a dynamic typing which you dont have to specify what datatype when you are creating a value.JS will figure out on the run 
+  
+ 6.how do you comment code ?
+ Sigle line comment // and block comment is multi line comment /* */ 
+	
+ 7.what happen if you mix string and int?
+=> var name ='Megh';
+var age =37;
+
+console.log(name+age); // JS will figure out which data type needs to convert automatically this is called typeCoertion 
+
+8.How do you create multiple variables ?
+=> var job, ismarried;
+
+console.log(job);//This will give undefined because variable is undefined.
+We can assign variable after the variable is declared 
+
+9.What is variable notation?
+=> It means changing the variable data types 
+
+10.How do prompt an alert into a JS?
+=> var newName=prompt('What is you name?');
+console.log(newName);
+
+12.How do you alert in JS?
+=> alert("abc")
+
+13.What are the operators in JS?
+=> +,-,*
+
+14.How do you define IF else statement?
+=> var name ='Megh';
+ var age =26;
+ var ismarried='no';
+
+ if(ismarried === 'yes'){ === this is a comparison operator
+    console.log(name+' '+ 'is not married');
+}else{
+    console.log(name+ ' '+ 'is married');
+}
+
+14.What are the basic boolean logic ?
+=> AND(&&)-> true if all are true
+ ,(||)-> true is one is true
+  (!)not->inverts true or false value
+  
+15.What is function and how do you create it?
+=>  Is a container which holds couple of lines of code, and we pass arguments into them from onsite,its a condition dont repeat your code.
+  function getname(firstname,lastname){
+    return firstname + ' '+ lastname;
+}
+
+function calculateAge(yearOfBirth){
+    var age = 2016 -yearOfBirth;
+    return age;
+    
+}
+var megh=calculateAge(1979);
+console.log(megh);
+
+var name=getname('Megh','Thapa');
+console.log(name + megh);
+ 
+16.What is the difference between Statement and expression?
+=> function somepar(par){ --> this is function statement 
+    //code
+   }
+   
+   var somefun=function(par){--> This is a  function expression
+      //body
+	  }
+	 The difference between function and expression is expression creates a value or outcome unlike function statement just do function 
+	 
+	 For eg
+	  3+4;
+	  var x=3;-->This creates some immediate value 
+	  
+	 //Statement
+     if(x=== 5){
+	  //do something
+	 }	
+17.How do you create Arrays?
+=> var names=['Ram','Shyam','Hari'];
+   var years=[1979,1980,1981];
+
+    for(i=0;i<names.length;i++){
+    console.log(names[i]);
+    }
+
+     console.log(names);//This prints on 1 line 
+
+18.What are the pre build function that you can use in Arrays?
+=> push()--> add new elements in arrays 
+   unshift()--> add elements at the beginning of the arrays	 
+   pop()-->does not accept any parameters,removes last elements in the array and also returns removed value
+   shift() --> removes 1st elements into the array 
+   indexOf()->Return the position of the element if element is not present return -1;
+   for eg var megh=['Megh','Thapa',37,true,'QA'];
+   console.log(megh);
+
+   if(megh.indexOf('QA')=== -1){
+    console.log('Megh is a pilot');
+   }
+
+19.What are objects ?
+=> object have key value pair.You can use "." operator to call each key.Objects can hold data as array 
+   For eg:
+   var megh = {
+    name:'wassup',
+    age: 37,
+    ismarried:true,
+    job: 'Engineer'
+    
+ 
+};
+console.log(megh.name);
+console.log(megh.age);
+
+var xyz = 'job';
+console.log(megh[xyz]);
+
+20.How do you create array and function under object?
+=> var megh = {
+    name:'wassup',
+    yearOfBirth: 1979,
+    ismarried:true,
+    job: 'Engineer',
+    family:['Rajendra','Nirmala','Jyoti','Nirja'],
+    calculationAge:function(yearOfBirth){
+    return 2018-yearOfBirth;
+ }
+ 
+ };
+  console.log(megh.family['2']);
+ 
+ 21.How do you declare loops and iteration ?
+ => For loop:
+    for(var i=0;i<10;i++){
+	  
+	}
+	b)While loop
+	  var i=0;
+	  while(i<names.length){
+	   console.log(names[i]);
+	   i++;
+	  }
+	  
+22.What are the javascript version ?
+=> 1996 -> called livescript then javascript,
+   1997 -> ECMAScript 1 become the 1st version 
+   2009 -> ECMAScript 6 on 2015 big update ever 
+    2016 -> ES 2016  
+
+23.How JS work behind the scene ?
+=> Javascript engine which run javascript code,There are many different engines out there like google 8,spider monkey.Our code is push through 
+   Parser which means it reads our code line by line,it means parser know JS code how to read,Then it goes to Abstract syntax tree then convert into 
+   machine code need to take classes 
+   
+24.What is DOM ?
+=>It stands for document object model,Structured representation of an html document, The DOM is used to connect webpages to scripts like javascript. 
+  for each HTML box ,there is an object in the DOM that we can access and interact with it.For eg: <a> 
+  
+25.What is the difference between textcontent and innerhtml?
+=> Textcontent only prints text and innerhtml code changes format 
+   //document.querySelector('#current-' + activeplayer).textcontent=dice;
+
+   document.querySelector('#current-' + activeplayer).innerHTML='<em>'+dice+'</em>';
+   
+ 26.What is querySelector means?
+ => This is a method used to manupulate DOM, We can also read element from the web and store some variable 
+ 
+ 27.How do you change display properties ?
+ => document.querySelector('.dice').style.display='none';
+ 
+ 28.What is Event?
+ Notification that are sent to notify the code that something happen on the webpage.It will trigger by clicking a button,resiging the window,scrolling 
+ down or pressing a key.We can use event listner to perform an action based on a certain event.it waits for a specific event to happen.like opening a pop
+ up window.
+ For eg: 
+ document.querySelector('.btn-roll').addEventListner('click',) 
+ you can choose eventlistner by going to https://developer.mozilla.org/en-US/docs/Web/Events
+ 
+ 29.What is annonyms function?
+ =>Function that does not have a name and cannot be reused 
+  for eg document.querySelector('.btn-roll').addEventListener('click',function(){
+    //Do something here 
+});
+ 
+ 
