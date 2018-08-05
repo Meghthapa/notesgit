@@ -139,4 +139,14 @@ What is contineous integration ?
 33.What is git status does ?
 =>It will verify the changes which is been done inside your project and report them. to do just type 'git status'
 
-34
+34.What is git status does ?
+=>It will verify the changes which is been done inside your project and report them. to do just type 'git status'
+
+34.what is untracked files means ?
+=> it means that you havent added into the git project
+
+35.How do you add those file ?
+=> 'git add .' or you can add specific file like git .add sampletext.txt
+
+36.How do you commit your changes?
+=> git commit -m "my first git commit". -m means message
