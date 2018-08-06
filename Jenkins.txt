@@ -162,3 +162,27 @@ What is contineous integration ?
   1.Working area --> it is the local repo where you work 
   2.Staging Area --> once you are done with your local repo, pushing code into the repo 
   3.Repository
+
+40.how do you add notepad++ ?
+=> Go to program files copy the path of notepad++ C:\Program Files (x86)\Notepad++
+   Go to environment variable specify the path 
+   go to bash and type notepad++
+   - notepad++ will open 
+
+41.How did you configure git with notepad++?
+=> Open Git Bash
+ Create file .bash_profilenotepad++ .bash_profile
+ Configure NotePad++ with GIT.git config --global core.editor "\"C:\Program Files (x86)\Notepad++\notepad++.exe\""
+ Exit and relaunch the GitBash
+  
+42.How did you verify git is installed in your machine ?
+ -> cat ~/.gitconfig one way 
+ -> git config –global – list 
+ 
+ for eg: $ git config --global --list
+user.name=megh thapa
+user.email=meghthapa141@gmail.com
+core.editor=C:\Program Files (x86)\Notepad++\notepad++.exe
+
+43.How do you verify changes in your project?
+=> git diff
