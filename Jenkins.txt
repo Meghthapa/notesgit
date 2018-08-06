@@ -150,3 +150,15 @@ What is contineous integration ?
 
 36.How do you commit your changes?
 => git commit -m "my first git commit". -m means message
+
+37.How do you find a logs report?
+=> type 'git logs'
+
+38.How do you see a logs for specific user in the team?
+=> type 'git logs --author="megh thapa"'
+
+39.What is the GIT workflow?
+=>There are 3 stages 
+  1.Working area --> it is the local repo where you work 
+  2.Staging Area --> once you are done with your local repo, pushing code into the repo 
+  3.Repository
