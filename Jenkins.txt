@@ -185,4 +185,59 @@ user.email=meghthapa141@gmail.com
 core.editor=C:\Program Files (x86)\Notepad++\notepad++.exe
 
 43.How do you verify changes in your project?
-=> git diff
+=> 'git diff' ->show changes have been made into the file 
+
+44.How do you compare stage area with local repository?
+=> git diff --staged 
+
+45.how do you delete file in git?
+=> first delete the file in folder type 'git status', it will say one deletion then 'git status' and 'git add .'
+-> 'git rm sample.text'
+
+46.What is github?
+=>Github is a centralized repository.Think of it as the "cloud" for code.Social media we put our code.
+
+47.How do you push your code into git project into github?
+=> 1.git init 
+   2.git remote add origin "URL"
+   
+48.How do you pull github data?
+-> once to initialize project into the remote repo, we can type 'git pull' or if you have a branch 'git pull origin master'
+
+49.how do push your git folder in github?
+-> git push origin master  
+
+50.How do you pull file from the Git?
+=>git pull origin master 
+
+51.What is Git branch?
+=>Lets say we have a 20 developers working on a team,If everybody is pushing their code into Master and something happened into the code, if you have to revert those code then all 
+  the code committed by all the developers. thats why the branching strategy have been developed.So the Dev will keep working on their branches, When it is needed then we will 
+  move those code into the master.
+
+52.How do you check branch in master ?
+=>  git branch -a
+
+53.how do you create a branch ?
+=> git branch MeghBranch 
+ 
+54.What is the meaning of "*"?
+=> That where are you in current cycle 
+
+55.How do you switch from master to branch?
+=>git checkout branchName
+
+56.How do you rename a branch?
+=>git branch -m mybranch newName
+
+57.How do you delete a branch?
+=>git branch -d NewName
+
+58.How do you merge code into master branch?
+=>git merge develop
+
+59.How to check log from the git ?
+=>$ git log --oneline --graph --decorate
+
+60.
+  
