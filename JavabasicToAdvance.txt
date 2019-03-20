@@ -1,0 +1,408 @@
+1.How do you print unicode character in java?
+-> You define the code as a char 
+  for eg :
+    char var1= "\u00A7"; it should start with \u then you enter unicode character
+
+2.What is Type casting ?
+-> 	Type casting means from 1 data type to another.For eg : 
+    short x =5;
+	int y =x ;
+	syso(y);-> this does not have any issue,This is called implicit typecasting 
+	another eg:
+	if int x = 10;
+	short y=x;
+	syso(x);(this will throw an error,This is called explict typecasting,higher bit to lower)
+	
+3.How do you handle explict typecasting?
+-> you can put the datatype in front of it.For eg: 
+  int y= 0;
+  short x = (byte)y;
+  syso(y);  
+	
+4.When is the for loop is used for? why should we need a loop for?
+-> you are looping through the statement based in our condition. for eg if you have to print a line from 1 - 10,without using a loop 
+   you have to write syso 10 times(if that number increases to 1000). but from the help of loop we can achieve from single line statement.
+
+  for(int i = 0;i<10;i++){
+  syso(i)
+  }   
+  for decrement 
+  for(int i = 1000;i>=1;i--){
+  syso(i);
+  }
+
+5.What is infinate loop?
+-> if you write a statement which is always true and loop did not stop;
+  for eg while(true){
+    syso ("infinite loop");
+  }
+
+6.How do you check if the NumberISPrime?
+-> Below is the sample code for this :
+      int num =100;
+		int temp = 0;
+		boolean isPrime=true;
+		for (int i = 2; i <=num/2; i++) {
+			temp = num%i;
+         if(temp==0) {
+        	isPrime =false;
+        	break;
+         }
+      }
+		if(isPrime==true) {
+			System.out.println("Number is prime");
+		}
+		else {
+			System.out.println("Number is not prime");
+		}
+	}
+
+6.Why do we need while loop?
+->It depends on the scenerio. we can acheive this
+  for eg:
+   int i=0;
+   while(i<=10){
+   i++;
+   }
+   
+7.How do you use do while loop?
+-> in do while loop do{} will run, it means code run before the condition is check.it means code will run at least 1 time even the condition 
+   is false.
+   For eg:
+   do{
+    syso(i);
+	i++;
+   }while(i<=10);//condition to check and keeps looping.
+   
+8.Where do you use break and continue ?
+-> It will stop or terminate executing current cycle. In the statement if you put continue, it will keep executing  
+   for eg :
+    for(int i=0;i<10;i++){
+	  if(i == 5){
+	  break; or Continue;
+	  }
+	}
+9.What is the meaning of nesting of loop?
+-> it means loop inside loop for eg :
+   for(int i=0;i<10;i++){ ---> This will be a first iteration, it means j will execute 10 times where i = 1 ;
+     for(int j=0;j<10;j++){
+	   syso("value of j="+j+"and value of i="+ i);
+	 }
+	}	
+
+10.What is Modulo operator?
+-> it is a remainder, for eg: 
+   if you divide 10/3 so the remainder is 1; 
+
+11. What are the naming convention for classes,interface,method and constant?
+-> for classes and interface use Camel case 
+   - for method and variables use pascal case 
+   - for packages use lower case 
+   - for Constants use UPPER case 
+   
+12.What is array and how do we initialize array?
+->   int intvariable= new int[10];
+      intvariable[5]=10;
+   
+13.Collection Frame work 
+--------------------------------
+1.How do you declare Arraylist?
+-> Sample code :
+  static ArrayList<String> aList = new ArrayList<>();
+	public static void main(String[] args) {
+
+		aList.add("Megh");
+		aList.add("Samyra");
+		aList.add("Sangam");
+		ArrayExample aExample = new ArrayExample();
+		aExample.removeNameByString("Megh");
+		aExample.displayname(aList);
+
+	}
+
+	public void displayname(ArrayList<String> names) {-> print all the name from 
+		for(String name:names) {
+			System.out.println(name);
+		}
+
+	}
+	public void removeName(int name) { --> method to remove name 
+		aList.remove(name);
+	}
+	public void removeNameByString(String listname) {
+		aList.remove(listname);
+	}
+	
+	public void setname(int position,String newname) {--> Update the name 
+		aList.set(position, newname);
+	}
+	
+2.What is wrapper class?
+-> Wrapper class works on a single entity, for that specific single entity have the constructor and also have getter and setter for the same.
+
+3.What is Autoboxing and outboxing ?
+-> if you want to get a int value from a int,double or float you can user get method.
+ for eg:
+ ArrayList<Double> doubleAutoUnbox= new ArrayList<Double>();
+	doubleAutoUnbox.add(30.2);
+	System.out.println(doubleAutoUnbox.get(0));
+
+4.What is collection framework?
+-> please refer the answer into the below link 
+   https://studyeasy.org/java/collections-framework-overview/
+   
+5.How do you initialize Stack? and what is Stack?
+-> Stack means  putting elements on top of each other.Stack follows FIFO principle(First in first out)
+   for eg:
+   Stack<Integer> stack =new Stack<>();
+	stack.push(2);
+	stack.push(8);
+	stack.push(6);
+	stack.push(7);
+	stack.push(2);
+	stack.push(10);
+	stack.push(1);
+	
+	for(Integer demo: stack) {
+		System.out.println(demo);
+		
+	}   
+	
+6.Which is the most widely used in collection framework?
+-> ArrayList and linkedlist.
+
+7.What is linkedlist? how do you initialize?
+-> below is the example of creating a linkedList
+   LinkedList<String> linkedList = new LinkedList<>();
+	linkedList.add("Nepal");
+	linkedList.add("India");
+	linkedList.add("Japan");
+	linkedList.add("USA");
+	linkedList.add("Australia");
+	System.out.println(linkedList);
+	printlinkList(linkedList);
+	linkedList.add(1, "Canada");
+	printlinkList(linkedList);
+	linkedList.set(2, "China");
+	printlinkList(linkedList);
+}
+ public static void printlinkList(LinkedList<String> printlist) {
+	 for(String list:printlist) {
+		 System.out.println(list);
+	 }
+	 System.out.println("***************");
+ }	
+	
+8.What is list ? 
+-> List is a interface and used by stack,ArrayList,linkedList 
+
+9.What is the difference between iterator and for each loop?
+-> Both works pretty much the same but iterator have a method to do previous that for each cannot do.
+   for eg: 
+   public static void printlinkList(List<String> list) {
+	
+	ListIterator<String> iterator= list.listIterator();
+	while(iterator.hasNext()) {
+		System.out.println("iterate: "+iterator.next());
+	}
+	System.out.println("*************");
+}
+10.How do you reverse the list of order ?
+-> From the help of collestions class reverse method 
+  for eg:
+  List<String> linkedList = new LinkedList<>();
+	linkedList.add("Nepal");
+	linkedList.add("India");
+	linkedList.add("Japan");
+	linkedList.add("USA");
+	linkedList.add("Australia");
+	System.out.println(linkedList);
+	printlinkList(linkedList);
+	linkedList.add(1, "Canada");
+	printlinkList(linkedList);
+	linkedList.set(2, "China");
+	printlinkList(linkedList);
+	Collections.reverse(linkedList);
+	printlinkList(linkedList);
+	
+11.How do you use compareTo method and how did it work?
+-> compareTo method only compare to objects if there is any primitive type it did not work.If the result is positive 
+   it returns 0, if negative -1, and greater 1.
+
+12.What is Generics in Java?
+->  The generic allows us to define a single declaration for all the datatypes (not primitive) but all the Object such as Integers,
+ String etc. Therefore, there is no need to define the same method for each data type,
+ which is also time and code redundant technique. This also provides compile-time safety.
+A generic type is a class or interface that is parameterized on types. Here we use angle brackets (<>) to specify the type parameter.
+In the following program, we demonstrate the typecasting is not required while using generics class.
+We have created a Generic class based on a property of T type (It means we are not sure about the type of object but it will be of some type). Inside the generics class, we have parameterized the Type of the generic class and also specified the data which would be passed to the constructor of the class.
+
+GenericClass<String> genericData = new GenericClass<String>(“Some data”);
+for eg:
+ class genericstype<T>{
+	private T data;
+
+	public genericstype(T data) {
+		this.data = data;
+	}
+
+	public T getData() {
+		return data; 
+	 }
+	public void setData(T data) {
+		this.data = data;
+	} 
+	
+}	
+public class Genericstest {
+	
+  public static void main(String[] args) {
+	genericstype<String> gsGenericstype = new genericstype<String>("Megh");
+	String sometextString= gsGenericstype.getData();
+	System.out.println(sometextString);
+}
+}
+
+13.Give me the example of typeparameter ?
+-> class dataParam<k, v> {
+	private k keyK;
+	private v valueV;
+
+	public dataParam(K keyK, V valueV) {
+		this.keyK = keyK;
+		this.valueV = valueV;
+	}
+
+	public K getKeyK() {
+		return keyK;
+	}
+
+	public V getValueV() {
+		return valueV;
+	}
+
+	@Override
+	public String toString() {
+		return "data [keyK=" + keyK + ", valueV=" + valueV + "]";
+	}
+
+	public <E,N> void display(E element,N number){
+		System.out.println("Keys is ="+ element+ " And Value is ="+ number);
+	}
+
+}
+
+public class TypeParam {
+	public static void main(String[] args) {
+		dataParam<Integer, String> datatypeparam = new dataParam(1, "Megh");
+		datatypeparam.display(2, 20.0);
+	}
+
+}
+14.What are the naming convention of Type parameter?
+-> T - Type
+  E - Element
+  K - Key
+  N - Number
+  V - Value
+	
+
+15.How do you create generics method?
+->	
+
+JAVA FIlE HANDLING 
+1.What are the stream for file handling ?
+-> System.out: Output Stream 
+   System.in: input Stream 
+   System.err: error Steam 
+   
+2.How do you create a file from the help of java ?
+-> File file = new File("src\\String.txt");
+		file.createNewFile();
+		System.out.println("File is created");
+		
+3.If you dont give a path in the code where the file is generated?
+-> it will generate relative path means in a folder level. If you want to specify the location give(src/sample.txt), then it will create 
+   a folder inside the src folder.("/" -> for windows but mac this is diff)
+   
+4.How do you create a file in the local c:?
+-> File file = new File("C:\\Users\\meght\\Documents\\JavaFile\sample.txt")  
+
+5.How to create a directory in java?
+->File directory = new File("SampleDirectory");
+  directory.mkdir();
+
+6.How to create multiple directories in java and file under it?
+-> File directory = new File("MeghSample\\Samyra\\Thapa");
+		directory.mkdirs();
+		System.out.println("Multiple directory is created");
+		File file = new File("MeghSample\\Samyra\\Thapa\\megh.txt");
+		file.createNewFile();
+		System.out.println("File is created");
+   for local type the path C://path 
+   
+7.How do you write into the files?
+-> File direcFile = new File("TestData");
+          direcFile.mkdir();
+          direcFile = new File("TestData\\Samyra.txt");
+          try {
+			direcFile.createNewFile();
+			System.out.println("File is created");
+		} catch (IOException e) {
+			System.out.println("Error occured when creating a file");
+			
+		}
+          try(BufferedWriter bWriter= new BufferedWriter(new FileWriter(direcFile,true))) {
+			bWriter.write("Megh");
+			bWriter.newLine();
+			bWriter.write("Samyra");
+			bWriter.newLine();
+			bWriter.write("Sangam");
+			bWriter.newLine();
+			bWriter.write("Mom");
+			bWriter.newLine();
+			bWriter.write("Hi Janu chori");
+			
+			System.out.println("writing on to the file is completed");
+		} catch (Exception e) {
+			System.out.println("Error occured when writing a file");
+		}
+          
+8.If you don't create a file in the code, does bufferwriter creates a new file?
+-> Yes 
+ 
+9.How do you  read file from java?
+-> try {
+			BufferedReader br = new BufferedReader(new FileReader("TestData\\Samyra.txt"));
+			String lineString;
+			while((lineString=br.readLine()) !=null) {
+				System.out.println(lineString);
+			}
+			br.close();
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+10.What is the another way to read the file ?
+-> 	try {
+			Scanner sc = new Scanner(new File("TestData//Samyra.txt"));
+			String line;
+			while(sc.hasNext()) {
+			 line= sc.nextLine();
+			 System.out.println(line);
+			}
+			sc.close();
+		} catch (Exception e) {
+			System.out.println("did not read file");
+		}
+11.How do you delete a file ?
+-> 	File file = new File("TestData\\Samyra.txt");
+	 if(file.delete()) {
+		 System.out.println("Deletion is sucessful");
+	 }else {
+		 System.out.println("Cannot delete the file");
+	 }	
+   
