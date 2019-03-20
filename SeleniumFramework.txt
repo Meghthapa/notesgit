@@ -1,0 +1,24 @@
+1.What is the shortcut to allign code ?
+-> Ctrl +Shift +f
+
+2.What is main package is used for ?
+-> This is used to development application
+
+3. What is test package is used for ?
+-> For using unit testing or Automation testing
+
+4.Where do you maintain your test cases  ?
+-> Under test folder
+  i) testcases
+  ii)utilities 
+  iii)base
+  iv)rough
+  v)Listners 
+  
+5. What goes in resources packages ?
+-> under resources we will create following folder:
+   i)Excel 
+   ii) Runners(suite xml files)
+   iii) properties
+   iv)Executables 
+   

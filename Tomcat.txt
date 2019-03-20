@@ -1,0 +1,13 @@
+1.How do you start tomcat server?
+=> C:\Users\meght>cd desktop
+
+  C:\Users\meght\Desktop>cd Tomcat
+
+   C:\Users\meght\Desktop\Tomcat>cd apache-tomcat-9.0.14/bin
+
+   C:\Users\meght\Desktop\Tomcat\apache-tomcat-9.0.14\bin>startup
+ 
+Travel into the folder and give startup command  
+
+2.How do you stop tomcat server?
+=> C:\Users\meght\Desktop\Tomcat\apache-tomcat-9.0.14\bin>shutdown

@@ -1,0 +1,158 @@
+1. What are the features of Pega?
+=> No need to install any other tools 
+   It provides end to end solution 
+   it supports all the Db and servers 
+   UI-- Pega have all the button to build UI 
+   WebServies -- Best tools to build 
+   ----------------------
+2.How do you login into the Pega?
+=> We need to start the server and we need to login into the system 
+   The default UserID = adminstrator@pega.com and password should be install
+   
+3.How do you start a server?
+=> click startup 
+
+4.How many roles are there is pega?
+=>Admistrator 
+  manager 
+  Business analyst 
+  System architect - Developer  
+  
+
+4.How do you start building a new application?
+=> First you need to do Organization setup 
+   then we start creating classes, we can also call classgroup/Workpool
+   This needs to be created 
+   
+5.What is Pega?
+=>It is a application development tools 
+
+6.What is PRPC?
+-> It is a platform where application development and deployment tools. From this we can develop any kind of application.
+  PegaRules process commander or prpc, is a comprehensive(complete) platform for building and deploying an applications.  
+  - it is a powerful,flexible, platform that can do almost anything, but it focuses on automating our work, and automating our programming
+  -PRPC automates the work and automates the programming 
+  - We can develop application without any code 
+  Once we have a pega software no need to install any other software, It is internally configured in pega itself we can develop application and deploy 
+  without writing any single line code we can develop an application.
+  
+  It is build for change platform:
+   -it helps you in building faster and better application with better performance. you can build any kind of webApplication 
+   
+7.What is BPM?
+=>Business process management is a methodology to manage processes and flow in an organization.The goal of this methodology is to increase efficiency,performance, and agility 
+  in the day-to-day operation of a business.
+  -Gather defines it as "A management practice that provides for govermance of a business processs environment towards the goal of improving 
+  agility and operational performance.BPM is a structured approach employing methods,policies,metrics,management practices and software tools to manage and contineous 
+  optimization activities and processes 
+"  
+
+8.What is business process?
+=> Describe & controls precisely how business is conducted 
+  -Defines the data & information flows and interaction internally and externally 
+     - between individuals 
+	 -Internally with the organization 
+	 -Across the extended supply chain 
+  -BPM incorporated planning,designing  	 
+   
+  
+9.Why we need Pega?
+=> Pega product is built on JAVA, and produces JAVA code behind the scene that is executed at runtime 
+  -Pega goal is to "Eliminate coding" and "Automate manual work " to the minimum and build complex sysytems at the enterprise level with feature right out of the box.
+  - The core concept of PEGA PRPC revolves around "Changes in software with time is inevitable"
+  - PEGA PRPC's work is to cut down the cost involved during those changes 
+  
+10.What are the advantages of PEGA?
+-Build solution faster 
+-The Complete platform 
+-Build Smarter 
+-Work together 
+-Build responsive & social application 
+-Bring system together 
+- Join the community 
+  
+11.What is the six R's of PEGA BPM?
+=> Process commander application provide process management and automation through six functional capabilities, informally known as Six r's
+   1.Receiving - Accept and capture essential data describing work for multiple sources 
+   2.Routing-Use characteristics of the work,together with knowledge about the workforce to make intelligent matches & assignment 
+   3. Reporting- provide real-time visibility into work in progress,work completed,productivity and quality
+   4.Responding - Communicate status,request for information and progress to the work originator and to the other people involved in the work
+   5.Researching - Support analysis and decision making by providing access to external system and database through connectors
+   6.Resolving - complete the work update downstream system promptly through automated processing and automated support of users 
+   
+12.Define Pega Architecture?
+-> Operating system -> windows,Linux,Unix
+-> Database -> SQL,Oracle,DB2 all the DB available in the market 
+-> Development kit -> Java JDK 
+->Java App server -> IBM Websphere, Oracle WebLogic,JBoss,Apache Tomcat
+->PEGA Framework ->
+  
+13.How many parts does PEGA is divided ?
+->In the left side it is a explorer pane,header part,footer part and task pane.
+
+14.What is designer studio ?
+=> Where we design DB tables and other 
+ 
+15.What is PEGA rules ?
+=> This is where you create your application see your existing application, you can switch application 
+
+16. what is launch ?
+=> Suppose you have a access to different portals.There are 3 portals in PEGA(Admistrator,ManagerPortal/Business Analyst,User portal).It will let you to log into different portals 
+
+17.What is cases?
+=> It is a different parts of the application for eg: Banks have loan,finance,student,auto loan section those are the cases in PEGA 
+
+18.what is Data?
+=>Data is pages
+
+19.what is leaf icon?
+-> it is a class name 
+
+20.What is record?
+=> It will show all your records for application in alphabetical order 
+
+21.What is App?
+=> Everything we will design from APP Explorer 
+
+22. What is tracer ?
+=> This is a debugging tools is used to debug the logs 
+
+23.what is clipboard?
+=> This is also a debugging tool for class level
+
+24.What is UI inspector ?
+=> It will show your elements in UI 
+
+25.What is UI Tree?
+=> Give you parent and child relationship 
+
+25.What is performance ?
+=> To check the performance into the application
+
+26.How do you build new application?
+-> Previous version 6.3 -- DCO(Direct capture of Objectives) under this there is Application profiler,Application accelerator,Application express
+   In current version 7.1-- DCO(Direct capture of Objectives) but only have Application express else are deleted 
+   
+27.How do you choose Application structure?
+->  There are 3 layers 
+    1.Framework layer -- You choose this then framework can be reused, for eg you are building a banking application,Some other team can use this framework.
+	PEGA contains 1000 of framework available in the system.Instead of developing a framework you can use exitsing framework
+	2.Implementation layer --> if you are implementing existing framework and modifying it,Not developing from the scratch 
+	3.Framework & implementation -->This is by Default 
+	
+28.What are the types of classes in Pega?
+-> Abstract and concrete and the top level class is Abstract class it has a "-" after the organization 
+   Abstract class are act as a super class 
+   Concrete class:
+   
+29.What is ruleSet?
+=>Work space to store all the user defined rules on the dev  env 
+
+30.How do you build a new application in Pega?
+=> Go to the Application Menu(Header bar)->New Application ->Create new Application ->
+
+31.What is case type?
+=> It is a basically a module or package or folder for the project. for eg: banking domian Loan,debit card,credit card
+
+  
+   

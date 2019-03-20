@@ -1,0 +1,441 @@
+ 
+What is Java EE platform ?                                                                                              
+->Java EE is about web development b 0
+
+2.What is "?" means in URL?
+-> its a delimiter between url and form 
+
+3.How do you write a java code in JSP file ?
+=> We need to put our code under <% %>
+
+4.How do you output your java code?
+We need to put "=" under <% %> 
+for eg : 
+   <%= new Date() %>
+   Another example 
+   <%= "Hello world JSP from Java" %>
+Note: no semicolon at the end of the code 
+   
+5.what is JSP and how do you create jsp page ?
+=> JSP is a html page but you can embedded java code in JSP page. 
+   Right Click WebContent-> new -> JSP -> filename.JSP->Finish
+
+6.What is WebContent folder?
+=>This is where you put all the web related files like html,jsp
+
+7.How do you create HTML file ?
+=>Right Click WebContent-> new -> HTML -> filename.html->Finish
+ 
+8.How do write actual java code in JSP?
+=> Under <% %>
+ for eg:
+  % 
+   
+    String Text = "Today date is: ";
+    out.println(Text);//this will print into the web from this line of code 
+    
+   %>
+
+   <%= 
+     new java.util.Date()
+   %>
+   
+9.How do you install mysql in your computer?
+-> a) Download zip 
+   b) go to program files -> and bin folder in Environment variable path 
+    for eg:C:\Program Files\MySQL\MySQL Server 8.0\bin 
+   c) Go to command prompt and type "mysql"	
+
+   
+10.How do you log in to mysql from command prompt?
+->C:\Users>mysql -u root, if you have a password in the db then "C:\Users>mysql -u root -p" 
+
+11.How do you see DB in command prompt?
+-> type "show database"
+
+12.How do you verify your path in environment variable?
+-> type "echo" %path% 
+
+13.How do you start Jboss server?
+-> type C:\Users\meght>standalone
+
+14.How do you shut down JBoss server?
+-> Close the command prompt screen where you start JBoss server
+
+15.how do you create a project from command prompt?
+->C:\Users\meght>mvn archetype:generate -DgroupId=com.megh.test -DartifactId=test-app DarchetypeArtifactId=maven-archetype-quickstart -DinteractiveMode=false
+
+16.how do you into project directory?
+-> first go into the project then type "dir"
+  for eg:C:\Users\meght\javaUdemyEE>dir
+  
+17.How do you create a jar file of your project from command prompt?
+-> you have to give command called "mvn package"
+   for eg : C:\Users\meght\javaUdemyEE>mvn package  
+
+18.What it does when you create a jar file ?
+-> it will create a target folder with executable jar file    
+
+19.How do you execute a jar file form a command line?
+-> first go to the target folder then give command "java -cp javaUdemyEE-1.jar then main method class"  cp= classpath 
+
+20.What is the role of a <Plugins> in POM file ?
+-> If we run a 'MVN' command -> it is going to execute via a plugin
+
+21.What is the role of a <Dependency> in POM file ?
+-> If we would like to include other project or use any framework we have to include the JAR files accordingly
+
+22.What happen when you execute mvn clean command?
+-> It is going to remove the target folder with the JAR file, 
+
+23.How do you generate a documentation for java project ?
+-> Simple give command "mvn site" then it will generate all the required document 
+
+24.What are the maven build life cycle?
+-> Phases                      what it does
+   -----------------------------------------------
+ 1.Process resource -->      Copy the resource into the target folder 
+ 2.Compile          -->      Complile the source code 
+ 3.Test	            -->      run the testes
+ 4.Install          -->      Install the package into local repository 
+ 5.deploy           -->      Copy the package to the remote repository  
+ 
+25. What are the different plugins?
+-> 
+   Plugins                      What it does 
+   -----------------------------------------------
+   1.clean						Clean up the target folder 
+   2.Compiler					Compiles the source code 
+   3.surefire					run the unit tests 
+   4.jar 						builds a jar from the project 
+   5.war 						builds a war from the project 
+   6.javadoc					generate documentation
+
+26.What are the Maven repository?
+-> Repository is a place/folder/directory where all the project JARs and plugin and other project specified artifacts are stored.
+   Maven can use 3 types of Maven repositories:
+  -local
+  - Central
+  - Remote
+  
+27.Where do you find local repositories for maven?
+-> user->.m2->repository  
+
+28.How do you change the local repositories for maven?
+-> find your maven installation-> programfiles->Maven->conf->setting.xml-> change the path 
+
+30.How do you handle a project which is offshore and nearshore and onsite?
+-> We can get a help of Maven modules 
+
+31.How do we convert java project into maven project?
+-> right click project -> configure ->convert to maven project.Then remove 
+
+32.How do you create a web app maven project from command prompt?
+-> type "mvn aechetype:generate -DgroupId=com.webapps -DartifactId=web-test -DarchetypeArtifactId=maven-archetype-webapp -Dinteractivemode=false
+
+33.How do you create a war file(for web projects)?
+-> same steps creating a jar file(Refer jar question)
+
+34.how do you deploy your code in JBoss server?
+->1. Start a server(giving standalone command in command prompt)
+  2.Click deployment 
+  3.Add-> upload Deployment
+  4.Click enable 
+  search for root and /project-name/index.jsp
+  
+35.What is JDBC API ?
+-> it stand for java Database Connectivity.Basically it is a database-independence connectivity between JAVA programming language and
+   wide renges of databases. it uses specific driver to connect to databases. 
+   Driver manager -> supports multiple concurrent driver that can communicate with different databases.
+   
+   DriverManager= Manages several BD drivers.Matched connection requests from JAVA application with the proper DB.
+   Driver = Interface that manages the connections with the DB.We do not communicate with the driver directly.
+   Connection= interface with all the methods that are needed for connecting the DB 
+   Statement= We use statements in order to submit SQL statements to the DB.
+   ResultSet= this contains the data we have retrieved from the DB after an SQL statement.
+   
+36.How do you create a DB from SQl Statement?
+->  create database "Name";
+
+37.How do you search for existing DB from command prompt?
+-> type "show databases
+
+38.how do you create a table ?
+-> use DBname;
+    CREATE TABLE students ( id smallint unsigned not null auto_increment, name varchar(20) not null, constraint pk_example primary key (id) );
+
+39.how do you connect to DB?
+-> We need to install dependency in POM file mysql-connector-java and write below code 
+   
+   public class StudentJDBCQuery {
+	private String JDBC_Driver= "com.mysql.cj.jdbc.Driver";
+	private String DATABASE_URL="jdbc:mysql://localhost/students";
+	private String user="root";
+	private String Password="Samyra";
+	
+    public void readDB() {
+    	Connection connection = null;
+    	Statement statement=null;
+    	ResultSet resultset=null;
+    	
+    	try {
+    		Class.forName(JDBC_Driver);
+    		connection = DriverManager.getConnection(DATABASE_URL, user,Password);
+    		statement = connection.createStatement();
+    		String sqlStatement="Select * from studentrecord";
+    		 resultset= statement.executeQuery(sqlStatement);
+    		
+    		while(resultset.next()) {
+    		int id = resultset.getInt("id");
+    		String name = resultset.getString("Name");
+    		int age= resultset.getInt("age");
+    		System.out.println(id+"_"+name+"_"+age);
+    		}
+    		
+    		
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}finally {
+			try {
+				resultset.close();
+				statement.close();
+	    		connection.close();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+    		
+		}
+    	
+    }
+
+40.What is Java Persitence API(JPA)?
+->It is a collection of classes and methods that helps developers to execute database related operation.for eg : insert,remove,update tables
+ -So JPA is going to manage everything for us(it uses JDBC in the backgroung)
+ -We have to focus on business logic 
+ -We have to manipulate java classes and objects
+ -JPA will make the mapping between java objects and relation database tables
+ -Convenient 
+ 
+41.What are the JPA Providers?
+-> Its very important -> JPA is a specification
+  -it defines the behavior with interfaces but without the concrete implementation
+  - JPA Providers-> Such as Hibernate or Eclipseline -> define the comcrete implementation for the JPA specification
+  - So the presistence providers have the implementation classes for JPA specification
+  - Why is it Good? ABSTRACTION!!!
+
+42.What is the benefit of using JPA?
+-> - So we could use JDBC with native SQL commands
+   - it would be much more convenient to use java objects instead of manipulating relation tables
+   - JPA solves this issue 
+   
+43.What are the classes in JPA API?
+-> 
+ 1)Entity Manager factory-> a simple factory for entity managers, helps to instantiate and manage multiple instances
+ 2)Entity Manager-> a java interface,defines persistence relates operation on java objects
+ 3)Persistence-> class containing static methods to obtain entity manager factory instance 
+ 4)Enity-> there are the persistence objects.These are the records in the relation database 
+ 5)Entity transaction-> operations are maintained by the class.
+
+44.How does JPA mapped?
+-> XML based configuration is faster -> XML does not require compilation
+  -Annotation => reflection in the background which is not so fast
+
+45.What is object rolational mapping?
+-> It is a ability to convert data from type to relational type and vice versa.So basically ORM binds maps a java object to a DB
+   table.it is highly stable.Quite good in performance.
+
+46.What are the annotation of JPA?
+-> We usually use annotation for configuration
+  @Entity -> Declares the class as entity
+  @Table  -> declare table name
+  @Id     -> specifies the property,usually used for identify primary key of the table 
+  @Transient -> this field id not stored in the database
+  @OneToMany ->relationship between joined tables
+  @ManyToMany 
+  
+47.What is the difference between Tables and Entity ?
+-> Table is optional while @ENtity is needed.If you use for eg:
+  @Entity
+  class MyEntity{
+  
+  }
+  In this case a table name MyEntity will be created in the database + the entity name will be MyEntity as well 
+  and if you use 
+  @Entity(name="MyEntityName") and @Table(name="MyEntityTableName") annotation with class 
+  Class myEntity{
+  }
+  a table with name MyEntityTableName will be created in the DB but the entity name will be myEntityName!!!
+   
+  For eg:
+  
+  @Entity
+@Table(name="student")
+public class Student {
+  
+	@Id
+	@Column(name="Id")
+	@GeneratedValue(strategy=GenerationType.AUTO)
+	private int id;
+	
+	@Column(name="name")
+	private String name;
+	
+	@Column(name="age")
+	private int age;
+
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public int getAge() {
+		return age;
+	}
+
+	public void setAge(int age) {
+		this.age = age;
+	}
+	
+	
+	
+}
+   
+48.How do you create XML file ?
+-> Please find file in FirstJPA project (github)
+
+50.How do you connect into the DB ?
+-> Please refer project FirstJPA
+
+51.What is @Column annotation?
+-> It will specify the DB column 
+
+52.What is @Transient annotation?
+->This will not store in the DB 
+
+54.what is JPQL?
+-> JAVA presistence Query language which is similar to mysql and sql query.
+
+55.How do you write a jpql in code ?
+->
+
+56.What is entitymanager?
+-> This is where all sending info to database.
+
+57.What is spring framework?
+-> It was created in 2003,it enforce programmers to use the best known coding practices.
+   -Its key feature is inversion of control principle and dependency injection.
+   -The core module in the framework is "inversion of control container"
+   -We do not instantiate classes: the framework manages this problem 
+
+58.What is dependency ?
+-> Lets suppose we have a 2 classes class Address and class student, if you have to pull address in student class either we have to instantiate a  
+   class, constructor or get a help of getter and setter; 
+   for eg:
+    public class Address{
+	
+	}
+	
+	public class student{
+	private Address address;
+	}
+	we want to have as few dependency as possible -> If classes and module are independent,
+	we can reuse them without any problem!!! 
+	DI-> glues classes together but keeps them as independent as possible
+ 
+59.What is SOLID principle ?
+ ->  S = Single responsibility priciple
+     O = OPen close principle
+	 L = List get substitute
+	 I = Interface distribution  principle
+	 D = dependency inversion principle 
+	 basically it means high level modules shouldn't depend on low level modules.both should depends on abstraction. abstraction should depend 
+     on detail and detail should be depend on abstraction	 
+	 
+	 
+60.what are the benefit ?
+->	- we can develop enterprise application using POJOs(instead of enterprise beans) -> so we do not need as EJB container 
+      such as application server ... we can use servlet container as well
+    - Spring frameworks makes use of the existing technologies(ORM..)
+    - It has a lightweight IoC container compared to EJB container -> it is very helpful when we want to deploy our application
+      on computers with  limited memory / CPU resource 
+
+61.What do you need to start spring framework in eclipse ?
+-> First we have to add dependency in the pom file 
+	a)Spring beans 
+    b)Spring - Context 
+    c)Spring -Core	
+	Then go to the marketplace and search for Spring (Spring tools 3 aka spring tool suite)
+
+62.	How do you instantiate a class without calling a class?
+-> From the help of beans xml. for eg 
+   <?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+  <bean id="student_bean" class="com.megh.Student"></bean>
+</beans>
+ 
+ In XML file we give ID of a class and specify the path then we call this in main class 
+  for eg 
+  public static void main(String[] args) {
+		ApplicationContext applicationContext = new ClassPathXmlApplicationContext("beans.xml");
+		Student student = (Student) applicationContext.getBean("student_bean");
+		student.sayHello();
+		
+ Instead of calling a class we use ApplicationContext class to retrieve the data 		
+ 
+63.What is Spring relies on?
+-> It is heavily relies on IOC inversion of control.The spring container helps to make this inversion of control  
+
+64.What are the 2 containers?
+-> a) Spring bean factory 
+   b) Spring ApplicationContext container is a interface 
+     - basically it includes all the features of beanFactory so this is the standard way.
+       for eg :	 
+
+65.What is spring bean ?
+-> Create a object + wire them together + manage their complete life cycle from creation to destruction + uses Dependency injection 
+    to manage components --> this is spring bean 
+
+66.How do you inject property in the methods ?
+-> eg :
+	<bean id="student_bean" class="com.megh.Student">
+  <property name="studentName" value="Megh"></property>
+  </bean>
+  
+</beans
+
+67.How do you handle Singleton in bean.xml file ?
+-> Singleton means you cannot change the value if it is specified once.In the below example there is student class instantiate 2 times
+   even though the student2 value is not set it will display same as student
+   <bean id="student_bean" class="com.megh.Student" scope="singleton">
+   
+  for eg 
+   ApplicationContext applicationContext = new ClassPathXmlApplicationContext("beans.xml");
+		Student student = (Student) applicationContext.getBean("student_bean");
+		student.setStudentName("this is a test");
+		System.out.println(student.getStudentName());
+		
+		Student student2 = (Student) applicationContext.getBean("student_bean");
+		System.out.println(student2.getStudentName());
+		
+68.What is init and destroy method ?
+-> init method runs first and destroy method after closing if your scope is singleton.If scope is prototype destroy method did not get called
+   this is how spring framework works.		
+   
+69.what is constructor based dependency injection?
+->  

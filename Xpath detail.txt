@@ -5,7 +5,7 @@ Xpath basic approach :
 Text approach:
 
 //tagname[text()='Value'] used it when you have more than 1 matching nodes
-
+ 
 Parent Child concept
 //parenttag[@attribute ='value']//tagname[@attribute='Value'] used when you have same link used multiple times 
 for eg => //h4//a[@href='value']

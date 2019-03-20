@@ -1,0 +1,28 @@
+1.How do you configure extentreport in Framework?
+-> Go to Extentreport and get community version 
+
+2.How do you add jars in the project ?
+->Go to Extentreport-> Click Maven and get dependency -> put into the POM 
+
+3.Which is the other dependency needed to load ?
+-> 
+<dependency>
+
+<groupId>com.aventstack</groupId>
+
+<artifactId>extentreports</artifactId>
+
+<version>3.0.6</version>
+
+</dependency>
+
+
+<dependency>
+
+<groupId>com.relevantcodes</groupId>
+
+<artifactId>extentreports</artifactId>
+
+<version>2.41.2</version>
+
+</dependency>
