@@ -263,6 +263,9 @@ core.editor=C:\Program Files (x86)\Notepad++\notepad++.exe
 61.What is git rebase?
 => Git rebase is that it solves the same problem as git merge.Both of these command are designed to integrate changes from one branch into another branch- they just do it 
    different ways.
+
+62.How do you rebase with your master?
+=> git rebase master
    
 62.How do you configure github in eclipse ?
 -> Right click on Project -> Click Team -> Share project-> create a repo(or choose existing)-> Click Finish 
@@ -270,8 +273,11 @@ core.editor=C:\Program Files (x86)\Notepad++\notepad++.exe
 63.How do you commit the changes from eclipse?
 -> Right click on Project -> Click Team -> Commit
 
-ow do you find diff between your branch and master ?
+64.How do you find diff between your branch and master ?
 -> By using this command -> git diff master <Your Branch>
 
 66.How do you resolve your merge conflict ?
 -> 
+
+67.How do you get remote repository canages ?
+-> git Fetch(will pull all the changes )
