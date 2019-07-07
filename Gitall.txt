@@ -1,4 +1,5 @@
-What is contineous integration ?
+﻿What is contineous integration ?
+
 =>CI is a development practice that requires developers to integrate code into a shared repositoty several times a day.
   Each check-in is then verified by an automated build,allowing teams to detect problems early and deliver the software early.
   
@@ -251,4 +252,7 @@ core.editor=C:\Program Files (x86)\Notepad++\notepad++.exe
 
 64.How do you clone a git project from eclipse?
 -> 
+
+65. This is a added line of commit on this page 
+
   
