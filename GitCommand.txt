@@ -271,5 +271,12 @@ core.editor=C:\Program Files (x86)\Notepad++\notepad++.exe
 -> Right click on Project -> Click Team -> Commit
 
 64.How do you clone a git project from eclipse?
+
+65.How do you find diff between your branch and master ?
+-> By using this command -> git diff 
+
+
 -> 
 65.These are the changes that needs to validated 
+
+-> verify the changes 
