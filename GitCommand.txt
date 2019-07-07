@@ -270,6 +270,8 @@ core.editor=C:\Program Files (x86)\Notepad++\notepad++.exe
 63.How do you commit the changes from eclipse?
 -> Right click on Project -> Click Team -> Commit
 
-64.How do you clone a git project from eclipse?
+ow do you find diff between your branch and master ?
+-> By using this command -> git diff master <Your Branch>
+
+66.How do you resolve your merge conflict ?
 -> 
-65.These are the changes that needs to validated 
