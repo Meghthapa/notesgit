@@ -281,3 +281,8 @@ core.editor=C:\Program Files (x86)\Notepad++\notepad++.exe
 
 67.How do you get remote repository canages ?
 -> git Fetch(will pull all the changes )
+
+68.What is git stash?
+-> GIT Stash is used to save  your uncommit changes so that you can work on something else and revert then from your working directory.
+
+
