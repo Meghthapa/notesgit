@@ -5,7 +5,7 @@ Xpath basic approach :
 Text approach:
 
 //tagname[text()='Value'] used it when you have more than 1 matching nodes
- 
+
 Parent Child concept
 //parenttag[@attribute ='value']//tagname[@attribute='Value'] used when you have same link used multiple times 
 for eg => //h4//a[@href='value']
@@ -37,3 +37,19 @@ tagName[attribute='value']  -CSS  tagName#id- CSS   tagname.classname- CSS
 tagName[Atrribute*='value'] - Css regular expression
 
 
+How do you write a Dynamic CSS Selector?
+=>There are multiple ways to handle CSS 
+  CSS is faster than Xpath 
+  What is the difference between CSS and Xpath?
+ =>CSS will not change based on the browser , If you work with the xpath that may not work in another browser
+
+What are the ways to writing CSS selector ?
+1.Using ID  --> use # symbol for eg: #nav
+2. Using Class name --> use . symbol for eg: .login-submit
+3.Using attribute --> tagname[attribute='value'] for eg : a[title='Password Lost and Found']
+4.Using multiple attribute --> tagName[attribute1='value'][attribute2='value'] for eg: input[class='input'][id='user_login']
+5.Contains --> using * symbol --> for eg: input[id*='user']
+6.Starts with --> using ^ symbol --> for eg: input[id^='us']
+7.ends with --> using $ symbol --> for eg: input[id$='n']
+8.using . operator --> If you have unique class name you can use . operator --> for eg : input.button-primary
+ 

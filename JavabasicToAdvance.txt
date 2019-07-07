@@ -405,4 +405,287 @@ JAVA FIlE HANDLING
 	 }else {
 		 System.out.println("Cannot delete the file");
 	 }	
+
+12.What is try with resource?
+-> It means when you open any resources should be closed. for eg file writer, should close resources 
+
+JSP and Servlet 
+-------------------
+1. How do you start a project ?
+-> Click New -> web -> dynamic web project 
+
+2.How do create a servlet ?
+-> create a package and under the package -> new -> other -> web -> servlet -> give class name -> click next -> uncheck doPost and finish
+
+3.How do you print in a web ?
+-> protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// TODO Auto-generated method stub
+		//response.getWriter().append("Served at: ").append(request.getContextPath());
+		response.getWriter().println("<h1>Hello Samyra, Love from your Baba</h1>");  
+	}
+	
+4.How do you create a Html and JSP file ?
+-> First we need to create a dynamic web project in the eclipse 
+  - Under the WebContent -> right click -> html file 
+  - Under the WebContent -> right click -> jsp file 
+
+5.What is the servlet ife cycle?
+-> Under servlet container -> web app -> Servlet -> Load Servlet class->Create instance of Servlet->Call the servlet init() method->
+   Call the servlet service() method -> call the servlet destroy() method.
+
+6. What are the JSP Scripting element?
+->                   JSP Scripting Element 
+Scripting Element               Syntax                 Example 
+-------------------------------------------------------------------
+1.Expression                 <%=expression%>            <%=2*5%>
+2.Scriptlet 				 <%Scriptlets%>   			<%out.println("Hello World");%>
+3.Declaration 				 <%!declaration%>			<%! public int count=0;%>
+4.Directive 				 <%@directive> 				<%@page...%>
+5.Comment					 <%-- comment--%>			<%--JSP comment --%>
+
+7.How do you create a int and string in JSP?
+-> <%= new Integer(100)%> -> display int as 100 in the UI 
+  <%= new String("Samyra")%> --> display a new string 
    
+for eg :
+ <%= new String("Chori i love you very much") %>
+<%= new Date() %>
+
+8.How do you write condition in jsp?
+-> <%
+ int x = 25;
+
+if(x >= 25){
+	out.println("x is greater than "+ x);
+}
+else
+{
+	out.println("x is not equal to "+ x);
+	}
+
+
+%>   
+
+8. How do you declare a method and call the method in UI?
+-> 
+<%!
+ String message(){
+	return "Chori i love you very much"; // this is a method
+}
+%>
+
+<%= message() %> // calling the method 
+</body>
+</html>
+
+9.How do you comment in JSP?
+-> Java comments can be used for the scriptlet comment only.For eg: "//", "*/ */" 
+ JSP comment is <%-- --%>	
+ 
+10.What is directive in JSP?
+-> normally directive is under giving information about the page like language,Content type,
+   pageEncoding. For eg :
+   <%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
+
+11.How do you read URL Parameter in JSP?
+->   
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// TODO Auto-generated method stub
+		PrintWriter out = response.getWriter();
+		out.println("Value1:"+ request.getParameter("getValue1"));
+		out.println("Value2:"+ request.getParameter("getValue2"));
+	} 
+	url = http://localhost:8084/JSPAnnotation/hello.jsp?getValue1=Chori&getValue2=love you
+	you will get :
+	Value1:Chori Value2:love you 
+	in JSP file 
+	<body>
+	<%
+		out.println("Value1:" + request.getParameter("getValue1"));
+		out.println("Value2:" + request.getParameter("getValue2"));
+	%>
+</body>
+   
+12.How do you read a file ?
+->  Create a file in the project and write a code in JSP file 
+<%@ include file="file1.txt"%> //use for dynamic content
+</br>
+<jsp:include page="file2.txt"/>  // use for dynamic content
+
+13.How do you import class in JSP? also user defined classes?
+-> 
+<%@ page import="java.util.Date" %>
+<%= new Date() %>
+<%@ page import="org.studyeasy.Demo" %> //Importing a class 
+<% out.print(new Demo().Practice()); %> // using class method
+ or best way to do this is :
+  <%@ page import="java.util.Date,org.studyeasy.Demo" %>
+  
+14.How do you forward jsp pages from 1 page to another?
+-><jsp:forward page="forward.jsp"></jsp:forward> //Specify what page you want to forward 
+  correct way to forward :
+   <% 
+        request.getRequestDispatcher("forward.jsp").forward(request, response);
+   %>
+
+15.What is the concept of MVC?
+-> It stands for Model, view and controller 
+   Model -> deals with the database 
+   view -> is UI 
+   Controller -> is responsible for business logic 
+   We have seperate file for each 
+   
+16.How do you create a from in a JSP?
+->   Below is the Sample xml commands 
+  <form action="submit.jsp" method="get">
+
+Full Name:<input type="text" name="name"><br/>
+Gender:<input type="radio" name="gender" value="Male">Male
+       <input type="radio" name="gender" value="Male">Female<br/>
+Languages known:<input type="checkbox" name="language" value="English">English <br/>   
+                <input type="checkbox" name="language" value="Nepali">Nepali <br/>
+                <input type="checkbox" name="language" value="Chinese">Chinese <br/>
+                <input type="checkbox" name="language" value="Indian">Hindi <br/>
+                <input type="checkbox" name="language" value="French">French <br/>
+                
+ Country:<select name="Country">
+         <option value="Nepal">Nepal</option>
+         <option value="USA">USA</option>
+         <option value="China">China</option>
+         <option value="India">India</option>
+         <option value="Nepal">Nepal</option>
+         
+ 
+  </select>> <br/>              
+        
+       <input type="submit" value="Submit">         
+
+</form> 
+
+17.How do you get a value from a UI ?
+-> In the above xml form action as submit.jsp. Create a jsp file with the same name and write below code 
+      <body>
+Name: <%= request.getParameter("name") %><br/>
+Gender: <%= request.getParameter("gender") %><br/>
+Language: <%= request.getParameter("language") %><br/>
+Country: <%= request.getParameter("Country") %><br/>
+</body>
+this code will get the data and display in the UI 
+
+18.what is the difference between get and post ?
+-> if you use get method information will pass through URL, But if you use post information will pass through the hidden channel which 
+   is not displayed to the user
+   
+19.How do you display multiple options from the ui?
+-> Create a array and run loop 
+
+ Language: <% 
+   String[] language=request.getParameterValues("language");
+    
+   if(language !=null){
+	   for(int i=0;i<language.length;i++){
+	   out.println(language[i]);
+	   out.println("<br/>");
+	   }
+   }
+   else
+   {
+	 out.print("None Selected");  
+   }
+
+
+%><br/>
+
+20. How do you point your JSP file to Servlet?
+-> First create a JSP file and html element 
+   for eg:
+   <body>
+<form action="<%=request.getContextPath()%>/Controller" method="post">
+
+Full Name:<input type="text" name="name"><br/>
+Gender:<input type="radio" name="gender" value="Male">Male
+       <input type="radio" name="gender" value="Male">Female<br/>
+Languages known:<input type="checkbox" name="language" value="English">English <br/>   
+                <input type="checkbox" name="language" value="Nepali">Nepali <br/>
+                <input type="checkbox" name="language" value="Chinese">Chinese <br/>
+                <input type="checkbox" name="language" value="Indian">Hindi <br/>
+                <input type="checkbox" name="language" value="French">French <br/>
+                
+ Country:<select name="Country">
+         <option value="Nepal">Nepal</option>
+         <option value="USA">USA</option>
+         <option value="China">China</option>
+         <option value="India">India</option>
+         <option value="Nepal">Nepal</option>
+         
+ 
+  </select>> <br/>              
+        
+       <input type="submit" value="Submit">         
+
+</form>
+ 
+ 2nd 
+ create a servlet class and 
+  -> <form action="<%=request.getContextPath()%>/Controller" method="post">
+  
+21.How do you make field required in JSP?
+->  for eg:
+   <input type="text" name="name" required><br/>
+
+22.How do you make redio button checked in the UI?
+-> for eg:
+    <input type="radio" name="gender" value="Male" checked="checked">Male
+
+JAVA BEANS 
+------------------------------------------------------------------------------------------------
+1.What is java beans ?
+-> bean is a class consists of multiple properties and these properties are independent objects.
+
+2.How do you set and get property in java beans?
+-> First you will create a class 
+   For Eg :
+   public class user {
+
+	private String firstName;
+	private String lastName;
+	
+	public user() {
+		firstName="Samyra";
+		lastName="Thapa";
+	}
+	
+	public String getFirstName() {
+		return firstName;
+	}
+	public void setFirstName(String firstName) {
+		this.firstName = firstName;
+	}
+	public String getLastName() {
+		return lastName;
+	}
+	public void setLastName(String lastName) {
+		this.lastName = lastName;
+	}
+Then you will create set and get property jsp file 
+ for eg: 
+ <title>Set property</title>
+</head>
+<body>
+
+<jsp:useBean id="user" class="org.study.beans.user" scope="session"></jsp:useBean>
+<jsp:setProperty property="firstName" name="user" value="Samyra"/>
+<jsp:setProperty property="lastName" name="user" value="Thapa"/>
+values has been set 
+</body>
+</html>
+
+get property :
+<title>Get property</title>
+</head>
+<body>
+<jsp:useBean id="user" class="org.study.beans.user" scope="session"></jsp:useBean>
+<jsp:getProperty property="firstName" name="user"/></br>
+<jsp:getProperty property="lastName" name="user"/>
+</body>
+</html>

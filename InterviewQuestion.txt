@@ -981,7 +981,7 @@ public class testRunner {
 This will all your test cases on clouds 	
 	 
 	 
-91.why do you chooose selenium?
+91.why do you choose selenium?
 => -free and open source
    -Have larger user base and helping community 
    -Cross browser compatibility like firefox,googlechrome,safari,etc 
@@ -1072,4 +1072,65 @@ This will all your test cases on clouds
 =>With the help of AJAX only particular things can be refreshed not whole page 
 
 
-	 
+105.How to find broken images and links in the browser?
+=> steps:
+   1.Get all the links and images from the web (List<WebElement>list=driver.findElements(By.TagName("a")));
+   2.Iterate link list 
+   3.Get the size of active link list
+   4.check the href url,with httpconnection api(there is a class in java we can connet with the http URL connection API )
+   
+   for eg:
+   driver.get("https://www.facebook.com/");
+		List<WebElement> list = driver.findElements(By.tagName("a"));
+		list.addAll(driver.findElements(By.tagName("img")));
+		
+		List<WebElement> Activelist= new ArrayList<WebElement>();
+		
+		for(int i=0;i<list.size();i++){
+			if(list.get(i).getAttribute("href") != null){
+				//if(list.get(i).getAttribute("src")!=null){
+					Activelist.add(list.get(i));
+				}
+			}
+		    System.out.println("Link if list:"+list.size());
+			System.out.println("Link of active links:"+Activelist.size());
+			
+			for(int j=0;j<Activelist.size();j++){
+				HttpURLConnection connection= (HttpURLConnection)new URL(Activelist.get(j).getAttribute("href")).openConnection();
+				connection.connect();
+				int response=connection.getResponseCode();
+				connection.disconnect();
+				System.out.println("This is Activelinks"+Activelist.get(j).getAttribute("href")+"-->"+response);
+			}
+106.How do you read CSV file from in Selenium ?
+=> // This method will read a CSV file and return a List of String[]
+public static List<String[]> get(String filename) {
+	List<String[]> data = new ArrayList<String[]>();
+	String testRow;
+	try {
+		// Open and read the file
+		BufferedReader br = new BufferedReader(new FileReader(filename));
+		// Read data as long as it's not empty
+		// Parse the data by comma using .split() method
+		// Place into a temporary array, then add to List 
+		while ((testRow = br.readLine()) != null) {
+			String[] line = testRow.split(",");
+			data.add(line);
+		}
+	} catch (FileNotFoundException e) {
+		System.out.println("ERROR: File not found " + filename);
+	} catch (IOException e) {
+		System.out.println("ERROR: Could not read " + filename);
+	}
+	return data;
+}
+
+and create this function 
+public static void read() {
+		List<String[]> records=Config.ReadCSV.get("C:\\Users\\meght\\Desktop\\UserAccounts.csv");
+		for(String[] record:records) {
+			for(String field:record) {
+				System.out.println(field);
+			}
+		}
+		

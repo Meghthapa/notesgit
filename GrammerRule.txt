@@ -1,10 +1,11 @@
 Only use capital letters for proper nouns and at the beginning of a sentence.
 
-For every sentence there should be one noun and one verb. A sentence with more than one noun or verb is confusing to understand.
+For every sentence there should be one noun and one verb. A sentence with more than one noun or verb is confusing to understand.Verb is  action, state, or occurrence,
 
 When a sentence is complete use appropriate punctuation. There is no need to have dual punctuation when ending a sentence.
+punctuation is period, comma, and parentheses, used in writing to separate sentences and their elements and to clarify meaning.
 
-If an apostrophe is needed make sure to use it to show ownership. An apostrophe is also used when words are abbreviated.
+If an apostrophe is needed make sure to use it to show ownership. An apostrophe is also used when words are abbreviated. abbreviated => shorten
 
 Whenever writing multiple sentences about the same subject or line of thought, use paragraphs to divide long segments of writing.
 
@@ -20,7 +21,7 @@ Make sure to use the correct tense when writing or speaking English.
 
 Try not to end a sentence with a preposition.
 
-A conjunction word should not be used to start a sentence.
+A conjunction word should not be used to start a sentence.e.g., and, but, if
 
 Sentences should be complete thoughts and not fragments.
 

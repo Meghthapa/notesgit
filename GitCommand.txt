@@ -19,164 +19,256 @@ What is the meaning of checkin?
 what is meaning of checkout?
 => pull the code 
 
-Sample code
-meght@DESKTOP-0MOI0ET MINGW64 ~/IdeaProjects/gmailwebUItest
-$ cd src
-
-meght@DESKTOP-0MOI0ET MINGW64 ~/IdeaProjects/gmailwebUItest/src
-$ cd test
-
-meght@DESKTOP-0MOI0ET MINGW64 ~/IdeaProjects/gmailwebUItest/src/test
-$ cd java
-
-meght@DESKTOP-0MOI0ET MINGW64 ~/IdeaProjects/gmailwebUItest/src/test/java
-$ git init
-Initialized empty Git repository in C:/Users/meght/IdeaProjects/gmailwebUItest/src/test/java/.git/
-
-meght@DESKTOP-0MOI0ET MINGW64 ~/IdeaProjects/gmailwebUItest/src/test/java (master)
-$ git add GmailsigninTest.java
-
-meght@DESKTOP-0MOI0ET MINGW64 ~/IdeaProjects/gmailwebUItest/src/test/java (master)
-$ git status
-On branch master
-
-No commits yet
-
-Changes to be committed:
-  (use "git rm --cached <file>..." to unstage)
-
-        new file:   GmailsigninTest.java
+What is contineous integration ?
+=>CI is a development practice that requires developers to integrate code into a shared repositoty several times a day.
+  Each check-in is then verified by an automated build,allowing teams to detect problems early and deliver the software early.
+  
+2.What are the benefits of CI?
+- Catch issues fast and nip them in the bud
+-Everyone can see what's happening
+-Automate the build 
+-Keep the build fast 
+-Stop waiting to find out if your code's going to work 
+-CI leads to Contineous deployment allowing to deliver software more rapidly 
 
 
-meght@DESKTOP-0MOI0ET MINGW64 ~/IdeaProjects/gmailwebUItest/src/test/java (master)
-$ git commit
+3.What is Jenkins?
+=>Jenkins is a cross platform CI application.Jenkins is used to build and test softwares contineously making it easier for developers to build softwares rapidly
+  For eg: when developers push their code into version control system like (GIT/etc), when new build is pushed into git Jenkins will automatically pull those code and run the build.
+  Also done some post build steps like Run test(Nunit,MSTest,Gradle,StyleCorp,Jshint)->Deploy (Publish output to live server) -> and report back
+  
+4.how do you run Jenkins?
+=>Install war file from jenkins site and run below command into command prompt
+  C:\Users\meght\Desktop>java -jar jenkins.war -httpPort=9090(or what port number you want to run)
+  
+5.How do you configure maven project in Jenkins?
+=> Go to manage jenkins->Global tool configuration -> Provide Java_Home as a name from environment variable 
+  -> Go to the maven -> provide environment variable name for Maven  
+  
+6.How do you open a workspace and provide local file into Jenkins?
+=> click new item->Enter item name -> click FreeStyle project->click advance->Use custom workspace ->go to the eclipse and copy project
+  -> paste into the .jenkins folder-> Go to the Jenkins and on directory ${JENKINS_HOME}/ProjectEndtoEnd  
+  -> Go to the build and select version of maven 
+  -> On the goals you need to provide mvn command like test(you dont need to write mvn in jenkins)
+  ->Go to the project and run your test 
+      
+7.why running jenkins standalone(jetty/winstone) VS Running jenkins on Tomcat ?
+=> Benefit of running on Tomcat you can start all your application on a single servlet
 
-*** Please tell me who you are.
+8.How do you download Tomcat?
+=>Go to tomcat download -> Select 64 bit windows zip -> unzip any location in the system -> Copy Jenkins.war file paste it inside webapps folder	  
 
-Run
+9.How do you start Tomcat?
+=> go to the tomcat and traverse through bin folder,under the bin folder you will find startup.sh or startup.sh 
+  Another way open a command prompt traverse through folder to the bin then catalina.bat start command
+  go to localhost and check if tomcat started 
+  
+10.How do you open jenkins from tomcat?
+ => go to localhost/jenkins for eg: localhost:8080/jenkins 
+ 
+11.Why DevOps is needed ?
+=>When your requirement changes frequently 
+  - Development needs to be Agile 
+  - Operation need to be Agile 
+  
+12.What is DevOps?
+=>Is a software development approach which involves continuous development,Continuous testing integration,Continuous deployment and continuous Monitoring of the software 
+  throughout its development lifecycle.
 
-  git config --global user.email "you@example.com"
-  git config --global user.name "Your Name"
+13.What tools are used in DevOps?
+=> for plan and code --> git,jira,svn
+   For build --> Maven,gradle
+   For test -> Selenium,Junit 
+   For Integration -> Jenkins 
+   For Deployment and Operate ->Puppet,chef,SalStacj,Ansible
+   For Monitor-> New Relic,Sensu,Nagios
+   
+14.What are the phases of DevOps lifecycle?
+-> Continuous development -> it comes under plan and code 
+   Continuous Testing  -> Build and test comes under this 
+   Continuous Integration-> Under integration
+   Continuous Deployment -> comes under deploy and operate 
+   Continuous Monitoring -> comes under monitor   
+   
+14.What is continuous development?
+-> This phase involves 'planning ' and 'coding ' of the software application 
+   -This version of the project is decided during the 'Planning' phase 
+   - Code can be done in Any language but maintain by Version control system
+   
+15.What is continuous Testing?
+=>Every time when you commit your changes into the central repo or a build, Everytime when you push the code, it would run some regression,sanity or smoke test it is called continues
+  testing.Because you are continue testing the build or small set of test everyday
+  
+16.What is continues Integration?
+=>This can be achieve through Jenkins  
 
-to set your account's default identity.
-Omit --global to set the identity only in this repository.
+17.What is continues Deployment?
+-> Configuration -> like server maintenance, 
+   Containerization -> Containerization tools is a set of tools which will maintain the consistency across the environment.
+    Docker is the first Containerization tool in the market 
 
-fatal: unable to auto-detect email address (got 'meght@DESKTOP-0MOI0ET.(none)')
+18.What are the basic terminology of GIT?
+=>	There are 3 stages of GIT
+    1.Working directory-> Where you store your source file 
+	2.Staging Area -> Pre commit Holding Area
+	3.Commit -GIT Repository(History)
+	4.Remote Repositiry(GitHub)
+	
+19.What is branch?
+-> This is where you commit your changes.It git you can have multiple branch 
 
-meght@DESKTOP-0MOI0ET MINGW64 ~/IdeaProjects/gmailwebUItest/src/test/java (master)
-$ git config --global user.email"meghthapa141@gmail.com"
+20.What is Distributed version control ?
+=> In Distributed VCS, every contributor has a local copy or "Clone" of the main repository 
 
-meght@DESKTOP-0MOI0ET MINGW64 ~/IdeaProjects/gmailwebUItest/src/test/java (master)
-$ git config --global user.name"Megh Thapa"
-error: invalid key: user.nameMegh Thapa
+21.What is centralized version control?
+=> It is where all the source code is used in Central repository like GIT
 
-meght@DESKTOP-0MOI0ET MINGW64 ~/IdeaProjects/gmailwebUItest/src/test/java (master)
-$ ^C
+22.How do you configure User information in GIT?
+=> git config --global user.name "Megh,Thapa"
 
-meght@DESKTOP-0MOI0ET MINGW64 ~/IdeaProjects/gmailwebUItest/src/test/java (master)
-$ git config --global user.name"meghthapa"
+23.How do you configure email address?
+=>git config --global user.email "abc@gmail.com"
 
-meght@DESKTOP-0MOI0ET MINGW64 ~/IdeaProjects/gmailwebUItest/src/test/java (master)
-$ git commit
+24.how do you verify these information?
+=> git config --list 
 
-*** Please tell me who you are.
+25.How do you change the value into the list?
+=> 1st get all the info from list bu using git config --list 
+   then git config --global then change property like user.name "abc"
+   
+26.How do you get a find particualr command ?
+-> first git help, once all the help menu appears give git help add or any parameters 
+ 
+27.How do you know your current repository in git ?
+=>Type pwd  
 
-Run
+28.How do you know what data is present inside the folder ?
+=>type ls  
 
-  git config --global user.email "you@example.com"
-  git config --global user.name "Your Name"
+29.How do you move directory ?
+=> type cd ..
 
-to set your account's default identity.
-Omit --global to set the identity only in this repository.
+30.How do you add directory?
+=> type cd directory name or type initial letter and tab 
 
-fatal: unable to auto-detect email address (got 'meght@DESKTOP-0MOI0ET.(none)')
+31.How do you initialize certain project?
+=> traverse through the directory and type 'git init' or you can go inside into the folder and start BASH here then give 'git init'
 
-meght@DESKTOP-0MOI0ET MINGW64 ~/IdeaProjects/gmailwebUItest/src/test/java (master)
-$ git config --global user.name 'megh thapa'
+32.How do you find a hidden file in git ?
+=>Type ls -la
 
-meght@DESKTOP-0MOI0ET MINGW64 ~/IdeaProjects/gmailwebUItest/src/test/java (master)
-$ git config --global user.email 'meghthapa141@gmail.com'
+33.What is git status does ?
+=>It will verify the changes which is been done inside your project and report them. to do just type 'git status'
 
-meght@DESKTOP-0MOI0ET MINGW64 ~/IdeaProjects/gmailwebUItest/src/test/java (master)
-$ git add .
+34.what is untracked files means ?
+=> it means that you havent added into the git project
 
-meght@DESKTOP-0MOI0ET MINGW64 ~/IdeaProjects/gmailwebUItest/src/test/java (master)
-$ git status
-On branch master
+35.How do you add those file ?
+=> 'git add .' or you can add specific file like git .add sampletext.txt
 
-No commits yet
+36.How do you commit your changes?
+=> git commit -m "my first git commit". -m means message
 
-Changes to be committed:
-  (use "git rm --cached <file>..." to unstage)
+37.How do you find a logs report?
+=> type 'git logs'
 
-        new file:   GmailsigninTest.java
+38.How do you see a logs for specific user in the team?
+=> type 'git logs --author="megh thapa"'
 
+39.What is the GIT workflow?
+=>There are 3 stages 
+  1.Working area --> it is the local repo where you work 
+  2.Staging Area --> once you are done with your local repo, pushing code into the repo 
+  3.Repository
+  
+40.how do you add notepad++ ?
+=> Go to program files copy the path of notepad++ C:\Program Files (x86)\Notepad++
+   Go to environment variable specify the path 
+   go to bash and type notepad++
+   - notepad++ will open 
 
-meght@DESKTOP-0MOI0ET MINGW64 ~/IdeaProjects/gmailwebUItest/src/test/java (master)
-$ git commit
-Aborting commit due to empty commit message.
+41.How did you configure git with notepad++?
+=> Open Git Bash
+ Create file .bash_profilenotepad++ .bash_profile
+ Configure NotePad++ with GIT.git config --global core.editor "\"C:\Program Files (x86)\Notepad++\notepad++.exe\""
+ Exit and relaunch the GitBash
+  
+42.How did you verify git is installed in your machine ?
+ -> cat ~/.gitconfig one way 
+ -> git config –global – list 
+ 
+ for eg: $ git config --global --list
+user.name=megh thapa
+user.email=meghthapa141@gmail.com
+core.editor=C:\Program Files (x86)\Notepad++\notepad++.exe
 
-meght@DESKTOP-0MOI0ET MINGW64 ~/IdeaProjects/gmailwebUItest/src/test/java (master)
-$ git add.
-git: 'add.' is not a git command. See 'git --help'.
+43.How do you verify changes in your project?
+=> 'git diff' ->show changes have been made into the file 
 
-The most similar command is
-        add
+44.How do you compare stage area with local repository?
+=> git diff --staged 
 
-meght@DESKTOP-0MOI0ET MINGW64 ~/IdeaProjects/gmailwebUItest/src/test/java (master)
-$ git add .
+45.how do you delete file in git?
+=> first delete the file in folder type 'git status', it will say one deletion then 'git status' and 'git add .'
+-> 'git rm sample.text'
 
-meght@DESKTOP-0MOI0ET MINGW64 ~/IdeaProjects/gmailwebUItest/src/test/java (master)
-$ git status
-On branch master
+46.What is github?
+=>Github is a centralized repository.Think of it as the "cloud" for code.Social media we put our code.
 
-No commits yet
+47.How do you push your code into git project into github?
+=> 1.git init 
+   2.git remote add origin "URL"
+   
+48.How do you pull github data?
+-> once to initialize project into the remote repo, we can type 'git pull' or if you have a branch 'git pull origin master'
 
-Changes to be committed:git
-  (use "git rm --cached <file>..." to unstage)
+49.how do push your git folder in github?
+-> git push origin master  
 
-        new file:   GmailsigninTest.java
+50.How do you pull file from the Git?
+=>git pull origin master 
 
+51.What is Git branch?
+=>Lets say we have a 20 developers working on a team,If everybody is pushing their code into Master and something happened into the code, if you have to revert those code then all 
+  the code committed by all the developers. thats why the branching strategy have been developed.So the Dev will keep working on their branches, When it is needed then we will 
+  move those code into the master.
 
-meght@DESKTOP-0MOI0ET MINGW64 ~/IdeaProjects/gmailwebUItest/src/test/java (master)
-$ git commit
-[master (root-commit) d6b6e76] This is my first git experiance
- 1 file changed, 59 insertions(+)
- create mode 100644 GmailsigninTest.java
+52.How do you check branch in master ?
+=>  git branch -a
 
-meght@DESKTOP-0MOI0ET MINGW64 ~/IdeaProjects/gmailwebUItest/src/test/java (master)
-$ git status
-On branch master
-nothing to commit, working tree clean
+53.how do you create a branch ?
+=> git branch MeghBranch 
+ 
+54.What is the meaning of "*"?
+=> That where are you in current cycle 
 
-meght@DESKTOP-0MOI0ET MINGW64 ~/IdeaProjects/gmailwebUItest/src/test/java (master)
-$  ^V
-bash: ^V: command not found
+55.How do you switch from master to branch?
+=>git checkout branchName
 
-meght@DESKTOP-0MOI0ET MINGW64 ~/IdeaProjects/gmailwebUItest/src/test/java (master)
-$  ^V
-bash: ^V: command not found
+56.How do you rename a branch?
+=>git branch -m mybranch newName
 
-meght@DESKTOP-0MOI0ET MINGW64 ~/IdeaProjects/gmailwebUItest/src/test/java (master)
-$ git remote
+57.How do you delete a branch?
+=>git branch -d NewName
 
-meght@DESKTOP-0MOI0ET MINGW64 ~/IdeaProjects/gmailwebUItest/src/test/java (master)
-$ git remote add origin https://github.com/Meghthapa/Megh-MavenGmailProject.git
+58.How do you merge code into master branch?
+=>git merge develop
 
-meght@DESKTOP-0MOI0ET MINGW64 ~/IdeaProjects/gmailwebUItest/src/test/java (master)
-$ git remote
-origin
+59.How to check log from the git ?
+=>$ git log --oneline --graph --decorate
 
-meght@DESKTOP-0MOI0ET MINGW64 ~/IdeaProjects/gmailwebUItest/src/test/java (master)
-$ git push -u origin master
-Counting objects: 3, done.
-Delta compression using up to 8 threads.
-Compressing objects: 100% (2/2), done.
-Writing objects: 100% (3/3), 974 bytes | 974.00 KiB/s, done.
-Total 3 (delta 0), reused 0 (delta 0)
-To https://github.com/Meghthapa/Megh-MavenGmailProject.git
- * [new branch]      master -> master
-Branch 'master' set up to track remote branch 'master' from 'origin'.
+60.What is merge conflict?
+=>Two people are working on a same file and git git not know which file should be updated.
 
-meght@DESKTOP-0MOI0ET MINGW64 ~/IdeaProjects/gmailwebUItest/src/test/java (master)
-$ touch
+61.What is git rebase?
+=> Git rebase is that it solves the same problem as git merge.Both of these command are designed to integrate changes from one branch into another branch- they just do it 
+   different ways.
+   
+62.How do you configure github in eclipse ?
+-> Right click on Project -> Click Team -> Share project-> create a repo(or choose existing)-> Click Finish 
+
+63.How do you commit the changes from eclipse?
+-> Right click on Project -> Click Team -> Commit
+
+64.How do you clone a git project from eclipse?
+-> 

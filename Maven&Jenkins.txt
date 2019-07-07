@@ -1,0 +1,20 @@
+1.What is build tools ?
+=>build tool is used to set up everything which is required to run your Java code independently.This can be applied to your entire Java project.It generate source code,compiling code,packaging
+code to a jar etc.Maven provides a common platform to perform these activities which makes programmer life easier while handling the huge project.
+
+2.What is Maven?
+=>Apache Maven is an advanced bulid tool to support the developer at the whole development process of a software project.Maven is based on POM(Project object model).
+
+3.What is Maven? Maven is implemented in java which makes it platform - independent.Maven allows you to automate the process of the creation of the initial folder structure for 
+the Java application,Performing the compilation and testing and deployment of the product.
+
+4.What are the features of Maven?
+=>The key feature is :
+1.Convention over configuration : Maven tries to avoid as much configuration as possible, by choosing real world default values and supplying project templates(archetypes).
+2.Dependency management: It is possible to define dependencies to the other projects.During the build, the Maven build system resolves the dependencies and, if needed, it is also 
+  builds the dependent projects.
+3.Repository : Project dependencies can be loaded from the local file system, From the internet or public repositories.The company behind the Maven project also provide a central 
+    repository called Maven Central.
+
+5.How do you run your file in command prompt directly from the folder ?
+=>go into the folder in the url bar type cmd +enter

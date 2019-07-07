@@ -61,4 +61,11 @@
 			
 			
 10.How do you specify your image into the CSS ?
-=> -fx-background-image:url("../Images/Back.jpg") -> it will look for a package called image and get the file 			
+=> -fx-background-image:url("../Images/Back.jpg") -> it will look for a package called image and get the file 	
+
+11.How do you create a jar file?
+=>	Eclipse -> File -> Go to Export ->Executable jar file -> choose main from the Launch configuration ->Specify the path to Export form the Export destination ->choose 
+    Extract required lib into generated JAR	
+	
+12.How do you create exe file?
+=>DownLoad Launch4j	
