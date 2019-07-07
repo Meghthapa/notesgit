@@ -284,5 +284,37 @@ core.editor=C:\Program Files (x86)\Notepad++\notepad++.exe
 
 68.What is git stash?
 -> GIT Stash is used to save  your uncommit changes so that you can work on something else and revert then from your working directory.
+   Commands:
+   1.git stash 
+   2.git stash apply 
+   3.git stash list
+   4.git stash drop
+   
+69.What is GIT Tagging ?
+-> Tags are ref's that point to specific points in GIT History. Tagging is generally used to capture a point in history that is used for a 
+  marked vesion release(ie v1.0.1)  
+  git tag<tag_name>
+  git tag --list 
+  git tag --delete<tagname
+  
+70.How do you revert your changes in the file ?
+-> git checkout abcd.txt and check with git diff 
 
+71.How do you modify incorrect commit message?
+=> git commit --amend -m"modified messgae"
+
+72.How do you revert the changes for any particular commit?
+=> git reset --soft "commit id" (This will move to staging area)
+
+73.How do you revert the changes for any particular commit with HARD reset ?
+=> git reset --hard "commit id" (this will change in working area) 
+
+74.What if you do hard reset and lose some commits, How do you revert the change ?
+=> git reflog (return all the activity for 30days, copy early commit id)then 
+   git checkout "id" 
+   
+
+  
+  
+   
 
