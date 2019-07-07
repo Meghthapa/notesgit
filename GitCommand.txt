@@ -1,4 +1,4 @@
-What is GitHub?
+﻿What is GitHub?
 =>GitHub is a kind of server where number of company is register and they have created their git repository 
 
 what is Git?
@@ -272,3 +272,4 @@ core.editor=C:\Program Files (x86)\Notepad++\notepad++.exe
 
 64.How do you clone a git project from eclipse?
 -> 
+65.These are the changes that needs to validated 
