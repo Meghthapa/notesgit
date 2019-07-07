@@ -273,7 +273,9 @@ core.editor=C:\Program Files (x86)\Notepad++\notepad++.exe
 64.How do you clone a git project from eclipse?
 
 65.How do you find diff between your branch and master ?
--> By using this command -> git diff 
+-> By using this command -> git diff master <Your Branch>
 
+66.How do you resolve your merge conflict ?
+-> 
 
 
