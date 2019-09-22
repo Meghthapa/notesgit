@@ -129,6 +129,18 @@
 25.What is performance ?
 => To check the performance into the application
 
+26.What is ruleset ?
+-> It is a colletion of rules 
+
+27.How ruleset is created?
+-> When you are creating a project it will automatically generate the ruleset 
+
+28.What is data field?
+-> It will store all data related in that section 
+
+29.What is the default user for PEGA?
+-> adminstrator@pega.com PASSWORD : install
+
 26.How do you build new application?
 -> Previous version 6.3 -- DCO(Direct capture of Objectives) under this there is Application profiler,Application accelerator,Application express
    In current version 7.1-- DCO(Direct capture of Objectives) but only have Application express else are deleted 
@@ -154,5 +166,40 @@
 31.What is case type?
 => It is a basically a module or package or folder for the project. for eg: banking domian Loan,debit card,credit card
 
-  
+***********************Designer studio or Dev studio (Pega 8 version)
+
+1. What it is header called in designer studio ?
+-> This is header tool bar 
+
+2.What is left panel called ?
+-> Explorer panel 
+
+3.What is the bottom toolbar ?
+-> Developer toolbar, it is where all debugging happens 
+
+4.What is home area?
+-> This is called work area 
+
+5.What is designer studio options does ?
+-> it will configure
+
+6.What is Case tab does in designer studio?
+-> It display case types available in your application 
+
+7.What does Data tab does in designer studio?
+-> Data types are used to store temp data or store loacl data 
+
+8.What does APP tab does in desogner studio ?
+-> It will display your application in form of classes, 
+   
+9.How do you which are classes in PEGA?
+-> Anything which have a leaf symbol in front it is consider as a class 
+
+10.How does rules are display ?
+-> Rules are displayed in form of classes within the categories 
+
+11.What does Records tab does ?
+-> this will display all data related stuff. it will display 
+   every db RELATED stuff   
+
    
