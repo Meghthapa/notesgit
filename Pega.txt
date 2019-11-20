@@ -199,7 +199,540 @@
 -> Rules are displayed in form of classes within the categories 
 
 11.What does Records tab does ?
--> this will display all data related stuff. it will display 
-   every db RELATED stuff   
+-> this will display all data related stuff. it will display every db RELATED stuff.For eg if you want to see all the rules created by the Team   
+   
+12.Where do you see developer toolbar ?
+-> under the footer section in Designer studio, it helps to debug and exception handling the issue and track 
+
+13.What is the difference between Framework and Implementation?
+-> Framework you can reuse this rules throuout other application as well 
+   Implementation :- is not reuse the rules to other application 
+   
+14.How do you add case ?
+-> Log in as a admin and click Add a case type 
+
+15.What is case type ?
+-> Thats where you define case stages or case type is a breakdown of the application 
+
+16.What is stages and steps ?
+-> Stage is a parent where steps are the child of it. In order to complete stage you have to complete Step 
+
+17.What is Alternate stage means ?
+-> Alternate stage means if there is any issue on the steps flow we route to alternate flow 
+
+18. Wher do you add fields ?
+-> We add fields in Case Type by clicking Configure View 
+
+19.Where do you find all User interface related option ?
+->Click App -> Click your class -> User Interface -> Section
+
+20.How do you add radio button in the ui ?
+-> Click on the section -> Change -> Property -> Click circle -> Go to General tab -> under display and validation -> Select table type as  Local list and sepcify yes or No   
+
+21.How do you control visibility condition in UI ?
+-> Open cell properties -> select visibility condition = Condition (expression) and write a logic for it . 
+
+22.How do you call properties ?
+-> You have to start with "."
+
+23.When does FW class name is displayed ?
+-> When Framework is selected creating a project for eg : Samyra-FW-Nepal-Work
+
+24.What class structure will created when implementation is selected ?
+-> When implementation is selected it just display plain name for e.g: Samyra-USA-Nepal-Work-Register 
+
+25.How do you define layers ? 
+-> For eg : Samyra-USA-Nepal-Work-Register
+ Samyra -> ORGANIZATION LAYER 
+ USA -> DIVISION LAYER 
+ NETBANKING -> UNIT LAYER 
+ REGISTER -> IMPLEMENTATION LAYER (module)
+ This is also called as Enteprose class structure 
+ 
+26. How do you create classes in Pega ?
+-> Classes will be auto created if you create a case type. For eg : Click App it will show your main classes go to the case type and create a new case it will automatically added under main class 
+
+27.How do you find parent class ? 
+-> Right click on the class-> Definition -> Class Inheritance 
+
+28.What is ruleset used for ?
+-> Identify, storing and organize the ruleset to deploy 
+
+29.What is the meaning of 01.01.01 version ?
+-> 01 = Major version
+   01 = Minor Version 
+   01 = Patch version 
+   
+30.How do you reuse Framework application ?
+-> If you create a application it will save in application type. Whenever you want create a new application you can resuse all the rules 
+
+31.How do you see all the operators in Pega ?
+-> Select Org & Security -> Organization -> Operators 
+
+32.How do you create a sections and what is section ? 
+-> Sections are the UI containers which are going to hold properties and controls. To create a section right click on the class -> Create -> user Interface-> section 
+
+33.How to create a property file ? what is going to be in property ?
+-> Right click in the class -> Create -> Data model and property 
+
+34.How many types of classes in Pega ? 
+-> There are 3 types of classes in PEGA.
+Concrete class
+Abstract class
+@base class
+
+Concrete class – Class suffix doesnot end with -. Contains instances that can be persisted to database and can be deployed in production 
+Ex: AMAZON-IND-SALES-Work-CandidateHire
+Abstract class – Class suffix ends with -. Instances cannot be saved to database.
+@base class – contains topmost class rules such as PEGA functions, library etc.
+
+35.How do you see class definition ?
+-> Right click on class -> definition
+
+36. What is Class group ?
+-> It is a group of concrete classes. A Concrete class should always belongs to or doesnot belongs to class group.
+When belongs should inherit from Work- i.e Amazon-India-HR-Work-Onboarding etc
+When doesnot belong to class group doesn’t need to inherit from work- class
+
+37.What is work pool ?
+-> Work pools are also similar to classgroup but they donot need to be similar/related work object concrete classes.Work types refer to broader 
+definition of work to be resolved.
+Work items refer to items before execution of case type.
+Work objects refer to executed case types that generates work object such as C-12, C-13 etc also called as Work object ID, case ID or pyID.
+
+38.How Inheritance happen in Pega ?
+-> PEGA as similar to parent/child classes also inherit the concept of inheritance from java.
+There are 2 types of class inheritance concepts in PEGA.
+Direct Inheritance
+Pattern Inheritance
+
+Direct Inheritance – Rule resolution determines the parent class of a child class from its class rule form.
+Pattern Inheritance – Rule resolution determine the parent class of child class based on class structure naming convention.
+
+For. AMAZON-INDIA-HR . Here INDIA class (AMAZON-INDIA) is parent of HR Class (AMAZON-INDIA-HR) Class and similar AMAZON class is parent of INDIA class based on class naming.
+ 
+Pattern inheritance takes default priority. 
+Work-Cover- is default directed parent of a class.
+
+38.How do you define parent class? 
+-> Go to the class definition there is a option to choose parent class 
+
+39.What is Organization structure ? 
+-> Organization structure of an operator can be updated from operator’s profile.
+
+40.What is workgroup ?
+->Work groups define the group of work users who can be part of eligible
+Users to receive any routed assignments.
+
+41.What are the databases in Pega ?
+-> PEGA Maintains 2 types of databases internally inorder to store rules.
+  1.PegaData 
+  2.PegaRules 
+  
+42.What is PegaData database?
+-> PEGADATA database primarily stored all application rules created by the operator/generated by application.
+
+43.What is PegaRules database ?
+-> PEGARULES database primarily stores PEGA system rules such as functions, library rules etc.
+  
+   All classes are internally mapped to a database table in PEGA Data database.
+ As instances are created under the class, they are automatically saved to internal database.
+
+Realtime projects use external databases from major providers such as Oracle, MySQL, etc.
+
+We have database class mapping wizard to easily connect to an external database.
+
+44.Where Pega is hosted ?
+-> PEGA application is deployed on Apache Tomcat app server (for personal edition) and IBM web server (for cloud editions) and POSTGRESQL as DB Server to host and store rules.
+
+The configurations related to PEGA Application can be found in PRCONFIG.XML File 
+Web.XML Contains the Servlett configuration
+Tomcat > Webapps> PRWEB > webinf > class > prconfig.xml
+In a WAR deployment, the prconfig.xml file is located under the contextroot directory in either the \WEB-INF\classes subdirectory or the \APP-INF\classes subdirectory. For example for a WAR deployment on Tomcat, this location is:
+<app-server-install-root>\webapps\<contextroot>\WEB-INF\classes\
+Example:
+D:\apache-tomcat-5.5.16\webapps\prdbutil\WEB-INF\classes\prconfig.xml.
+Tomcat generates .WAR Deployment while using IBM Websphere generates .EAR Deployment.
+All the files such as images, documents, etc uploaded to PEGA application can be found under WEBWB Folder.
+The deployment archive holds the .JAR Application file to support deployment.
+
+44.How many validation modes are available in Pega ?
+-> there are 2 types of validation modes are available 
+   1. Application validation 
+   2. Ruleset validation 
+   
+45.What are the ruleset and what is the prirority ?
+-> Ruleset are the group of the rules it is also called as Ruleset Stack. You can see the stack ruleset in  Application-> View-> Application definiton ->
+   Application ruleSet 
+   
+46.How do you know which ruleSet have a higher priority in ruleset ?
+-> Which ever on the top have a higher prirority.   
+
+45.Where is your pega configuration is present ?
+-> <app-server-install-root>\webapps\<contextroot>\WEB-INF\classes\
+
+46.Where is your application hosted ? 
+-> Application is hosted under PRWEB directory 
+
+47.What is Application validation and Ruleset validation ?
+-> Application validation means all the ruleset are defined in the stack in application level. Ruleset validation means you have to specify with in the ruleset.
+
+48.Where do you find ruleset list ?
+-> If you go to the operator -> profile-> It will display all the rules created by the application in default and also display Application RuleSets 
+
+49.What happens when you lock your ruleSet?
+-> After you lock your ruleset you cannot add any ruleSet
+
+50.How do you create a branch ?
+-> Click on the application -> Definition -> Add branch ->Enter name 
+
+51.How do you add rules into the branch ?
+-> Go to the branch and click Action -> Merge 
+
+52.What is the rule to merge the code ?
+-> Do not merge the code in old branch always create a new version 
+
+53.How do you delete a branch ?
+-> Go to the branchc and click action -> delete 
+
+54.What are the process flow and where do you find it ?
+-> Process flow are case life cycle or issue life cycle flows .To view this flow you have to go to the apps -> Open the class and -> Process -> Flow 
+
+55.When does flows created ?
+-> Flow Rule Is created whenever a new process is added to the Case Designer
+Navigate to Process Category > Flow
+Flows are advanced as steps are executed in sequence.
+Flows allows to design the shapes & workflow of a case.
+2 types of flows
+Process flow
+Screen flow
+
+56.What is Flow Actions ?
+->Flow actions are used to perform actions on flows. They can be configured on flows and usually store the sections.
+Actions such as validation, authentication, section 
+Navigate to Process > Flow action
+Flow action rule is automatically created when a step is added to the process.
+
+There are 2 types of flow actions.
+1.Standard flow action – Advance the flow to next flow.
+2.Local flow action – Does not advance the flow for ex: popups, overlays etc.
+
+Flow action should be called within 
+Connector properties from assignment
+ shape.
+
+57.Where do you see all the case related settings for example email Goal & deadline?
+->OPen Case -> under settings tab 
+
+58.How do you generate html for the application?
+-> Open case -> settings -> Integration 
+
+59.What is When rule when it is going to apply ?
+-> 
+
+60.Where do you upload your binary files or custom files ?
+-> webwb folder 
+
+61.How do you upload documents ?
+-> GO to Records-> Technical -> Binary file -> Create -> app name (Webwb) -> upload 
+
+62.What is workobject ?
+-> When a case or issue is created that is called workobject 
+
+63.What is temorary case ? how do you create it ?
+-> Did not create in a Data base. You can specify this in Process flow 
+
+64.What pulse does ?
+-> Intereaction with user or messanging capability 
+
+flow action 
+***********************
+1. How many types of flow ?
+-> Process flow and screen flow 
+
+2.What is process flow ?
+-> It ia a standard flow for eg : creating a case type and add steps and alternate flow 
+
+3.How do you add process ?
+-> Go to the class click on th flow -> Process tab 
+
+4.What is the difference between process flow and screen flow ?
+-> Process flow can create workobject, Screen flow cannot. Screen flow always call process flow 
+
+5.Where do you specify flow Action?
+-> On the Assignment shape for screen flow, For Process flow in connector  
+
+6. What is Harness?
+-> harness is the layout type or format 
+
+7.How do you call a screen flow with in the main frame ?
+-> create a subprocess and call the flow 
+
+8.What is tree navigation and tabbed navigation ? 
+-> Tree comes in right corner and tabbed displays in bottom 
+
+9.What is the Local Action ?
+-> Local action did not advance the flow to this step to another step. Instead of that it will display next screen also in same screen for eg modal dialog, Overlay 
+
+10.What is rule resolution algorithm ?
+-> That is a bulid in system in pega to which is procees by the Pega PRPC mainly to pick the appropirate rule at the runtime to execute.This is taken care by rule algorithm resolution
+   Step 1 : Rule Cache 
+   Step 2 : Instance with correct purpose 
+   Step 3: Discard the rules when the availibility == no or draft 
+   Step 4: Discard the in applicable ruleSet
+   Step 5 : Discard the candidate which are not present in ancestor tree. 
+   Step 6: Rank the remaining candence by class ruleSet
+   Step 7: Discard the choices in occured list 
+   Step 8 : set the cache 
+   step 9:
+
+11.What is rule cache ?
+-> We can say its a temporary memory store in browser and it will from there instead of piucking from the rule. 
+ 
+12.What is rule availibility?
+-> There are  types of availibility 
+   1.Available : Rule is available to be picked by the rule resolution 
+   2.Not Available : Rule is not available to be picked by the rule resolution (For e.g if you make higher version or lower version not available it will automatically pick higher version)
+   3.Blocked : You will get error saying this particular is blocked 
+   4.Final : It will prevent all other developer to save into higher version 
+   5.Withdrawn : It means all the version will not be picked 
+   
+   ******************************************
+UI 
+1. How do you upload files in the UI ? 
+-> upload files in the binary files and displying in the UI()
+
+2.How do you manage CSS in PEGA ?
+-> By using skin rule we can change . Go to application -> definition -> 
+
+3.How do you apply your own CSS?
+-> Go to Records -> user Interface -> skin -> create skin ->under included styles 
+
+4.What is harness and where is this used ?
+-> Harness is similar like a pages within harness you have to embed your section it is similar like a webpage where you can add multiple sections that you want to display like header footer, sidebar 
+
+5.How do you add video in PEGA ? 
+-> create a binary and store in a webwb file and call in the property 
+
+6.How do you modify CSS in Pega ?
+-> Under advance Presentation options -> inline style 
+
+7.How many types of validation is in Pega ?
+-> There are 3 types of validation 
+ 1. Edit input :For eg if user input small letter in the UI and we have a requirement to store in a capital letter, You need to have JAVA knowledge(There is a default methods from java eg. toUpper()).
+    It is mainly used to convert user input format to system input format.
+	Click on properties cicrle -> Advanced -> Edit input 
+ 2. Edit validate : is used to verify information provided by user in the UI and validate according to the required condition you can write java code 
+ 3.Valiidate rule : In validate rule you dont need to have a java programming knowledge, You can write visibility condition 
+     Records -> Process -> Valiidate -> create -> add condition after adding condition call this in flow action - validation 
+	 
+8.Where you can take actions ?
+-> In flow actions(It will take action on the flow && flow is work process), Local flow action it will not allow you to advance the flow it will display next step also in the same page 
+
+ 
+9.How do you customize default error message ?
+-> you have to use validate rules.
+
+10. How do you add ui which is already available in Pega ?
+-> Configure -> User Interface -> Gallery -> UI element -> Copy and paste into your section
+
+11.How do you create access group in Pega?
+-> Access group is an authorization role which will determine the operator can access also which portal can access.
+
+12.How the access group is named after?
+-> First it will the application name then name of the access for example AxisNetB:Admistrator, Here AxisNetB == project name && Admistrator == Application name 
+
+13.What is screen flow ?
+-> You have to click additional flow and choose standard flow, in Screen flow you specify flow action in square unlike flow action needs to be specified in connector. Process flow is always a starter
+    flow, Screen flow cannot be starter flow it should always be called from process flow. 
+ 
+********************************************
+Data Modeling
+
+1. How do you create properties in Pega ?
+-> Properties are fields or data model instances that can store and display values on UI. You can create from a data model category(Records-> Data Model -> Property), Also in App -> Class -> Data model->Proprty
+
+   Similar in JAVA, Properties can store multiple data type values such as int, string , Boolean etc .
+
+2.How many types of property modes are available in PEGA? 
+-> It is common for fields to store multiple properties/data types under same field such as address which can store pincode street, landmark etc. 
+   There are 6 types of property modes available 
+   a) Single value -> Store single value such as name Age etc 
+   b) Value list -> Store multiple values/ Same data type in ordered array eg : Employee id 
+   c) Value group -> Store multiple values/same data tyoes unordered array eg : Client ID 
+   d) Page -> Store single record of multiple values/data types 
+   e) page list -> Stores multiple pages of multiple values/data types in ordered array eg : Address 1 , Address 2 , Address 3 
+   f) Page Group -> Stores multiple pages of multiple values/data types in unordered array eg : Address(Home) , Address(Office) , Address(Friend)
+   
+3.How many types of properties in Pega ?
+-> There are 3 types of properties 
+   a) Pxproperties : can be visible to end user & can be modified eg : pxfullname, pxradiobuttion
+   b) PYProperties : Cab be visible to end user but cannot be modified eg : pyworkpage properties 
+   c) PZProperties : System generated properties/internal properties eg: pzinskey, pzpvstream    
+   
+   
+4.Where is all the UI related data store ?
+-> It is stored in clipboard (temp data ) 
+
+5.What is pyworkpage?
+-> pyworkpage will store all UI related data 
+
+6.What is Data types?
+-> Data types define the data class the the data items are applicable to internally, data types create a data table in PEGA Data mapped with the class.Data types also allow to create Datapages of both 
+   page & Pagelist types in order to manupulate the stored data. 
+
+7.How do you use different class property in Data transform ?
+-> You have to specify class in Pages & Classes in Data transform    
+   
+   
+7.What is field value ? 
+->  We will use field value to restrict the values of the property along with that the field value is used to support localization. Localization means for eg your application user does not understand 
+    English for that we need to create localization to translate into their language 
+
+8.Why do you use datatransform ?
+-> We used to set some values, or update values . If you have properties in another properties we use Data transform. You can set,remove,Update sort, when otherwise when, otherwise, Append to, for each etc 
+
+9.What is Data transform?
+-> It is possible to update the pages of pagelist using For each Page in.
+For ex: consider address page list property with 6 address records (pages) and each address record contains pincode, landmark.
+To update the pincode of 5th record, mention as 
+For each page in .Address, Set .address(5).pincode = “50001” similarly for other indexes.
+
+There are 4 types of subscripts 
+CURRENT – Updates the current index record in loop. 
+For ex: set .Address(<CURRENT>).pincode = “50001”
+APPEND – Appends a record property value and overrides if existing
+For ex: set .Address(<APPEND>).pincode = “50001”
+LAST – Appends record property value to last record of the pagelist
+INSERT – Inserts the property value for record only if value not exists.
+
+We can call decision table and decision tree from data transform,
+Also datapage can be reffered by using DataPagename.propertyname
+
+Data transforms can be reffered under PREPROCESSING and POSTPROCESSING Sections of flow action.
+
+Also under source of datapages.
+
+************************RULE CHECK IN AND CHECK OUT ********** 
+
+1. What is rule checkout ?
+-> Instances of Rule- can have functionality of Checkout/Checkin while data- class instances does not incorporate this functionality.
+A checkout is a private copy of a Rule- instance that you update and later check in to replace a base rule version. All checked-out rules reside in a ruleset that is only visible to your operator known as your personal ruleset.
+Two types of checkouts are supported:
+a)Standard checkout – All other users are blocked from checking out this rule until you check in your changes.
+b)Private checkout – A private checkout is like a standard checkout, except that it does not block checkouts for other users. Use this option for quick debugging without interrupting development by other team members.
+The check in process replaces a base rule version with a private copy of a Rule- instance that you checked out and updated.
+You can check in two types of checkouts:
+a)Standard checkout – When you check in, your version replaces the base version of the rule.
+b)Private checkout – When you check in, you can replace the base version of the rule or create a new rule in a branched ruleset.
+
+2.What happen when you do checkout ?
+-> When you do checkout, we can modify the rule and changes done will be saved once we checkin. Till then, A Lock is acquired and  other operator sees the rule as locked by the operator ID.
+  However, He can still modify the rule in PRIVATE EDIT Mode. However, which operator checks in first. Those changes reflected in the rule. This is called Optimistic Locking
+  
+3.  
+
+
+*****************Decision rules Tree,Map value and when rule ****************** 
+
+1.What is decision rules ?
+-> Decisioning rules in PEGA allows to implement conditional processing of application.
+There are 4 types of decision rules in PEGA.
+1.Decision table – Implements If-elseif-otherwise logic
+For ex: if condition A is true return result 1.
+            else if condition B is true return result 2.
+          otherwise return result 3.
+2.Decision tree – Implements Nested if else logic.
+For ex: if condition A is true 
+                 then check if condition B is true 
+                       then check if condition C is true then return result 1 or continue.
+            otherwise return result 2.
+3.When rule – Implements when logic with Boolean result.
+For ex: when condition A is true, return true
+             when condition A or condition B is true, return false etc.
+4.Map value – Define matrix logic for maximum of 2 inputs.
+For ex: when firstname = rajesh and secondname = kumar return rajesh kumar
+5.Tickets – Tickets implement GOTO logic to move forward/backward.
+For ex: Goto stage 1 step 5, Goto stage 3 step 3
+
+3.What is Decision table ?
+-> Decision table imposes the logic  of if..else if…otherwise condition. Its not required to evaluate all the rows in decision table. Used to implement for simple conditional logic.
+
+Will support single statement conditions.
+
+For ex: if .age < 18 result as “child” 
+            else if .age > 50 result as “senior citizen”
+            otherwise return adult
+          
+Show conflicts – Wll check for any 
+possible logic conflicts such as invalid 
+properties, invalid condition formats etc.
+Show completeness – checks whether
+ all conditions are completed along with 
+their appropriate results.
+
+4.What is decision Tree ?
+-> Decision table imposes the.\ logic  of if..else if…otherwise condition. Its not required to evaluate all the rows in decision table. Used to implement for simple conditional logic.
+
+Will support single statement conditions.
+
+For ex: if .age < 18 result as “child” 
+            else if .age > 50 result as “senior citizen”
+            otherwise return adult
+          
+Show conflicts – Wll check for any 
+possible logic conflicts such as invalid 
+properties, invalid condition formats etc.
+Show completeness – checks whether
+ all conditions are completed along with 
+their appropriate results.
+
+5.What is map value ?
+-> Map value is use to combine or result a  output value from one or two inputs values.
+
+For ex: Map value can consider “First Name” and “Last Name” inputs to result in “Full Name” output.
+We can add maximum of 2 properties and conditions can be configured for them to retrieve results.
+
+Map value can call another map value.
+Specify the input rows and input Columns
+a)First Configure the rowname and columnname (select properties)
+b)Now click configure row to add conditions on row.
+c)Similarly add configure columns to add conditions on columns.
+d)Results can be entered in the fields to pass as output of mapvalue
+
+6.What is when rule ?
+-> When conditions allows to evaluate single/multiple expressions along with their related logic to return a true/false Boolean values. Not used in decision shape.
+Reffered in datatransform, case designer, property settings, 
+Multiple properties can be evaluated and inter related logic is specified under Logic String
+
+**************** Routing work ***************
+What is routing ?
+-> Routing is assigning work to operator done through assignment 
+   We have 3 types of routing 
+   1.Worklist 
+   2.To Workbasket 
+   3. Skill based routing 
+
+What is worklist ?
+->Assign work to individual operator 
+  Activity name - toworklist activity 
+  Inherited from class Rule-Assign-WORKLIST and stored in PR_ASSIGN_WORKLIST TABLE
+what is workbasket?
+-> We can place the work in work queue where multiple operators can pick the work items from the queue.Wait till any operators pick the work based on the workgroup. 
+   Work group: default format is default@organization all user belonging to the workgroup can pick the assignment from workqueue
+   CLASS = Rule-Assign-Workbasket and stored in PR_ASSIGN_WORKBASKET TABLE
+
+what is skill based routing ?
+-> where the assignment has to be complete by operator holding that skill 
 
    
+*************************Activity*************************
+1. What is difference between local and global parameters ?
+-> Local parameter is only apply to only local 
+ 
+   
+   
+
+
+
+
